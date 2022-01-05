@@ -1,14 +1,8 @@
 import 'package:twitter/extension.dart';
+import 'package:twitter/tweet_model.dart';
 
-import 'tweet.dart';
-
-List<User> users =[];
+List<User> users = [];
 late User selectedUser;
-
-createUser(String username,String userEmail,String password,String userProfilePicture){
-  User newUser = User(username, userEmail,password,userProfilePicture);
-  users.add(newUser);
-}
 
 selectUser(String userEmail,String password){
   User? user = users.firstUserOrnull(userEmail);
@@ -41,7 +35,7 @@ class User{
   }
 
   createTweet(String text,{String image = ""}){
-    Tweet newTweet = Tweet(_userEmail, text, image);
+    TweetModel newTweet = TweetModel(_userEmail, text, image);
     tweets.add(newTweet);
   }
 }
