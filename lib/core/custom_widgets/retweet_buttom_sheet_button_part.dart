@@ -20,7 +20,7 @@ Widget retweetButtomSheetButtonPart(
           SizedBox(width: width * 0.05),
           Text(
             text,
-            style: TextStyle(fontSize: width*0.375),
+            style: TextStyle(fontSize: width*0.0375),
           ),
         ],
       ),
