@@ -1,5 +1,8 @@
 import 'package:twitter/extension.dart';
-import 'package:twitter/user.dart';
+import 'package:twitter/user_model.dart';
+
+import 'core/init/create_users.dart';
+
 
 List monthsName = [
   "Oca",
@@ -13,29 +16,40 @@ List monthsName = [
   "Eyl",
   "Eki",
   "Kas",
-  "Ara",
+  "Ara",  
 ];
 
-List<User> users = [];
-List<TweetModel> tweets = [];
 
 class TweetModel {
   late String _tweetId;
 
-  String _mailOfUser;
-  String _text;
+  final String _mailOfUser;
+  final String _text;
   String? _image;
 
   late DateTime _releaseTime;
 
+  //?final eklenmeli mi
   List<String> _personEmailWhoRetweets = [];
   List<String> _personEmailWhoLikes = [];
   Map<String, String> _personAndComments = {};
 
-  TweetModel(this._mailOfUser, this._text, this._image) {
+
+
+  TweetModel(this._mailOfUser, this._text) {
+    tweetModelStarterCommonFuncs();
+  }
+
+  TweetModel.withImage(this._mailOfUser,this._text,this._image){
+    tweetModelStarterCommonFuncs();
+  }
+
+  void tweetModelStarterCommonFuncs(){
     _releaseTime = DateTime.now();
     _tweetId = _mailOfUser + " " + releaseTime.toString();
   }
+
+
 
   String get tweetId => _tweetId;
 
@@ -49,62 +63,49 @@ class TweetModel {
   int get totalLike => _personEmailWhoLikes.length;
   int get totalComments => _personAndComments.length;
 
-  void like(String userEmail) {
-    if (isPersonLiked(userEmail)) {
+
+
+  void like({required String userEmail}) {
+    if (isPersonLiked(userEmail:userEmail)) {
       _personEmailWhoLikes.remove(userEmail);
     } else {
       _personEmailWhoLikes.add(userEmail);
     }
   }
 
-  void retweet(String userEmail) {
-    if (isPersonRetweet(userEmail)) {
+  void retweet({required String userEmail}) {
+    if (isPersonRetweet(userEmail:userEmail)) {
       _personEmailWhoRetweets.remove(userEmail);
     } else {
       _personEmailWhoRetweets.add(userEmail);
     }
   }
 
+
   String timeSinceSharing() {
     Duration elapsedTimeD = DateTime.now().difference(_releaseTime);
 
-    if (elapsedTimeD.inDays > 6) {
-      return _releaseTime.day.toString() +
-          " " +
-          monthsName[_releaseTime.month - 1];
-    }
-
+    if (elapsedTimeD.inDays > 6) return _releaseTime.day.toString() +" " +monthsName[_releaseTime.month - 1];
     if (elapsedTimeD.inDays > 0) return elapsedTimeD.inDays.toString() + " gün";
-    if (elapsedTimeD.inHours > 0)
-      return elapsedTimeD.inHours.toString() + " sa";
-    if (elapsedTimeD.inMinutes > 0)
-      return elapsedTimeD.inMinutes.toString() + " dk";
-    if (elapsedTimeD.inSeconds > 0)
-      return elapsedTimeD.inSeconds.toString() + " sn";
+    if (elapsedTimeD.inHours > 0)return elapsedTimeD.inHours.toString() + " sa";
+    if (elapsedTimeD.inMinutes > 0)return elapsedTimeD.inMinutes.toString() + " dk";
+    if (elapsedTimeD.inSeconds > 0)return elapsedTimeD.inSeconds.toString() + " sn";
 
     return "0 s";
   }
 
-  User userOfTweet() {
-    User? user = users.firstUserOrnull(_mailOfUser);
-    if (user != null) {
-      return user;
-    } else {
-      throw Exception("user not found");
-    }
+  UserModel userOfTweet() {
+    UserModel? user = users.firstUserOrnull(email:_mailOfUser);
+
+    if (user == null) throw Exception("user not found");
+    return user;
   }
 
-  bool isPersonLiked(String userEmail) {
-    if (_personEmailWhoLikes.contains(userEmail)) {
-      return true;
-    }
-    return false;
+  bool isPersonLiked({required String userEmail}) {
+    return _personEmailWhoLikes.contains(userEmail);
   }
 
-  bool isPersonRetweet(String userEmail) {
-    if (_personEmailWhoRetweets.contains(userEmail)) {
-      return true;
-    }
-    return false;
+  bool isPersonRetweet({required String userEmail}) {
+    return _personEmailWhoRetweets.contains(userEmail);
   }
 }

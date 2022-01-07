@@ -1,9 +1,10 @@
-import 'package:twitter/user.dart';
+import 'package:twitter/user_model.dart';
+//
 
-extension listExtension on List<User>{
+extension ListExtension on List<UserModel>{
 
-  User? firstUserOrnull(String email){
-    for(var i =0; i < this.length;i++){
+  UserModel? firstUserOrnull({required String email}){
+    for(var i =0; i < length;i++){
       if(this[i].userEmail == email){
         return this[i];
       }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:twitter/core/custom_widgets/retweet_buttom_sheet_button_part.dart';
 import 'package:twitter/tweet_model.dart';
-import 'package:twitter/user.dart';
+import 'package:twitter/user_model.dart';
 
 class RetweetBottomSheet extends StatelessWidget {
   const RetweetBottomSheet({
@@ -9,91 +10,43 @@ class RetweetBottomSheet extends StatelessWidget {
     required this.selectedUser,
     required this.onChange,
   }) : super(key: key);
+
   final TweetModel tweet;
-  final User selectedUser;
+  final UserModel selectedUser;
   final VoidCallback onChange;
+
   @override
   Widget build(BuildContext context) {
     final double height = MediaQuery.of(context).size.height;
     final double width = MediaQuery.of(context).size.width;
     return Container(
-      padding: EdgeInsets.fromLTRB(0, height * 0.03, 0, 0),
-      child: tweet.isPersonRetweet(selectedUser.userEmail)
-          ? Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                InkWell(
-                  onTap: () {
-                    tweet.retweet(selectedUser.userEmail);
-                    Navigator.of(context).pop();
-                    onChange();
-                  },
-                  child: Container(
-                    padding: EdgeInsets.symmetric(
-                        horizontal: width * 0.08, vertical: height * 0.02),
-                    child: Row(
-                      children: [
-                        Image.asset("images/retweet.png", scale: 1.4),
-                        SizedBox(width: width * 0.05),
-                        Text(
-                          "Retweetlemeyi geri al",
-                          style: TextStyle(fontSize: 15),
-                        ),
-                      ],
-                    ),
-                  ),
-                )
-              ],
-            )
-          : Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                InkWell(
-                  onTap: () {
-                    tweet.retweet(selectedUser.userEmail);
-                    Navigator.of(context).pop();
-                    onChange();
-                  },
-                  child: Container(
-                    padding: EdgeInsets.symmetric(
-                        horizontal: width * 0.08, vertical: height * 0.02),
-                    child: Row(
-                      children: [
-                        Image.asset(
-                          "images/retweet.png",
-                          scale: 1.4,
-                        ),
-                        SizedBox(width: width * 0.05),
-                        Text(
-                          "Retweetle",
-                          style: TextStyle(fontSize: 15),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                InkWell(
-                  onTap: () {},
-                  child: Container(
-                    padding: EdgeInsets.symmetric(
-                        horizontal: width * 0.08, vertical: height * 0.02),
-                    child: Row(
-                      children: [
-                        Image.asset(
-                          "images/pen.png",
-                          scale: 1.4,
-                        ),
-                        SizedBox(width: width * 0.05),
-                        Text(
-                          "Tweeti Alıntıla",
-                          style: TextStyle(fontSize: 15),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ],
-            ),
+      padding: EdgeInsets.only(top: height * 0.03),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+
+          if (tweet.isPersonRetweet(userEmail: selectedUser.userEmail)) retweetButtomSheetButtonPart(width: width, height: height, text: "Retweetlemeyi geri al",
+            image: "images/retweet.svg", func: (){
+              tweet.retweet(userEmail: selectedUser.userEmail);
+              Navigator.of(context).pop();
+              onChange();
+            },),
+
+          if (!tweet.isPersonRetweet(userEmail: selectedUser.userEmail)) ...[
+             retweetButtomSheetButtonPart(width: width, height: height, text: "Retweetle", image: 
+             "images/retweet.svg", func: (){
+               tweet.retweet(userEmail: selectedUser.userEmail);
+                Navigator.of(context).pop();
+                onChange();
+             }),
+
+             retweetButtomSheetButtonPart(width: width, height: height, text: "Tweeti Alıntıla", 
+             image: "images/pen.svg", func: (){}),
+          ],
+        
+        ],
+      ),
     );
   }
 }
+
