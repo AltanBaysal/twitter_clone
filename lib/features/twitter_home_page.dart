@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:twitter/core/init/create_tweets.dart';
 import 'package:twitter/core/init/tweet.dart';
+import 'package:twitter/tweet_model.dart';
 import 'package:twitter/user_model.dart';
-//+
 
 class TwitterHomePage extends StatefulWidget {
-  const TwitterHomePage({Key? key}) : super(key: key);
+   TwitterHomePage({
+    Key? key,
+    required this.tweets,
+  }) : super(key: key);
+
+  final List<TweetModel> tweets;
 
   @override
   _TwitterMainPageState createState() => _TwitterMainPageState();
@@ -75,10 +79,10 @@ class _TwitterMainPageState extends State<TwitterHomePage> {
             color: const Color(0xFFC6CBCB),
           ),
 
-          itemCount: tweets.length,
+          itemCount: widget.tweets.length,
           itemBuilder: (context, index) => Tweet(
-            tweet: tweets.reversed.toList()[index],
-            user: tweets.reversed.toList()[index].userOfTweet(),
+            tweet: widget.tweets.reversed.toList()[index],
+            user: widget.tweets.reversed.toList()[index].userOfTweet(),
           ),
         ),
       ),
