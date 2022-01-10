@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'features/twitter_main_page.dart';
+import 'package:twitter/screens/twitter_main_page.dart';
 
 
 

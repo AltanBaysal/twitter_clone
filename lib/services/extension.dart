@@ -1,4 +1,4 @@
-import 'package:twitter/user_model.dart';
+import 'package:twitter/models/user_model.dart';
 
 extension ListExtension on List<UserModel>{
 

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:twitter/core/custom_widgets/retweet_buttom_sheet_button_part.dart';
-import 'package:twitter/tweet_model.dart';
-import 'package:twitter/user_model.dart';
+import 'package:twitter/models/tweet_model.dart';
+import 'package:twitter/models/user_model.dart';
+import 'package:twitter/ui/retweet_bottom_sheet/retweet_buttom_sheet_button_part.dart';
 
 class RetweetBottomSheet extends StatelessWidget {
   const RetweetBottomSheet({
@@ -26,7 +26,7 @@ class RetweetBottomSheet extends StatelessWidget {
         children: [
 
           if (tweet.isPersonRetweet(userEmail: selectedUser.userEmail)) retweetButtomSheetButtonPart(width: width, height: height, text: "Retweetlemeyi geri al",
-            image: "images/retweet.svg", func: (){
+            image: "assets/images/retweet.svg", func: (){
               tweet.retweet(userEmail: selectedUser.userEmail);
               Navigator.of(context).pop();
               onChange();
@@ -34,14 +34,14 @@ class RetweetBottomSheet extends StatelessWidget {
 
           if (!tweet.isPersonRetweet(userEmail: selectedUser.userEmail)) ...[
              retweetButtomSheetButtonPart(width: width, height: height, text: "Retweetle", image: 
-             "images/retweet.svg", func: (){
+             "assets/images/retweet.svg", func: (){
                tweet.retweet(userEmail: selectedUser.userEmail);
                 Navigator.of(context).pop();
                 onChange();
              }),
 
              retweetButtomSheetButtonPart(width: width, height: height, text: "Tweeti Alıntıla", 
-             image: "images/pen.svg", func: (){}),
+             image: "assets/images/pen.svg", func: (){}),
           ],
         
         ],

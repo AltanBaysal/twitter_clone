@@ -1,8 +1,7 @@
-import 'package:twitter/extension.dart';
-import 'package:twitter/user_model.dart';
 
-import 'core/init/create_users.dart';
-
+import 'package:twitter/models/user_model.dart';
+import 'package:twitter/services/create_users.dart';
+import 'package:twitter/services/extension.dart';
 
 List monthsName = [
   "Oca",
@@ -18,7 +17,6 @@ List monthsName = [
   "Kas",
   "Ara",  
 ];
-
 
 class TweetModel {
   late String _tweetId;
@@ -43,6 +41,7 @@ class TweetModel {
   TweetModel.withImage(this._mailOfUser,this._text,this._image){
     tweetModelStarterCommonFuncs();
   }
+
 
   void tweetModelStarterCommonFuncs(){
     _releaseTime = DateTime.now();

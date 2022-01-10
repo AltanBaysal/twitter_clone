@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:twitter/core/custom_widgets/twitter_bottom_navigaton_bar_item.dart';
-import 'package:twitter/core/custom_widgets/twitter_drawer.dart';
-import 'package:twitter/core/init/create_tweets.dart';
-import 'package:twitter/core/init/create_users.dart';
-import 'package:twitter/core/init/page_chooser.dart';
-import 'package:twitter/core/init/un_follow_users.dart';
-import 'package:twitter/user_model.dart';
+import 'package:twitter/models/user_model.dart';
+import 'package:twitter/services/create_tweets.dart';
+import 'package:twitter/services/create_users.dart';
+import 'package:twitter/services/page_chooser.dart';
+import 'package:twitter/services/un_follow_users.dart';
+import 'package:twitter/ui/drawer/twitter_drawer.dart';
+import 'package:twitter/ui/twitter_bottom_navigaton_bar_item.dart';
 
 
 
@@ -58,13 +58,13 @@ class _TwitterMainPageState extends State<TwitterMainPage> {
         },
         
         items: [
-          twitterBottomNavigationBarItem(height: height, icon: "images/birdhouse.svg", activeIcon: "images/birdhousefilled.svg"),
+          twitterBottomNavigationBarItem(height: height, icon: "assets/images/birdhouse.svg", activeIcon: "assets/images/birdhousefilled.svg"),
 
-          twitterBottomNavigationBarItem(height: height, icon: "images/search.svg", activeIcon: "images/searchfilled.svg"),
+          twitterBottomNavigationBarItem(height: height, icon: "assets/images/search.svg", activeIcon: "assets/images/searchfilled.svg"),
 
-          twitterBottomNavigationBarItem(height: height, icon: "images/bellring.svg", activeIcon: "images/bellringfilled.svg"),
+          twitterBottomNavigationBarItem(height: height, icon: "assets/images/bellring.svg", activeIcon: "assets/images/bellringfilled.svg"),
 
-          twitterBottomNavigationBarItem(height: height, icon: "images/letter.svg", activeIcon: "images/letterfilled.svg"),
+          twitterBottomNavigationBarItem(height: height, icon: "assets/images/letter.svg", activeIcon: "assets/images/letterfilled.svg"),
 
         ],
       ),

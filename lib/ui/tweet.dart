@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:twitter/core/custom_widgets/retweet_bottom_sheet.dart';
-import 'package:twitter/tweet_model.dart';
-import 'package:twitter/user_model.dart';
+import 'package:twitter/models/tweet_model.dart';
+import 'package:twitter/models/user_model.dart';
+import 'package:twitter/ui/retweet_bottom_sheet/retweet_bottom_sheet.dart';
 
 
 class Tweet extends StatefulWidget {
@@ -49,7 +49,7 @@ class _TweetState extends State<Tweet> {
                         ),
                         
                         Text("${widget.tweet.mailOfUser} · ${widget.tweet.timeSinceSharing()}",
-                          style: TextStyle(fontSize: width*0.046, color: Color(0xFF7B7B7B))),
+                          style: TextStyle(fontSize: width*0.046, color: const Color(0xFF7B7B7B))),
                       ],
                     ),
                   ),
@@ -94,7 +94,7 @@ class _TweetState extends State<Tweet> {
                     icon: SizedBox(
                       height: width*0.05,
                       width: width*0.05,
-                      child: SvgPicture.asset("images/speechbubble.svg",color: const Color(0xFF4E4E4E),fit: BoxFit.cover,
+                      child: SvgPicture.asset("assets/images/speechbubble.svg",color: const Color(0xFF4E4E4E),fit: BoxFit.cover,
                       ),
                     ),
                   ),
@@ -133,8 +133,8 @@ class _TweetState extends State<Tweet> {
                       width: width*0.05,
 
                       child: widget.tweet.isPersonRetweet(userEmail: widget.user.userEmail)
-                      ? SvgPicture.asset("images/retweetcolored.svg",fit: BoxFit.cover)
-                      : SvgPicture.asset("images/retweet.svg",color: const Color(0xFF4E4E4E),fit: BoxFit.cover),
+                      ? SvgPicture.asset("assets/images/retweetcolored.svg",fit: BoxFit.cover)
+                      : SvgPicture.asset("assets/images/retweet.svg",color: const Color(0xFF4E4E4E),fit: BoxFit.cover),
                     ),
                   ),
 
@@ -160,8 +160,8 @@ class _TweetState extends State<Tweet> {
                       width: width*0.05,
 
                       child: widget.tweet.isPersonLiked(userEmail:widget.user.userEmail)
-                      ? SvgPicture.asset("images/likecolored.svg", fit: BoxFit.cover)
-                      : SvgPicture.asset("images/like.svg",fit: BoxFit.cover,color: const Color(0xFF4E4E4E),),
+                      ? SvgPicture.asset("assets/images/likecolored.svg", fit: BoxFit.cover)
+                      : SvgPicture.asset("assets/images/like.svg",fit: BoxFit.cover,color: const Color(0xFF4E4E4E),),
                     )
                   ),
 
@@ -177,7 +177,7 @@ class _TweetState extends State<Tweet> {
                 icon: SizedBox(
                   height: width*0.05,
                   width: width*0.05,
-                  child: SvgPicture.asset("images/share.svg",fit: BoxFit.cover,color: const Color(0xFF4E4E4E),),
+                  child: SvgPicture.asset("assets/images/share.svg",fit: BoxFit.cover,color: const Color(0xFF4E4E4E),),
                 ),
               ),
             ],

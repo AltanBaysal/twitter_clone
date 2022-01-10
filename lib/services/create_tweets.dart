@@ -1,8 +1,8 @@
-import 'package:twitter/tweet_model.dart';
-import 'package:twitter/user_model.dart';
-import 'create_users.dart';
+import 'package:twitter/models/tweet_model.dart';
+import 'package:twitter/models/user_model.dart';
+import 'package:twitter/services/create_users.dart';
 
-//
+
 List<TweetModel> tweets =[];
 
 List<TweetModel> createTweets(){

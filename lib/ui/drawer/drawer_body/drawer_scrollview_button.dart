@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-Widget drawerButtons({required String text,String? icon,required double width,required double height}){
+Widget drawerScrollViewButtons({required String text,String? icon,required double width,required double height}){
   return InkWell(
     onTap: (){},
     child: Container(

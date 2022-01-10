@@ -1,6 +1,6 @@
-import 'package:twitter/extension.dart';
-import 'package:twitter/tweet_model.dart';
-import 'core/init/create_users.dart';
+import 'package:twitter/models/tweet_model.dart';
+import 'package:twitter/services/create_users.dart';
+import 'package:twitter/services/extension.dart';
 
 
 late UserModel selectedUser; //yok edilmesi lazım
@@ -18,6 +18,7 @@ class UserModel{
   final String _userProfilePicture;
   final String _password;
 
+  //? bunları final yapmalımıyım çünkü dynamic  
   List<String>  _following =[];
   List<String>  _followers =[];
 

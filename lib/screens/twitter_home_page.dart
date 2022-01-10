@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:twitter/core/init/tweet.dart';
-import 'package:twitter/tweet_model.dart';
-import 'package:twitter/user_model.dart';
+import 'package:twitter/models/tweet_model.dart';
+import 'package:twitter/models/user_model.dart';
+import 'package:twitter/ui/tweet.dart';
 
 class TwitterHomePage extends StatefulWidget {
-   TwitterHomePage({
+   const TwitterHomePage({
     Key? key,
     required this.tweets,
   }) : super(key: key);
@@ -47,7 +47,7 @@ class _TwitterMainPageState extends State<TwitterHomePage> {
                 child: SizedBox(
                   height: height*0.031  ,
                   width: height*0.031,
-                  child: SvgPicture.asset("images/twittericon.svg", fit:BoxFit.cover)
+                  child: SvgPicture.asset("assets/images/twittericon.svg", fit:BoxFit.cover)
                 ),
               ),
               //basıldığında listenin yukarı çıkması eklenecek
@@ -57,7 +57,7 @@ class _TwitterMainPageState extends State<TwitterHomePage> {
                   height: height*0.031  ,
                   width: height*0.031,
                   child: SvgPicture.asset(
-                    "images/stars.svg",
+                    "assets/images/stars.svg",
                     fit: BoxFit.cover,
                   ),
                 ),

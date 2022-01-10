@@ -1,5 +1,4 @@
-import 'package:twitter/user_model.dart';
-//
+import 'package:twitter/models/user_model.dart';
 
 List<UserModel> users = [];
 
