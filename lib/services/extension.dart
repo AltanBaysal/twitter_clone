@@ -1,5 +1,5 @@
 import 'package:twitter/models/user_model.dart';
-
+//! Helper'in altinda olmali
 extension ListExtension on List<UserModel>{
 
   UserModel? firstUserOrnull({required String email}){

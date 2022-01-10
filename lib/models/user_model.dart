@@ -2,28 +2,26 @@ import 'package:twitter/models/tweet_model.dart';
 import 'package:twitter/services/create_users.dart';
 import 'package:twitter/services/extension.dart';
 
-
 late UserModel selectedUser; //yok edilmesi lazım
 
-selectUser({required String userEmail,required String password}){
-  UserModel? user = users.firstUserOrnull(email:userEmail);
+selectUser({required String userEmail, required String password}) {
+  UserModel? user = users.firstUserOrnull(email: userEmail);
 
-  if(user == null)throw Exception("user not found");
+  if (user == null) throw Exception("user not found");
   selectedUser = user;
 }
 
-class UserModel{
+class UserModel {
   final String _username;
   final String _userEmail;
   final String _userProfilePicture;
   final String _password;
 
-  //? bunları final yapmalımıyım çünkü dynamic  
-  List<String>  _following =[];
-  List<String>  _followers =[];
+  final List<String> _following = [];
+  final List<String> _followers = [];
 
-
-  UserModel(this._username,this._userEmail,this._password,this._userProfilePicture);
+  UserModel(this._username, this._userEmail, this._password,
+      this._userProfilePicture);
 
   String get username => _username;
   String get userEmail => _userEmail;
@@ -32,29 +30,32 @@ class UserModel{
   List<String> get following => _following;
   List<String> get followers => _followers;
 
-
-  void followOrUnfollow({required String email}){
-    if(isPersonfollowed(email:email)){
+  void followOrUnfollow({required String email}) {
+    if (isPersonfollowed(email: email)) {
       following.remove(email);
-      users.firstWhere((element) => element.userEmail == email).followers.remove(_userEmail);
-    }else{
+      users
+          .firstWhere((element) => element.userEmail == email)
+          .followers
+          .remove(_userEmail);
+    } else {
       following.add(email);
-      users.firstWhere((element) => element.userEmail == email).followers.add(_userEmail);
+      users
+          .firstWhere((element) => element.userEmail == email)
+          .followers
+          .add(_userEmail);
     }
   }
 
-
-  bool checkPassword({required String password}){
+  bool checkPassword({required String password}) {
     return _password == password;
   }
 
-  TweetModel createTweet({required String text,String? image}){
-    if(image != null) return TweetModel.withImage(_userEmail, text, image);
+  TweetModel createTweet({required String text, String? image}) {
+    if (image != null) return TweetModel.withImage(_userEmail, text, image);
     return TweetModel(_userEmail, text);
   }
 
-  bool isPersonfollowed({required String email}){
+  bool isPersonfollowed({required String email}) {
     return following.contains(email);
   }
 }
-

@@ -1,4 +1,3 @@
-
 import 'package:twitter/models/user_model.dart';
 import 'package:twitter/services/create_users.dart';
 import 'package:twitter/services/extension.dart';
@@ -15,7 +14,7 @@ List monthsName = [
   "Eyl",
   "Eki",
   "Kas",
-  "Ara",  
+  "Ara",
 ];
 
 class TweetModel {
@@ -27,28 +26,22 @@ class TweetModel {
 
   late DateTime _releaseTime;
 
-  //?final eklenmeli mi
-  List<String> _personEmailWhoRetweets = [];
-  List<String> _personEmailWhoLikes = [];
-  Map<String, String> _personAndComments = {};
-
-
+  final List<String> _personEmailWhoRetweets = [];
+  final List<String> _personEmailWhoLikes = [];
+  final Map<String, String> _personAndComments = {};
 
   TweetModel(this._mailOfUser, this._text) {
     tweetModelStarterCommonFuncs();
   }
 
-  TweetModel.withImage(this._mailOfUser,this._text,this._image){
+  TweetModel.withImage(this._mailOfUser, this._text, this._image) {
     tweetModelStarterCommonFuncs();
   }
 
-
-  void tweetModelStarterCommonFuncs(){
+  void tweetModelStarterCommonFuncs() {
     _releaseTime = DateTime.now();
     _tweetId = _mailOfUser + " " + releaseTime.toString();
   }
-
-
 
   String get tweetId => _tweetId;
 
@@ -62,10 +55,8 @@ class TweetModel {
   int get totalLike => _personEmailWhoLikes.length;
   int get totalComments => _personAndComments.length;
 
-
-
   void like({required String userEmail}) {
-    if (isPersonLiked(userEmail:userEmail)) {
+    if (isPersonLiked(userEmail: userEmail)) {
       _personEmailWhoLikes.remove(userEmail);
     } else {
       _personEmailWhoLikes.add(userEmail);
@@ -73,28 +64,33 @@ class TweetModel {
   }
 
   void retweet({required String userEmail}) {
-    if (isPersonRetweet(userEmail:userEmail)) {
+    if (isPersonRetweet(userEmail: userEmail)) {
       _personEmailWhoRetweets.remove(userEmail);
     } else {
       _personEmailWhoRetweets.add(userEmail);
     }
   }
 
-
   String timeSinceSharing() {
     Duration elapsedTimeD = DateTime.now().difference(_releaseTime);
 
-    if (elapsedTimeD.inDays > 6) return _releaseTime.day.toString() +" " +monthsName[_releaseTime.month - 1];
+    if (elapsedTimeD.inDays > 6)
+      return _releaseTime.day.toString() +
+          " " +
+          monthsName[_releaseTime.month - 1];
     if (elapsedTimeD.inDays > 0) return elapsedTimeD.inDays.toString() + " gün";
-    if (elapsedTimeD.inHours > 0)return elapsedTimeD.inHours.toString() + " sa";
-    if (elapsedTimeD.inMinutes > 0)return elapsedTimeD.inMinutes.toString() + " dk";
-    if (elapsedTimeD.inSeconds > 0)return elapsedTimeD.inSeconds.toString() + " sn";
+    if (elapsedTimeD.inHours > 0)
+      return elapsedTimeD.inHours.toString() + " sa";
+    if (elapsedTimeD.inMinutes > 0)
+      return elapsedTimeD.inMinutes.toString() + " dk";
+    if (elapsedTimeD.inSeconds > 0)
+      return elapsedTimeD.inSeconds.toString() + " sn";
 
     return "0 s";
   }
 
   UserModel userOfTweet() {
-    UserModel? user = users.firstUserOrnull(email:_mailOfUser);
+    UserModel? user = users.firstUserOrnull(email: _mailOfUser);
 
     if (user == null) throw Exception("user not found");
     return user;

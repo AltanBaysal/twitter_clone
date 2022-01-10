@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-BottomNavigationBarItem twitterBottomNavigationBarItem({required double height,required String icon,required String activeIcon}) {
+BottomNavigationBarItem twitterBottomNavigationBarItem(
+    {required double height,
+    required String icon,
+    required String activeIcon}) {
   return BottomNavigationBarItem(
     icon: SizedBox(
       height: height * 0.04,
@@ -16,6 +19,6 @@ BottomNavigationBarItem twitterBottomNavigationBarItem({required double height,r
       width: height * 0.04,
       child: SvgPicture.asset(activeIcon, fit: BoxFit.cover),
     ),
-    label:"",
+    label: "",
   );
 }

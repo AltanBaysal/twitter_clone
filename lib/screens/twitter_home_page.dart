@@ -5,7 +5,7 @@ import 'package:twitter/models/user_model.dart';
 import 'package:twitter/ui/tweet.dart';
 
 class TwitterHomePage extends StatefulWidget {
-   const TwitterHomePage({
+  const TwitterHomePage({
     Key? key,
     required this.tweets,
   }) : super(key: key);
@@ -33,29 +33,30 @@ class _TwitterMainPageState extends State<TwitterHomePage> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               GestureDetector(
-                onTap: (){
+                onTap: () {
                   Scaffold.of(context).openDrawer();
                 },
                 child: CircleAvatar(
-                  radius: width*0.04,
-                  backgroundImage: NetworkImage(selectedUser.userProfilePicture),
+                  radius: width * 0.04,
+                  backgroundImage:
+                      NetworkImage(selectedUser.userProfilePicture),
                 ),
               ),
 
               GestureDetector(
-                onTap: (){},
+                onTap: () {},
                 child: SizedBox(
-                  height: height*0.031  ,
-                  width: height*0.031,
-                  child: SvgPicture.asset("assets/images/twittericon.svg", fit:BoxFit.cover)
-                ),
+                    height: height * 0.031,
+                    width: height * 0.031,
+                    child: SvgPicture.asset("assets/images/twittericon.svg",
+                        fit: BoxFit.cover)),
               ),
               //basıldığında listenin yukarı çıkması eklenecek
               GestureDetector(
                 onTap: () {},
                 child: SizedBox(
-                  height: height*0.031  ,
-                  width: height*0.031,
+                  height: height * 0.031,
+                  width: height * 0.031,
                   child: SvgPicture.asset(
                     "assets/images/stars.svg",
                     fit: BoxFit.cover,
@@ -67,7 +68,6 @@ class _TwitterMainPageState extends State<TwitterHomePage> {
           ),
         ),
       ],
-
       body: RefreshIndicator(
         onRefresh: () => _refresh(),
         child: ListView.separated(
@@ -78,7 +78,6 @@ class _TwitterMainPageState extends State<TwitterHomePage> {
             height: height * 0.012,
             color: const Color(0xFFC6CBCB),
           ),
-
           itemCount: widget.tweets.length,
           itemBuilder: (context, index) => Tweet(
             tweet: widget.tweets.reversed.toList()[index],
