@@ -4,19 +4,20 @@ import 'package:twitter/models/user_model.dart';
 
 bool isArrowDown = true; 
 
-class drawerHeader extends StatefulWidget {
-  const drawerHeader({Key? key}) : super(key: key);
 
-  @override
-  _drawerHeaderState createState() => _drawerHeaderState();
-}
+//? bu doğru bir isimlendirmemi?
+class DrawerHeaderUI extends StatelessWidget {
+  const DrawerHeaderUI({ 
+    Key? key,
+    required this.onChange,
+  }) : super(key: key);
 
-class _drawerHeaderState extends State<drawerHeader> {
+  final VoidCallback onChange;
+
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
-    
     return Container(
       decoration: const BoxDecoration(
         border: Border(bottom: BorderSide(width: 0.5, color: Colors.grey)),
@@ -46,6 +47,7 @@ class _drawerHeaderState extends State<drawerHeader> {
                       color: Colors.black,
                       fontWeight: FontWeight.bold),
                 ),
+                
                 GestureDetector(
                   onTap: () {
                     if (isArrowDown) {
@@ -53,8 +55,9 @@ class _drawerHeaderState extends State<drawerHeader> {
                     } else {
                       isArrowDown = true;
                     }
-                    setState(() {});
+                    onChange();
                   },
+                  
                   child: SizedBox(
                     height: height * 0.025,
                     width: height * 0.025,
@@ -119,5 +122,6 @@ class _drawerHeaderState extends State<drawerHeader> {
         ],
       ),
     );
+  
   }
 }

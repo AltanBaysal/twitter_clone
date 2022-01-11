@@ -26,9 +26,11 @@ class TweetModel {
 
   late DateTime _releaseTime;
 
+
   final List<String> _personEmailWhoRetweets = [];
   final List<String> _personEmailWhoLikes = [];
   final Map<String, String> _personAndComments = {};
+
 
   TweetModel(this._mailOfUser, this._text) {
     tweetModelStarterCommonFuncs();

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:twitter/core/init/create.dart';
 import 'package:twitter/screens/twitter_main_page.dart';
-
-
 
 
 void main() {

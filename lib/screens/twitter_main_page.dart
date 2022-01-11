@@ -1,22 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:twitter/models/user_model.dart';
-import 'package:twitter/services/create_tweets.dart';
-import 'package:twitter/services/create_users.dart';
 import 'package:twitter/services/page_chooser.dart';
-import 'package:twitter/services/un_follow_users.dart';
 import 'package:twitter/ui/drawer/twitter_drawer.dart';
 import 'package:twitter/ui/twitter_bottom_navigaton_bar_item.dart';
 
 int _currentIndex = 0;
 
-//? bu burda olmaması lazım değil mi ? //! init'e tasinmali
-void create() {
-  users = createUsers();
-  selectUser(userEmail: "@Mr.Stark", password: "123456");
-  tweets = createTweets();
-  followUser();
-}
 
 class TwitterMainPage extends StatefulWidget {
   const TwitterMainPage({Key? key}) : super(key: key);

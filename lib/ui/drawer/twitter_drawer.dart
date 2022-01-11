@@ -25,7 +25,11 @@ class _TwitterDrawerState extends State<TwitterDrawer> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
 
-              const drawerHeader(),
+              DrawerHeaderUI(
+                onChange: (){
+                  setState(() {});
+                },
+              ),
 
               if(isArrowDown) ...[
                 drawerBodyFirstPositionUpperPart(height: height, width: width),

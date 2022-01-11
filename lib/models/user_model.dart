@@ -17,8 +17,10 @@ class UserModel {
   final String _userProfilePicture;
   final String _password;
 
+
   final List<String> _following = [];
   final List<String> _followers = [];
+
 
   UserModel(this._username, this._userEmail, this._password,
       this._userProfilePicture);
