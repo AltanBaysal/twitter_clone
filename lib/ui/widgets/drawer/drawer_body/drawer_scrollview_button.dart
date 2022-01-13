@@ -1,8 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-Widget drawerScrollViewButtons({required String text,String? icon,required double width,required double height}){
-  return InkWell(
+
+
+class DrawerScrollViewButton extends StatelessWidget {
+  const DrawerScrollViewButton({
+    Key? key,
+    this.icon,
+    required this.text
+  }) : super(key: key);
+
+  final String? icon;
+  final String text;
+
+  @override
+  Widget build(BuildContext context) {
+    double height = MediaQuery.of(context).size.height;
+    double width = MediaQuery.of(context).size.width;
+
+    return InkWell(
     onTap: (){},
     child: Container(
       margin: EdgeInsets.only(left: width*0.05),
@@ -15,7 +31,8 @@ Widget drawerScrollViewButtons({required String text,String? icon,required doubl
             child: SizedBox(
               height: height*0.03,
               width: height*0.03,
-              child: SvgPicture.asset(icon,fit:BoxFit.cover),
+              //? iconda ünlem kullandım yukarda null değilse gir diyorum ama yinde null hatası veriyordu
+              child: SvgPicture.asset(icon!,fit:BoxFit.cover),
             ),
           ),
           Text(text,style: TextStyle(fontSize: width*0.045,color: Colors.black),),
@@ -23,4 +40,5 @@ Widget drawerScrollViewButtons({required String text,String? icon,required doubl
       ),
     ),
   );
+  }
 }

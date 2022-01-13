@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:twitter/ui/drawer/drawer_body/drawer_body_first_position.dart';
-import 'package:twitter/ui/drawer/drawer_body/drawer_body_second_position.dart';
-import 'package:twitter/ui/drawer/drawer_header/drawer_header.dart';
+import 'package:twitter/ui/widgets/drawer/drawer_body/drawer_body_collapse.dart';
+import 'package:twitter/ui/widgets/drawer/drawer_body/drawer_body_expanded.dart';
+import 'package:twitter/ui/widgets/drawer/drawer_header/drawer_header.dart';
 
 
 class TwitterDrawer extends StatefulWidget {
@@ -15,7 +15,6 @@ class _TwitterDrawerState extends State<TwitterDrawer> {
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
-    double height = MediaQuery.of(context).size.height;
 
     return SafeArea(
       child: SizedBox(
@@ -32,11 +31,11 @@ class _TwitterDrawerState extends State<TwitterDrawer> {
               ),
 
               if(isArrowDown) ...[
-                drawerBodyFirstPositionUpperPart(height: height, width: width),
-                drawerBodyFirstPositionLowerPart(height: height, width: width),
+                const DrawerBodyCollapseTopPart(),
+                const DrawerBodyCollapseBottomPart(),
               ] 
 
-              else if(!isArrowDown) const DrawerBodySecondPosition()
+              else if(!isArrowDown) const DrawerBodyExpanded()
             ],
           ),
         ),

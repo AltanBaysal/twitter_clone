@@ -5,7 +5,7 @@ import 'package:twitter/models/user_model.dart';
 bool isArrowDown = true; 
 
 
-//? bu doğru bir isimlendirmemi?
+//? bu doğru bir isimlendirme mi?
 class DrawerHeaderUI extends StatelessWidget {
   const DrawerHeaderUI({ 
     Key? key,
@@ -62,9 +62,9 @@ class DrawerHeaderUI extends StatelessWidget {
                     height: height * 0.025,
                     width: height * 0.025,
                     child: isArrowDown
-                        ? SvgPicture.asset("assets/images/downarrow.svg",
+                        ? SvgPicture.asset("assets/icons/downarrow.svg",
                             fit: BoxFit.cover, color: Colors.black)
-                        : SvgPicture.asset("assets/images/uparrow.svg",
+                        : SvgPicture.asset("assets/icons/uparrow.svg",
                             fit: BoxFit.cover, color: Colors.black),
                   ),
                 ),
@@ -122,6 +122,5 @@ class DrawerHeaderUI extends StatelessWidget {
         ],
       ),
     );
-  
   }
 }

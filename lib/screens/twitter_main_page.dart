@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:twitter/services/page_chooser.dart';
-import 'package:twitter/ui/drawer/twitter_drawer.dart';
-import 'package:twitter/ui/twitter_bottom_navigaton_bar_item.dart';
+import 'package:twitter/assets/constatns.dart';
+import 'package:twitter/ui/helper/page_chooser.dart';
+import 'package:twitter/ui/widgets/drawer/twitter_drawer.dart';
+import 'package:twitter/ui/widgets/twitter_bottom_navigaton_bar_item.dart';
 
 int _currentIndex = 0;
 
@@ -43,24 +44,24 @@ class _TwitterMainPageState extends State<TwitterMainPage> {
         items: [
           twitterBottomNavigationBarItem(
               height: height,
-              icon: "assets/images/birdhouse.svg",
-              activeIcon: "assets/images/birdhousefilled.svg"),
+              icon: IconsConstant.bottomNavigationBarItemHome,
+              activeIcon: IconsConstant.bottomNavigationBarItemHomeFilled),
           twitterBottomNavigationBarItem(
               height: height,
-              icon: "assets/images/search.svg",
-              activeIcon: "assets/images/searchfilled.svg"),
+              icon: IconsConstant.bottomNavigationBarItemSearch,
+              activeIcon: IconsConstant.bottomNavigationBarItemSearchFilled),
           twitterBottomNavigationBarItem(
               height: height,
-              icon: "assets/images/bellring.svg",
-              activeIcon: "assets/images/bellringfilled.svg"),
+              icon: IconsConstant.bottomNavigationBarItemNotifications,
+              activeIcon: IconsConstant.bottomNavigationBarItemNotificationsFilled),
           twitterBottomNavigationBarItem(
               height: height,
-              icon: "assets/images/letter.svg",
-              activeIcon: "assets/images/letterfilled.svg"),
+              icon: IconsConstant.bottomNavigationBarItemMessages,
+              activeIcon: IconsConstant.bottomNavigationBarItemMessagesFilled),
         ],
       ),
       body: SafeArea(
-        child: pagechooser(currentIndex: _currentIndex),
+        child: PageChooser(currentIndex: _currentIndex),
       ),
     );
   }

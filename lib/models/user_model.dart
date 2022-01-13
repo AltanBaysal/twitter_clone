@@ -1,13 +1,15 @@
+import 'package:twitter/assets/constatns.dart';
+import 'package:twitter/core/init/create_users.dart';
 import 'package:twitter/models/tweet_model.dart';
-import 'package:twitter/services/create_users.dart';
-import 'package:twitter/services/extension.dart';
+import 'package:twitter/services/user_finder_by_email.dart';
 
-late UserModel selectedUser; //yok edilmesi lazım
+late UserModel selectedUser; 
 
-selectUser({required String userEmail, required String password}) {
-  UserModel? user = users.firstUserOrnull(email: userEmail);
+void selectUser({required String userEmail, required String password}) {
+  //? bu mu doğru yoksa collection darttan ekleyip kullanmak mı?
+  UserModel? user = userFinderByEmail(userEmail: userEmail, list: users);
 
-  if (user == null) throw Exception("user not found");
+  if (user == null) throw Exception(ErrorMessages.userNotFound);
   selectedUser = user;
 }
 
@@ -20,10 +22,10 @@ class UserModel {
 
   final List<String> _following = [];
   final List<String> _followers = [];
+  
 
 
-  UserModel(this._username, this._userEmail, this._password,
-      this._userProfilePicture);
+  UserModel(this._username, this._userEmail, this._password,this._userProfilePicture);
 
   String get username => _username;
   String get userEmail => _userEmail;
@@ -32,7 +34,8 @@ class UserModel {
   List<String> get following => _following;
   List<String> get followers => _followers;
 
-  void followOrUnfollow({required String email}) {
+  void followUserToggle({required String email}) {
+    
     if (isPersonfollowed(email: email)) {
       following.remove(email);
       users

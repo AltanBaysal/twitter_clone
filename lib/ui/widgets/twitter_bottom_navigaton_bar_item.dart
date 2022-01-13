@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
+
+//? Bu sttful veya sttles olarak yazılamıyor
+
 BottomNavigationBarItem twitterBottomNavigationBarItem(
     {required double height,
     required String icon,
     required String activeIcon}) {
+      
   return BottomNavigationBarItem(
     icon: SizedBox(
       height: height * 0.04,

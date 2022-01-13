@@ -1,7 +1,7 @@
+import 'package:twitter/core/init/create_tweets.dart';
+import 'package:twitter/core/init/create_users.dart';
 import 'package:twitter/models/user_model.dart';
-import 'package:twitter/services/create_tweets.dart';
-import 'package:twitter/services/create_users.dart';
-import 'package:twitter/services/un_follow_users.dart';
+import 'package:twitter/core/init/follow_users.dart';
 
 
 void create() {

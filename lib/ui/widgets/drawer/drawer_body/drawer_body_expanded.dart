@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 
-class DrawerBodySecondPosition extends StatefulWidget {
-  const DrawerBodySecondPosition({Key? key}) : super(key: key);
+class DrawerBodyExpanded extends StatefulWidget {
+  const DrawerBodyExpanded({Key? key}) : super(key: key);
 
   @override
-  _DrawerBodySecondPositionState createState() =>
-      _DrawerBodySecondPositionState();
+  _DrawerBodyExpandedState createState() =>
+      _DrawerBodyExpandedState();
 }
 
-class _DrawerBodySecondPositionState extends State<DrawerBodySecondPosition> {
+class _DrawerBodyExpandedState extends State<DrawerBodyExpanded> {
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;

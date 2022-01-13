@@ -1,6 +1,6 @@
+import 'package:twitter/core/init/create_users.dart';
 import 'package:twitter/models/tweet_model.dart';
 import 'package:twitter/models/user_model.dart';
-import 'package:twitter/services/create_users.dart';
 
 
 List<TweetModel> tweets =[];
@@ -10,12 +10,12 @@ List<TweetModel> createTweets(){
     users[1].createTweet(text: "bu başka birine ait bir tweettir"),
     users[2].createTweet(text:"bu üçünçü kişiye ait bir tweettir"),
 
-    users[1].createTweet(text:"bu başka birine ait fotoğraflı bir tweettir",image:"https://storage.googleapis.com/nrpassets/uploads/articles/1561556167-google_main.jpg"),
+    users[1].createTweet(text:"bu başka birine ait fotoğraflı bir tweettir",image:"https://elsdilokullari.net/wp-content/uploads/2015/01/Silicon-Valley.jpg"),
 
 
     users[2].createTweet(text:"""bu üçünçü kişiye ait bir fotoğraflı tweettir 
 New York !!!""",
-      image:"https://trthaberstatic.cdn.wp.trt.com.tr/resimler/1530000/new-york-depophotos-1531803_2.jpg"),
+      image:"https://static.dw.com/image/56412099_303.jpg"),
 
 
     selectedUser.createTweet(text:"Bu bir tweettir"),

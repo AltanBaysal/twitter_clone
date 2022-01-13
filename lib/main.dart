@@ -20,3 +20,8 @@ class MainPage extends StatelessWidget {
     );
   }
 }
+
+//TODO
+//appbarların altına çizgi ekle
+//textleri de constant haline getir
+//chatpage geçiş animasyonu
