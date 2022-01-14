@@ -1,5 +1,5 @@
 import 'package:twitter/models/conversation_model.dart';
-import 'package:twitter/services/conversations_finder_by_Id.dart';
+import 'package:twitter/services/conversations_finder_by_id.dart';
 import 'package:twitter/services/start_conversation.dart';
 import 'package:twitter/services/user_finder_by_email.dart';
 

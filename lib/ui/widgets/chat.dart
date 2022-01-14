@@ -70,7 +70,7 @@ class _ChatState extends State<Chat> {
                         TextSpan(
                           text: otherUser.userEmail,
                           style: TextStyle(
-                            color: Color(0x9E585858),
+                            color: const Color(0x9E585858),
                             fontSize: width * 0.034,
                           ),
                         ),
@@ -84,7 +84,7 @@ class _ChatState extends State<Chat> {
                         : "",
                     softWrap: true,
                     style: TextStyle(
-                      color: Color(0x9E585858),
+                      color: const Color(0x9E585858),
                       fontSize: width * 0.034,
                     ),
                     maxLines: 2,

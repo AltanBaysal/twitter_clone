@@ -42,7 +42,7 @@ class ChatPageAppbar extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(user.username,style: TextStyle(color: Colors.black,fontSize: width *0.047,fontWeight: FontWeight.bold),),
-                Text(user.userEmail,style: TextStyle(color: Color(0x9E585858), fontSize: width * 0.035),),
+                Text(user.userEmail,style: TextStyle(color: const Color(0x9E585858), fontSize: width * 0.035),),
               ],
             ),
           ),

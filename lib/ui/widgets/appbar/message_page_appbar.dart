@@ -28,7 +28,7 @@ class MessagePageAppBar extends StatelessWidget {
               color: Color(0x9ED9D9D9),
               borderRadius: BorderRadius.all(Radius.circular(20))
             ),
-            child: Text("Search for people and groups",style: TextStyle(fontSize: width*0.038,color: Color(0x9E585858),),)
+            child: Text("Search for people and groups",style: TextStyle(fontSize: width*0.038,color: const Color(0x9E585858),),)
           ),
         ),
 
