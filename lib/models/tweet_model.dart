@@ -1,7 +1,6 @@
 import 'package:twitter/assets/constatns.dart';
-import 'package:twitter/core/init/create_users.dart';
 import 'package:twitter/models/user_model.dart';
-import 'package:collection/collection.dart';
+import 'package:twitter/services/user_finder_by_email.dart';
 
 class TweetModel {
   late String _tweetId;
@@ -73,16 +72,11 @@ class TweetModel {
     if (elapsedTimeD.inSeconds > 0)return "${elapsedTimeD.inSeconds.toString()} ${TurkishTexts.abbreviationOfSeconds}";
     
 
-    //? bu sıfır'ı yazmama gerek var mı?
     return "0 ${TurkishTexts.abbreviationOfSeconds}";
   }
 
-  //? bunu kullanmak mantıklı mı ?
   UserModel userOfTweet() {
-    UserModel? user = users.firstWhereOrNull((element) => element.userEmail == _mailOfUser);  
-    
-    if (user == null) throw Exception(ErrorMessages.userNotFound);
-    return user;
+    return userFinderByEmail2(mailOfUser: _mailOfUser);
   }
 
   bool isPersonLiked({required String userEmail}) {

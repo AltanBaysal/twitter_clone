@@ -17,22 +17,42 @@ class UserModel {
   final String _username;
   final String _userEmail;
   final String _userProfilePicture;
+  late final DateTime _joinDate;
+  String _userBio = "";
+
+
   final String _password;
 
 
   final List<String> _following = [];
   final List<String> _followers = [];
+
+  final List<String> _conversations =[];
   
 
+  UserModel(this._username, this._userEmail, this._password,this._userProfilePicture){
+    _joinDate = DateTime.now();
+  }
 
-  UserModel(this._username, this._userEmail, this._password,this._userProfilePicture);
-
+  
   String get username => _username;
   String get userEmail => _userEmail;
   String get userProfilePicture => _userProfilePicture;
 
+  String get userBio => _userBio;
+
   List<String> get following => _following;
   List<String> get followers => _followers;
+  List<String> get conversations => _conversations;
+
+  String getJoinDateAsString(){
+    EnglishTexts.month[_joinDate.month];
+    return "${EnglishTexts.month[_joinDate.month]} ${_joinDate.year}";
+  }
+  
+  void changeUserbio({required String newbio}){
+    _userBio = newbio;
+  }
 
   void followUserToggle({required String email}) {
     

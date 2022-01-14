@@ -11,10 +11,13 @@ class AppbarUI extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SliverAppBar(
+      elevation: 1,
       automaticallyImplyLeading: false,
       floating: true,
       backgroundColor: Colors.white,
-      title: appbaritems,
+      title: Container(
+        child: appbaritems
+      ),
     );
   }
 }

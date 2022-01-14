@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:twitter/ui/widgets/appbar/appbar.dart';
+import 'package:twitter/models/user_model.dart';
+import 'package:twitter/services/conversations_finder_by_Id.dart';
+import 'package:twitter/ui/widgets/appbar/appbar_ui/appbar.dart';
 import 'package:twitter/ui/widgets/appbar/message_page_appbar.dart';
 import 'package:twitter/ui/widgets/chat.dart';
 
@@ -14,7 +16,6 @@ class MessagePage extends StatefulWidget {
 class _MessagePageState extends State<MessagePage> {
   @override
   Widget build(BuildContext context) {
-    double height = MediaQuery.of(context).size.height;
 
     return NestedScrollView(
       floatHeaderSlivers: true,
@@ -30,8 +31,8 @@ class _MessagePageState extends State<MessagePage> {
           padding: const EdgeInsets.only(top: 0),
           shrinkWrap: true,
           physics: const NeverScrollableScrollPhysics(),
-          itemCount: 1,
-          itemBuilder: (context, index) => Chat(),
+          itemCount: selectedUser.conversations.length,
+          itemBuilder: (context, index) => Chat(conversation: conversationFinderbyId(id: selectedUser.conversations[index])),
         ),
       ),
     );

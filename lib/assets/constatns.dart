@@ -2,6 +2,7 @@
 
 class EnglishTexts{
   static const String comingSoon = "Coming Soon";
+  static const List<String> month = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 }
 
 class TurkishTexts{
@@ -23,6 +24,21 @@ class ErrorMessages{
 
 
 class IconsConstant{
+
+  //ChatPageAppbarButton
+  static const String chatPageAppbarButton = "assets/icons/information.svg";
+
+  //ChatPageBottomNavigationButton
+   static const String chatPageAppbarButtonImage = "assets/icons/image.svg";
+   static const String chatPageAppbarButtonGif = "assets/icons/gif.svg";
+   static const String chatPageAppbarButtonSoundVoice = "assets/icons/soundwaves.svg";
+   static const String chatPageAppbarButtonSend = "assets/icons/send.svg";
+
+
+  //FloatingActionButton
+  static const String  floatingActionButtonMessagePageIcon = "assets/icons/newmessage.svg";
+
+
   //bottomNavigationBarItem
   static const String bottomNavigationBarItemNotifications = "assets/icons/bellring.svg";
   static const String bottomNavigationBarItemNotificationsFilled= "assets/icons/bellringfilled.svg";

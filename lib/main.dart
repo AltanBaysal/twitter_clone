@@ -25,3 +25,4 @@ class MainPage extends StatelessWidget {
 //appbarların altına çizgi ekle
 //textleri de constant haline getir
 //chatpage geçiş animasyonu
+//class constructor ları isimlendirilmiş yapmaya bak
