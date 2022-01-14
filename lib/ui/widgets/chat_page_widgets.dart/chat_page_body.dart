@@ -17,8 +17,7 @@ class ChatPageBody extends StatelessWidget {
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
-
-    //? uzunluğu geçinçe patlıyor
+    
     return ListView(
       shrinkWrap: true,
       children: [

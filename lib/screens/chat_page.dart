@@ -25,13 +25,17 @@ class _ChatPageState extends State<ChatPage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Column(
-              children: [
-                ChatPageAppbar(user: widget.user),
+            Flexible(
+              child: Column(
+                children: [
+                  ChatPageAppbar(user: widget.user),
 
-                ChatPageBody(
-                    otherUser: widget.user, conversation: widget.conversation),
-              ],
+                  Flexible(
+                    child: ChatPageBody(
+                        otherUser: widget.user, conversation: widget.conversation),
+                  ),
+                ],
+              ),
             ),
             ChatPageBottomBar(
               conversation: widget.conversation,
