@@ -29,7 +29,7 @@ class _TweetState extends State<Tweet> {
       
         TweetTextPart(text: widget.tweet.text),
 
-        if (widget.tweet.image != null) TweetImagePart(image: widget.tweet.image!),//? bu ünlemi koymak zorundamıyım
+        if (widget.tweet.image != null) TweetImagePart(image: widget.tweet.image!),
         
         TweetBottomActionBar(tweet: widget.tweet, user: widget.user),
 

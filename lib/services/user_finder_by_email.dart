@@ -1,7 +1,5 @@
 import 'package:twitter/models/user_model.dart';
 
-
-//? hangisi daha iyi ?
 UserModel? userFinderByEmail({required String userEmail ,required List<UserModel> list}) {
   UserModel? a;
 

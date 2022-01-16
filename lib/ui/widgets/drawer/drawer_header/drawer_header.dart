@@ -3,9 +3,6 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:twitter/models/user_model.dart';
 
 bool isArrowDown = true; 
-
-
-//? bu doğru bir isimlendirme mi?
 class DrawerHeaderUI extends StatelessWidget {
   const DrawerHeaderUI({ 
     Key? key,

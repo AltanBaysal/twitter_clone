@@ -24,7 +24,6 @@ class _TwitterMainPageState extends State<TwitterMainPage> {
     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.dark);
     return Scaffold(
       floatingActionButton: FloatingActionButton(
-        //? bunun yerine if kullanabilir miyim ?
         child: _currentIndex == 3
             ? SizedBox(
               height: height*0.03,

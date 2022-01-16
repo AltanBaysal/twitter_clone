@@ -4,8 +4,6 @@ import 'package:twitter/constants/asset_constants.dart';
 import 'package:twitter/models/conversation_model.dart';
 import 'package:twitter/models/user_model.dart';
 
-//? bunu buraya mı yoksa screende chatpage diye dosya oluşturup oraya mı koymalıyım
-
 class ChatPageBottomBar extends StatefulWidget {
   const ChatPageBottomBar({
     Key? key,

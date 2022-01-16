@@ -7,7 +7,6 @@ import 'package:twitter/services/user_finder_by_email.dart';
 late UserModel selectedUser; 
 
 void selectUser({required String userEmail, required String password}) {
-  //? bu mu doğru yoksa collection darttan ekleyip kullanmak mı?
   UserModel? user = userFinderByEmail(userEmail: userEmail, list: users);
 
   if (user == null) throw Exception(ErrorMessages.userNotFound);

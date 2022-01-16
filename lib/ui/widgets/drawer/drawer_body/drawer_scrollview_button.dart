@@ -31,7 +31,6 @@ class DrawerScrollViewButton extends StatelessWidget {
             child: SizedBox(
               height: height*0.03,
               width: height*0.03,
-              //? iconda ünlem kullandım yukarda null değilse gir diyorum ama yinde null hatası veriyordu
               child: SvgPicture.asset(icon!,fit:BoxFit.cover),
             ),
           ),

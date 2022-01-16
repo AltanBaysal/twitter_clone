@@ -11,8 +11,6 @@ class RetweetButtomSheetButton extends StatelessWidget {
     required this.func,
   }) : super(key: key);
 
-
-  //?bunları kullanırken widget.yapmama gerek varmı
   final double width;
   final double height;
   final String text;

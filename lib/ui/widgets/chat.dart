@@ -61,8 +61,6 @@ class _ChatState extends State<Chat> {
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                     softWrap: false,
-
-                    //? kelimelere dikkat etmeden kesme olayını yapmadım
                     text: TextSpan(
                       text: "${otherUser.username} ",
                       style: TextStyle(

@@ -1,5 +1,3 @@
-//? implement kullanarak interface ekleyip dil seçeneği eklemeye gidilebilir gibi
-
 class TurkishTexts{
   static const List<String> turkishMonths = ["Ocak","Şubat","Mart","Nisan","Mayıs","Haziran","Temmuz","Ağustos","Eylül","Ekim","Kasım","Aralık"];
   

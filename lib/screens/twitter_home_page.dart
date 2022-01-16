@@ -4,7 +4,6 @@ import 'package:twitter/ui/widgets/appbar/appbar_ui/appbar.dart';
 import 'package:twitter/ui/widgets/appbar/home_page_appbar_items.dart';
 import 'package:twitter/ui/widgets/tweet/tweet.dart';
 
-
 class HomePage extends StatefulWidget {
   const HomePage({
     Key? key,
@@ -20,25 +19,20 @@ class HomePage extends StatefulWidget {
 class _TwitterMainPageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    double height = MediaQuery.of(context).size.height;
-
     return NestedScrollView(
       floatHeaderSlivers: true,
       headerSliverBuilder: (context, innerBoxScrolled) => [
         const AppbarUI(appbaritems: HomepageAppBar()),
       ],
-      
-
-      //? yukarı çekme olayını yapamadım
       body: RefreshIndicator(
         onRefresh: () => _refresh(),
-        child: ListView.separated(          
+        child: ListView.separated(
           padding: const EdgeInsets.only(top: 0),
           shrinkWrap: true,
           physics: const NeverScrollableScrollPhysics(),
-          separatorBuilder: (context, index) => Container(
-            height: height * 0.012,
-            color: const Color(0xFFC6CBCB),
+          separatorBuilder: (context, index) => const Divider(
+            thickness: 1,
+            color: Color(0xFFC6CBCB),
           ),
           itemCount: widget.tweets.length,
           itemBuilder: (context, index) => Tweet(
@@ -49,7 +43,6 @@ class _TwitterMainPageState extends State<HomePage> {
       ),
     );
   }
-
 
   Future _refresh() {
     setState(() {});

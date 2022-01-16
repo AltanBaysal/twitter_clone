@@ -79,7 +79,7 @@ class _TweetBottomActionBarState extends State<TweetBottomActionBar> {
 class TweetBottomActionBarButtonWithActiveToggle extends StatelessWidget {
   const TweetBottomActionBarButtonWithActiveToggle({
     Key? key,
-    required this.activeToggle, //? activePassiveToggle şeklinde mi olması gerek yoksa doğru mu?
+    required this.activeToggle,
     required this.activeIcon,
     required this.icon,
     required this.text,
@@ -91,7 +91,7 @@ class TweetBottomActionBarButtonWithActiveToggle extends StatelessWidget {
   final String icon;
   final String text;
   final Function
-      func; //? onChange ile yaptığım şeyi Function kullanarakta yapabiliyorum farkı ne oluyor
+      func;
 
   @override
   Widget build(BuildContext context) {
@@ -136,7 +136,7 @@ class TweetBottomActionBarButton extends StatelessWidget {
   final String icon;
   final String? text;
   final Function
-      func; //? onChange ile yaptığım şeyi Function kullanarakta yapabiliyorum farkı ne oluyor
+      func;
 
   @override
   Widget build(BuildContext context) {

@@ -16,8 +16,7 @@ class HomepageAppBar extends StatelessWidget {
             func: () {
               Scaffold.of(context).openDrawer();
             }),
-
-        //? uygulama içindeki bütün Icon butonları tek bir widget olarak yazmalı mıyım?
+            
         AppbarIconButton(icon: IconsConstant.homeAppbarMidIcon, func: () {}),
 
         AppbarIconButton(icon: IconsConstant.homeAppbarRighttIcon, func: () {}),

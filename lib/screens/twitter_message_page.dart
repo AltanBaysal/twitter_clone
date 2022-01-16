@@ -22,9 +22,6 @@ class _MessagePageState extends State<MessagePage> {
       headerSliverBuilder: (context, innerBoxScrolled) => [
         const AppbarUI(appbaritems: MessagePageAppBar()),
       ],
-      
-
-      //? yukarı çekme olayını yapamadım
       body: RefreshIndicator(
         onRefresh: () => _refresh(),
         child: ListView.builder(          

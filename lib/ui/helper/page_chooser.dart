@@ -6,7 +6,6 @@ import 'dart:math' as math;
 
 import 'package:twitter/screens/twitter_message_page.dart';
 
-//? bunun yeri doğru mu çünkü bu bir widget
 class PageChooser extends StatelessWidget {
   const PageChooser({
     Key? key,
