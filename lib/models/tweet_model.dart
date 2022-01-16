@@ -1,4 +1,5 @@
-import 'package:twitter/assets/constatns.dart';
+import 'package:twitter/constants/turkish_constants.dart';
+import 'package:twitter/core/init/create_users.dart';
 import 'package:twitter/models/user_model.dart';
 import 'package:twitter/services/user_finder_by_email.dart';
 
@@ -76,7 +77,7 @@ class TweetModel {
   }
 
   UserModel userOfTweet() {
-    return userFinderByEmail2(mailOfUser: _mailOfUser);
+    return userFinderByEmail(userEmail: _mailOfUser, list: users)!;
   }
 
   bool isPersonLiked({required String userEmail}) {

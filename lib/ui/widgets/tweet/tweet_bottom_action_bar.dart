@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:twitter/assets/constatns.dart';
+import 'package:twitter/constants/asset_constants.dart';
 import 'package:twitter/models/tweet_model.dart';
 import 'package:twitter/models/user_model.dart';
 import 'package:twitter/ui/widgets/retweet_bottom_sheet/retweet_bottom_sheet.dart';
@@ -26,19 +26,18 @@ class _TweetBottomActionBarState extends State<TweetBottomActionBar> {
     double width = MediaQuery.of(context).size.width;
 
     return Container(
-      padding: EdgeInsets.symmetric(vertical: width * 0.01, horizontal: height * 0.01),
+      padding: EdgeInsets.symmetric(
+          vertical: width * 0.01, horizontal: height * 0.01),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-
           TweetBottomActionBarButton(
-            icon: IconsConstant.tweetComment, 
-            text: widget.tweet.totalComments.toString(),
-            func: (){}
-          ),
-
+              icon: IconsConstant.tweetComment,
+              text: widget.tweet.totalComments.toString(),
+              func: () {}),
           TweetBottomActionBarButtonWithActiveToggle(
-            activeToggle: widget.tweet.isPersonRetweet(userEmail: widget.user.userEmail),
+            activeToggle:
+                widget.tweet.isPersonRetweet(userEmail: widget.user.userEmail),
             activeIcon: IconsConstant.tweetRetweetcolored,
             icon: IconsConstant.tweetRetweet,
             text: widget.tweet.totalRetweets.toString(),
@@ -59,9 +58,9 @@ class _TweetBottomActionBarState extends State<TweetBottomActionBar> {
               );
             },
           ),
-          
           TweetBottomActionBarButtonWithActiveToggle(
-              activeToggle: widget.tweet.isPersonLiked(userEmail: widget.user.userEmail),
+              activeToggle:
+                  widget.tweet.isPersonLiked(userEmail: widget.user.userEmail),
               activeIcon: IconsConstant.tweetLikeColored,
               icon: IconsConstant.tweetLike,
               text: widget.tweet.totalLike.toString(),
@@ -69,19 +68,13 @@ class _TweetBottomActionBarState extends State<TweetBottomActionBar> {
                 widget.tweet.likeToggle(userEmail: widget.user.userEmail);
                 setState(() {});
               }),
-          
           TweetBottomActionBarButton(
-            icon: IconsConstant.tweetShare, 
-            func: (){}
-          ),
-
+              icon: IconsConstant.tweetShare, func: () {}),
         ],
       ),
     );
   }
 }
-
-
 
 class TweetBottomActionBarButtonWithActiveToggle extends StatelessWidget {
   const TweetBottomActionBarButtonWithActiveToggle({
@@ -164,13 +157,13 @@ class TweetBottomActionBarButton extends StatelessWidget {
             ),
           ),
         ),
-        
-        if(text != null)Text(
-          text!,
-          style: const TextStyle(
-            color: Color(0xFF4E4E4E),
+        if (text != null)
+          Text(
+            text!,
+            style: const TextStyle(
+              color: Color(0xFF4E4E4E),
+            ),
           ),
-        ),
       ],
     );
   }

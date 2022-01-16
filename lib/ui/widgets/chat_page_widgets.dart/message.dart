@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:twitter/core/init/create_users.dart';
 import 'package:twitter/models/message_model.dart';
 import 'package:twitter/services/user_finder_by_email.dart';
 
@@ -40,14 +41,20 @@ class MessageYouSent extends StatelessWidget {
                   child: Text(
                     message.text,
                     softWrap: true,
-                    style:TextStyle(color: Colors.white, fontSize: width * 0.04),
+                    style:
+                        TextStyle(color: Colors.white, fontSize: width * 0.04),
                   ),
                 ),
               ),
             ],
           ),
         ),
-        if (addTimeToggle) Text(message.sendingDateAsString(),style: TextStyle(color: const Color(0x9E313131),fontSize: width*0.03),),
+        if (addTimeToggle)
+          Text(
+            message.sendingDateAsString(),
+            style: TextStyle(
+                color: const Color(0x9E313131), fontSize: width * 0.03),
+          ),
       ],
     );
   }
@@ -71,8 +78,12 @@ class MessageOppenentSent extends StatelessWidget {
         CircleAvatar(
           radius: width * 0.06,
           backgroundImage: NetworkImage(
-              userFinderByEmail2(mailOfUser: message.emailWhoSent)
-                  .userProfilePicture),
+            userFinderByEmail(
+              userEmail: message.emailWhoSent,
+              list: users,
+            )!
+                .userProfilePicture,
+          ),
         ),
         Container(
           margin: EdgeInsets.only(left: width * 0.03),
@@ -117,7 +128,12 @@ class MessageOppenentSent extends StatelessWidget {
                   ],
                 ),
               ),
-              if (addTimeToggle) Text(message.sendingDateAsString(),style: TextStyle(color: const Color(0x9E313131),fontSize: width*0.03),),
+              if (addTimeToggle)
+                Text(
+                  message.sendingDateAsString(),
+                  style: TextStyle(
+                      color: const Color(0x9E313131), fontSize: width * 0.03),
+                ),
             ],
           ),
         ),

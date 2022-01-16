@@ -1,3 +1,4 @@
+import 'package:twitter/core/init/create_users.dart';
 import 'package:twitter/models/message_model.dart';
 import 'package:twitter/models/user_model.dart';
 import 'package:twitter/services/user_finder_by_email.dart';
@@ -28,7 +29,7 @@ class Conversation{
     List<UserModel> usersOfConversation = [];
     for (var element in _usersEmail) { 
       usersOfConversation.add(
-        userFinderByEmail2(mailOfUser: element)
+        userFinderByEmail(userEmail: element, list: users)!
       );
     }
     

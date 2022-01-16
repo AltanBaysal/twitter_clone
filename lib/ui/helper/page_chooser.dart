@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:twitter/assets/constatns.dart';
+import 'package:twitter/constants/english_constants.dart';
 import 'package:twitter/core/init/create_tweets.dart';
 import 'package:twitter/screens/twitter_home_page.dart';
 import 'dart:math' as math;
 
 import 'package:twitter/screens/twitter_message_page.dart';
-
-
 
 //? bunun yeri doğru mu çünkü bu bir widget
 class PageChooser extends StatelessWidget {
@@ -19,7 +17,7 @@ class PageChooser extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (currentIndex == 0) return HomePage(tweets: tweets);
-    if(currentIndex == 3) return const MessagePage();
+    if (currentIndex == 3) return const MessagePage();
 
     return Center(
       child: Transform.rotate(

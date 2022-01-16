@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:twitter/assets/constatns.dart';
+import 'package:twitter/constants/asset_constants.dart';
 import 'package:twitter/models/tweet_model.dart';
 import 'package:twitter/models/user_model.dart';
 import 'package:twitter/ui/widgets/retweet_bottom_sheet/retweet_buttom_sheet_button.dart';
@@ -25,29 +25,38 @@ class RetweetBottomSheet extends StatelessWidget {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-
-          if (tweet.isPersonRetweet(userEmail: selectedUser.userEmail)) RetweetButtomSheetButton(width: width, height: height, text: "Retweetlemeyi geri al",
-            image: IconsConstant.retweetBottomSheetRetweet, func: (){
-              tweet.retweetToggle(userEmail: selectedUser.userEmail);
-              Navigator.of(context).pop();
-              onChange();
-            },),
-
-          if (!tweet.isPersonRetweet(userEmail: selectedUser.userEmail)) ...[
-             RetweetButtomSheetButton(width: width, height: height, text: "Retweetle", image: 
-             IconsConstant.retweetBottomSheetRetweet, func: (){
-               tweet.retweetToggle(userEmail: selectedUser.userEmail);
+          if (tweet.isPersonRetweet(userEmail: selectedUser.userEmail))
+            RetweetButtomSheetButton(
+              width: width,
+              height: height,
+              text: "Retweetlemeyi geri al",
+              image: IconsConstant.retweetBottomSheetRetweet,
+              func: () {
+                tweet.retweetToggle(userEmail: selectedUser.userEmail);
                 Navigator.of(context).pop();
                 onChange();
-             }),
-
-             RetweetButtomSheetButton(width: width, height: height, text: "Tweeti Alıntıla", 
-             image: IconsConstant.retweetBottomsheetQuoteTweet, func: (){}),
+              },
+            ),
+          if (!tweet.isPersonRetweet(userEmail: selectedUser.userEmail)) ...[
+            RetweetButtomSheetButton(
+                width: width,
+                height: height,
+                text: "Retweetle",
+                image: IconsConstant.retweetBottomSheetRetweet,
+                func: () {
+                  tweet.retweetToggle(userEmail: selectedUser.userEmail);
+                  Navigator.of(context).pop();
+                  onChange();
+                }),
+            RetweetButtomSheetButton(
+                width: width,
+                height: height,
+                text: "Tweeti Alıntıla",
+                image: IconsConstant.retweetBottomsheetQuoteTweet,
+                func: () {}),
           ],
-      
         ],
       ),
     );
   }
 }
-

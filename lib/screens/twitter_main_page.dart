@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:twitter/assets/constatns.dart';
+import 'package:twitter/constants/asset_constants.dart';
 import 'package:twitter/ui/helper/page_chooser.dart';
 import 'package:twitter/ui/widgets/drawer/twitter_drawer.dart';
 import 'package:twitter/ui/widgets/twitter_bottom_navigaton_bar_item.dart';

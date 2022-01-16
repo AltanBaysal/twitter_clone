@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:twitter/assets/constatns.dart';
+import 'package:twitter/constants/asset_constants.dart';
 import 'package:twitter/models/user_model.dart';
 
 class ChatPageAppbar extends StatelessWidget {
