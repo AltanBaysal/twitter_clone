@@ -12,7 +12,6 @@ class MessageYouSent extends StatelessWidget {
       : super(key: key);
 
   final bool addTimeToggle;
-
   final Message message;
 
   @override
@@ -101,7 +100,7 @@ class MessageOppenentSent extends StatelessWidget {
                       padding: EdgeInsets.symmetric(horizontal: width * 0.03),
                       margin: EdgeInsets.only(right: width * 0.02),
                       decoration: const BoxDecoration(
-                        color: ColorsConstant.grey,
+                        color: ColorsConstant.lightGrey,
                         borderRadius: BorderRadius.only(
                           topLeft: Radius.circular(20),
                           topRight: Radius.circular(20),
