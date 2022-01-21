@@ -1,4 +1,11 @@
+//? bu constantlarıda asset_constant klasörü oluşturup farklı dartlara koymalı mıyım?
 class IconsConstant{
+
+
+
+  //MessagePage
+  static const String messagePageAppbarRightButton = "assets/icons/settings.svg";
+
 
   //ChatPageAppbarButton
   static const String chatPageAppbarButton = "assets/icons/information.svg";
@@ -9,23 +16,26 @@ class IconsConstant{
    static const String chatPageAppbarButtonSoundVoice = "assets/icons/soundwaves.svg";
    static const String chatPageAppbarButtonSend = "assets/icons/send.svg";
 
+  //ChatPageMessage
+   static const String chatPageMessageReactionIcon = "assets/icons/heart.svg";
+
 
   //FloatingActionButton
   static const String  floatingActionButtonMessagePageIcon = "assets/icons/newmessage.svg";
 
 
-  //bottomNavigationBarItem
-  static const String bottomNavigationBarItemNotifications = "assets/icons/bellring.svg";
-  static const String bottomNavigationBarItemNotificationsFilled= "assets/icons/bellringfilled.svg";
+  //TwitterBottomNavigationBarItem
+  static const String twitterBottomNavigationBarItemItemNotifications = "assets/icons/bellring.svg";
+  static const String twitterBottomNavigationBarItemNotificationsFilled= "assets/icons/bellringfilled.svg";
 
-  static const String bottomNavigationBarItemHome = "assets/icons/birdhouse.svg";
+  static const String twitterBottomNavigationBarItemHome = "assets/icons/birdhouse.svg";
   static const String bottomNavigationBarItemHomeFilled = "assets/icons/birdhousefilled.svg";
 
-  static const String bottomNavigationBarItemMessages = "assets/icons/letter.svg";
-  static const String bottomNavigationBarItemMessagesFilled = "assets/icons/letterfilled.svg";
+  static const String twitterBottomNavigationBarItemMessages = "assets/icons/letter.svg";
+  static const String twitterBottomNavigationBarItemFilled = "assets/icons/letterfilled.svg";
 
-  static const String  bottomNavigationBarItemSearch = "assets/icons/search.svg";
-  static const String  bottomNavigationBarItemSearchFilled = "assets/icons/searchfilled.svg";
+  static const String  twitterBottomNavigationBarItemSearch = "assets/icons/search.svg";
+  static const String  twitterBottomNavigationBarItemSearchFilled = "assets/icons/searchfilled.svg";
 
 
   //tweet
@@ -52,8 +62,8 @@ class IconsConstant{
 
 
   //drawer
-  static const String drawerDownArrow = "assets/icons/downarrow.svg";
-  static const String drawerUpArrow = "assets/icons/uparrow.svg";
+  static const String drawerHeaderDownArrow = "assets/icons/downarrow.svg";
+  static const String drawerHeaderUpArrow = "assets/icons/uparrow.svg";
 
 
   static const String drawerProfile = "assets/icons/user.svg";
@@ -66,4 +76,5 @@ class IconsConstant{
 
   static const String drawerLamp = "assets/icons/lamp.svg";
   static const String drawerQrCode = "assets/icons/qrcode.svg";  
+
 }

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:twitter/constants/color_constants.dart';
+import 'package:twitter/constants/english_constants.dart';
 import 'package:twitter/models/conversation_model.dart';
 import 'package:twitter/models/user_model.dart';
 import 'package:twitter/ui/helper/message_designer.dart';
@@ -56,9 +58,9 @@ class ChatPageBody extends StatelessWidget {
                     TextStyle(color: Colors.black, fontSize: width * 0.04),
                 children: [
                   TextSpan(
-                    text: " Following ",
+                    text: EnglishTexts.chatPageBodyUpperPartUserInfoFollowing,
                     style: TextStyle(
-                        color: const Color(0xFF7B7B7B),
+                        color: ColorsConstant.grey,
                         fontSize: width * 0.04),
                   ),
                   TextSpan(
@@ -67,15 +69,15 @@ class ChatPageBody extends StatelessWidget {
                         color: Colors.black, fontSize: width * 0.04),
                   ),
                   TextSpan(
-                    text: " Followers ",
+                    text: EnglishTexts.chatPageBodyUpperPartUserInfoFollowers,
                     style: TextStyle(
-                        color: const Color(0xFF7B7B7B),
+                        color: ColorsConstant.grey,
                         fontSize: width * 0.04),
                   ),
                 ],
               ),
             ),
-            Text("Joined ${otherUser.getJoinDateAsString()}"),
+            Text("${EnglishTexts.joined} ${otherUser.getJoinDateAsString()}"),
           ],
         ),
       ),

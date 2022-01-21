@@ -21,6 +21,20 @@ class MainPage extends StatelessWidget {
   }
 }
 
+
+/* Yapılanlar
+  
+  Constant düzlendi
+  TwitterBottomNavigationBar düzlendi
+  Square_svg_icon_creater_from_string_with_sized_box.dart eklendi
+  PageChooser enum olarak çalışacak hale getirldi ama doğru olarak yaptım mı tam emin değilim
+  EnglishText ve IconConst a yeni eklemeler yapıldı
+  chat_page_setting.dart eklendi
+  chat_page_settings_body_item.dart eklendi
+  
+*/
+
+
 //TODO
 //appbarların altına çizgi ekle
 //textleri de constant haline getir

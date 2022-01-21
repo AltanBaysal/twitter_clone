@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:twitter/constants/color_constants.dart';
 import 'package:twitter/core/init/create_users.dart';
 import 'package:twitter/models/conversation_model.dart';
 import 'package:twitter/models/user_model.dart';
 import 'package:twitter/screens/chat_page.dart';
 import 'package:twitter/services/user_finder_by_email.dart';
+
 
 class Chat extends StatefulWidget {
   const Chat({
@@ -20,9 +22,7 @@ class Chat extends StatefulWidget {
 class _ChatState extends State<Chat> {
   @override
   Widget build(BuildContext context) {
-    UserModel otherUser = userFinderByEmail(
-        userEmail: widget.conversation.usersEmailWithoutSelectedUser().first,
-        list: users)!;
+    UserModel otherUser = userFinderByEmail(userEmail: widget.conversation.usersEmailWithoutSelectedUser().first,list: users);
 
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
@@ -37,6 +37,7 @@ class _ChatState extends State<Chat> {
         );
       },
       child: Container(
+        
         padding: EdgeInsets.symmetric(
             horizontal: width * 0.03, vertical: height * 0.01),
         child: Row(
@@ -50,6 +51,7 @@ class _ChatState extends State<Chat> {
                 backgroundImage: NetworkImage(otherUser.userProfilePicture),
               ),
             ),
+
             SizedBox(
               width: width * 0.65,
               height: height * 0.08,
@@ -69,8 +71,8 @@ class _ChatState extends State<Chat> {
                         TextSpan(
                           text: otherUser.userEmail,
                           style: TextStyle(
-                            color: const Color(0x9E585858),
-                            fontSize: width * 0.034,
+                            color: ColorsConstant.lightBlack,
+                            fontSize: width * 0.045,
                           ),
                         ),
                       ],
@@ -82,8 +84,8 @@ class _ChatState extends State<Chat> {
                         : "",
                     softWrap: true,
                     style: TextStyle(
-                      color: const Color(0x9E585858),
-                      fontSize: width * 0.034,
+                      color: ColorsConstant.lightBlack,
+                      fontSize: width * 0.045,
                     ),
                     maxLines: 2,
                   )
@@ -101,48 +103,3 @@ class _ChatState extends State<Chat> {
     );
   }
 }
-
-
-/*
- child: Container(
-        padding: EdgeInsets.symmetric(
-            horizontal: width * 0.02, vertical: height * 0.01),
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                CircleAvatar(
-                  radius: width * 0.08,
-                  backgroundImage: const NetworkImage(
-                      "https://i.pinimg.com/originals/d9/56/9b/d9569bbed4393e2ceb1af7ba64fdf86a.jpg"),
-                ),
-                Container(
-                  margin: EdgeInsets.only(left: width * 0.04),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        "User1",
-                        style: TextStyle(
-                            fontSize: width * 0.045,
-                            fontWeight: FontWeight.bold),
-                      ),
-                      Text("LastMessage", softWrap: true)
-                    ],
-                  ),
-                ),
-              ],
-            ),
-            
-            Container(
-              margin: EdgeInsets.only(left: width * 0.01),
-              alignment: Alignment.topRight,
-              child: const Text("1d"),
-            ),
-          ],
-        ),
-      ),
-*/

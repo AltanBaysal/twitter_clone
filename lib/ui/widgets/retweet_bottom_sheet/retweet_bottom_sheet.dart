@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:twitter/constants/asset_constants.dart';
+import 'package:twitter/constants/english_constants.dart';
 import 'package:twitter/models/tweet_model.dart';
 import 'package:twitter/models/user_model.dart';
 import 'package:twitter/ui/widgets/retweet_bottom_sheet/retweet_buttom_sheet_button.dart';
@@ -29,7 +30,7 @@ class RetweetBottomSheet extends StatelessWidget {
             RetweetButtomSheetButton(
               width: width,
               height: height,
-              text: "Retweetlemeyi geri al",
+              text: EnglishTexts.retweetBottomSheetUndoRetweet,
               image: IconsConstant.retweetBottomSheetRetweet,
               func: () {
                 tweet.retweetToggle(userEmail: selectedUser.userEmail);
@@ -41,7 +42,7 @@ class RetweetBottomSheet extends StatelessWidget {
             RetweetButtomSheetButton(
                 width: width,
                 height: height,
-                text: "Retweetle",
+                text: EnglishTexts.retweetBottomSheetRetweet,
                 image: IconsConstant.retweetBottomSheetRetweet,
                 func: () {
                   tweet.retweetToggle(userEmail: selectedUser.userEmail);
@@ -51,7 +52,7 @@ class RetweetBottomSheet extends StatelessWidget {
             RetweetButtomSheetButton(
                 width: width,
                 height: height,
-                text: "Tweeti Alıntıla",
+                text: EnglishTexts.retweetBottomSheetQuoteTweet,
                 image: IconsConstant.retweetBottomsheetQuoteTweet,
                 func: () {}),
           ],

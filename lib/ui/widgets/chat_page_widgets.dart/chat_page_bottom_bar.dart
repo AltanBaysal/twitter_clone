@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:twitter/constants/asset_constants.dart';
+import 'package:twitter/constants/english_constants.dart';
 import 'package:twitter/models/conversation_model.dart';
 import 'package:twitter/models/user_model.dart';
 
@@ -52,6 +53,7 @@ class _ChatPageBottomBarState extends State<ChatPageBottomBar> {
               ),
             ),
           ),
+          
           GestureDetector(
             onTap: () {},
             child: SizedBox(
@@ -64,6 +66,7 @@ class _ChatPageBottomBarState extends State<ChatPageBottomBar> {
               ),
             ),
           ),
+         
           SizedBox(
             width: width * 0.55,
             height: width * 0.06,
@@ -79,11 +82,12 @@ class _ChatPageBottomBarState extends State<ChatPageBottomBar> {
               },
               controller: textController,
               decoration: InputDecoration(
-                hintText: "Start a message",
+                hintText: EnglishTexts.chatPageBottomBarSendTextHint,
                 hintStyle: TextStyle(fontSize: width * 0.035),
               ),
             ),
           ),
+          
           Container(
             height: width * 0.08,
             width: 0.5,

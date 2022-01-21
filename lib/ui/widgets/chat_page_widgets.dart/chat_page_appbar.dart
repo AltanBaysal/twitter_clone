@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:twitter/constants/asset_constants.dart';
+import 'package:twitter/constants/color_constants.dart';
 import 'package:twitter/models/user_model.dart';
 
 class ChatPageAppbar extends StatelessWidget {
@@ -42,7 +43,7 @@ class ChatPageAppbar extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(user.username,style: TextStyle(color: Colors.black,fontSize: width *0.047,fontWeight: FontWeight.bold),),
-                Text(user.userEmail,style: TextStyle(color: const Color(0x9E585858), fontSize: width * 0.035),),
+                Text(user.userEmail,style: TextStyle(color: ColorsConstant.lightBlack, fontSize: width * 0.035),),
               ],
             ),
           ),

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:twitter/constants/asset_constants.dart';
+import 'package:twitter/constants/color_constants.dart';
 import 'package:twitter/core/init/create_users.dart';
 import 'package:twitter/models/message_model.dart';
 import 'package:twitter/services/user_finder_by_email.dart';
@@ -53,7 +55,7 @@ class MessageYouSent extends StatelessWidget {
           Text(
             message.sendingDateAsString(),
             style: TextStyle(
-                color: const Color(0x9E313131), fontSize: width * 0.03),
+                color: ColorsConstant.lightBlack, fontSize: width * 0.03),
           ),
       ],
     );
@@ -81,8 +83,7 @@ class MessageOppenentSent extends StatelessWidget {
             userFinderByEmail(
               userEmail: message.emailWhoSent,
               list: users,
-            )!
-                .userProfilePicture,
+            ).userProfilePicture,
           ),
         ),
         Container(
@@ -100,7 +101,7 @@ class MessageOppenentSent extends StatelessWidget {
                       padding: EdgeInsets.symmetric(horizontal: width * 0.03),
                       margin: EdgeInsets.only(right: width * 0.02),
                       decoration: const BoxDecoration(
-                        color: Color(0x9EC1C1C1),
+                        color: ColorsConstant.grey,
                         borderRadius: BorderRadius.only(
                           topLeft: Radius.circular(20),
                           topRight: Radius.circular(20),
@@ -121,7 +122,7 @@ class MessageOppenentSent extends StatelessWidget {
                       child: SizedBox(
                         height: width * 0.06,
                         width: width * 0.06,
-                        child: SvgPicture.asset("assets/icons/heart.svg",
+                        child: SvgPicture.asset(IconsConstant.chatPageMessageReactionIcon,
                             fit: BoxFit.cover),
                       ),
                     ),
@@ -132,7 +133,7 @@ class MessageOppenentSent extends StatelessWidget {
                 Text(
                   message.sendingDateAsString(),
                   style: TextStyle(
-                      color: const Color(0x9E313131), fontSize: width * 0.03),
+                      color: ColorsConstant.lightBlack, fontSize: width * 0.03),
                 ),
             ],
           ),

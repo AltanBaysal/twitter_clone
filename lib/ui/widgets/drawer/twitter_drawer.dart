@@ -24,7 +24,7 @@ class _TwitterDrawerState extends State<TwitterDrawer> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
 
-              DrawerHeaderUI(
+              CustomDrawerHeader(
                 onChange: (){
                   setState(() {});
                 },

@@ -1,4 +1,4 @@
-import 'package:twitter/constants/turkish_constants.dart';
+import 'package:twitter/constants/english_constants.dart';
 import 'package:twitter/core/init/create_users.dart';
 import 'package:twitter/models/user_model.dart';
 import 'package:twitter/services/user_finder_by_email.dart';
@@ -62,22 +62,22 @@ class TweetModel {
   String timeSinceSharing() {
     Duration elapsedTimeD = DateTime.now().difference(_releaseTime);
 
-    if (elapsedTimeD.inDays > 6) return "${_releaseTime.day} ${TurkishTexts.turkishMonths[_releaseTime.month - 1].substring(4)}";//!
+    if (elapsedTimeD.inDays > 6) return "${_releaseTime.day} ${EnglishTexts.months[_releaseTime.month - 1].substring(4)}";//!
 
-    if (elapsedTimeD.inDays > 0) return "${elapsedTimeD.inDays} ${TurkishTexts.day}";
+    if (elapsedTimeD.inDays > 0) return "${elapsedTimeD.inDays} ${EnglishTexts.abbreviationOfDay}";
 
-    if (elapsedTimeD.inHours > 0) return "${elapsedTimeD.inHours} ${TurkishTexts.abbreviationOfHour}";
+    if (elapsedTimeD.inHours > 0) return "${elapsedTimeD.inHours} ${EnglishTexts.abbreviationOfHour}";
 
-    if (elapsedTimeD.inMinutes > 0) return "${elapsedTimeD.inMinutes.toString()} ${TurkishTexts.abbreviationOfMinutes}";
+    if (elapsedTimeD.inMinutes > 0) return "${elapsedTimeD.inMinutes.toString()} ${EnglishTexts.abbreviationOfMinutes}";
 
-    if (elapsedTimeD.inSeconds > 0)return "${elapsedTimeD.inSeconds.toString()} ${TurkishTexts.abbreviationOfSeconds}";
+    if (elapsedTimeD.inSeconds > 0)return "${elapsedTimeD.inSeconds.toString()} ${EnglishTexts.abbreviationOfSeconds}";
     
 
-    return "0 ${TurkishTexts.abbreviationOfSeconds}";
+    return "0 ${EnglishTexts.abbreviationOfSeconds}";
   }
 
   UserModel userOfTweet() {
-    return userFinderByEmail(userEmail: _mailOfUser, list: users)!;
+    return userFinderByEmail(userEmail: _mailOfUser, list: users);
   }
 
   bool isPersonLiked({required String userEmail}) {

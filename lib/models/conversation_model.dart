@@ -1,3 +1,4 @@
+import 'package:twitter/constants/english_constants.dart';
 import 'package:twitter/core/init/create_users.dart';
 import 'package:twitter/models/message_model.dart';
 import 'package:twitter/models/user_model.dart';
@@ -27,7 +28,7 @@ class Conversation {
     List<UserModel> usersOfConversation = [];
     for (var element in _usersEmail) {
       usersOfConversation
-          .add(userFinderByEmail(userEmail: element, list: users)!);
+          .add(userFinderByEmail(userEmail: element, list: users));
     }
 
     return usersOfConversation;
@@ -45,12 +46,11 @@ class Conversation {
   }
 
   String elapsedTimeSinceSentLastMessage() {
-    Duration elapsedTime =
-        DateTime.now().difference(allMessages.last.sendingDate);
-    if (elapsedTime.inDays >= 1) return "${elapsedTime.inDays} d";
-    if (elapsedTime.inHours >= 1) return "${elapsedTime.inHours} h";
-    if (elapsedTime.inMinutes >= 1) return "${elapsedTime.inMinutes} m";
-    if (elapsedTime.inSeconds >= 1) return "${elapsedTime.inSeconds} s";
+    Duration elapsedTime = DateTime.now().difference(allMessages.last.sendingDate);
+    if (elapsedTime.inDays >= 1) return "${elapsedTime.inDays} ${EnglishTexts.abbreviationOfDay}";
+    if (elapsedTime.inHours >= 1) return "${elapsedTime.inHours} ${EnglishTexts.abbreviationOfHour}";
+    if (elapsedTime.inMinutes >= 1) return "${elapsedTime.inMinutes} ${EnglishTexts.abbreviationOfMinutes}";
+    if (elapsedTime.inSeconds >= 1) return "${elapsedTime.inSeconds} ${EnglishTexts.abbreviationOfSeconds}";
     return "";
   }
 }

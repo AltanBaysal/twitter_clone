@@ -1,34 +1,29 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
+import 'package:twitter/ui/widgets/square_svg_icon_creater_from_string_with_sizedbox.dart';
 
+
+//*
 class TwitterBottomNavigationBarItem extends BottomNavigationBarItem {
-  TwitterBottomNavigationBarItem(
-      {Key? key,
-      required double height,
-      required Widget icon,
-      required Widget activeIcon})
-      : super(icon: icon, activeIcon: activeIcon);
+  TwitterBottomNavigationBarItem({
+    Key? key,
+    required double height,
+    required String label,
+    required String icon,
+    required String activeIcon})
+    : super(
+      icon: SquareSvgIconCreaterFromStringWithSizedBox(icon: icon, height: height * 0.04),
+      activeIcon: SquareSvgIconCreaterFromStringWithSizedBox(icon: activeIcon, height: height * 0.04),
+      label: label
+    );
+
+  BottomNavigationBarItem build(BuildContext context){
+    return BottomNavigationBarItem(
+      icon: icon,
+      activeIcon: activeIcon,
+      label: label,
+    );
+  }
 }
 
-//! Bunlar değiştirilsin
-BottomNavigationBarItem twitterBottomNavigationBarItem(
-    {required double height,
-    required String icon,
-    required String activeIcon}) {
-  return BottomNavigationBarItem(
-    icon: SizedBox(
-      height: height * 0.04,
-      width: height * 0.04,
-      child: SvgPicture.asset(
-        icon,
-        fit: BoxFit.cover,
-      ),
-    ),
-    activeIcon: SizedBox(
-      height: height * 0.04,
-      width: height * 0.04,
-      child: SvgPicture.asset(activeIcon, fit: BoxFit.cover),
-    ),
-    label: "",
-  );
-}
+
+

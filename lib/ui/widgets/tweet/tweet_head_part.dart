@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:twitter/constants/color_constants.dart';
 import 'package:twitter/models/tweet_model.dart';
 import 'package:twitter/models/user_model.dart';
 
@@ -14,9 +15,11 @@ class TweetHeadPart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double height = MediaQuery.of(context).size.height; //bunları sürekli kullanmak mantıklı mı?
+    double height = MediaQuery.of(context)
+        .size
+        .height; //bunları sürekli kullanmak mantıklı mı?
     double width = MediaQuery.of(context).size.width;
-    
+
     return Container(
       margin: EdgeInsets.only(left: width * 0.05, top: height * 0.02),
       child: Row(
@@ -42,10 +45,11 @@ class TweetHeadPart extends StatelessWidget {
                           fontWeight: FontWeight.bold,
                           fontSize: width * 0.046),
                     ),
-                    Text("${tweet.mailOfUser} · ${tweet.timeSinceSharing()}",
-                        style: TextStyle(
-                            fontSize: width * 0.046,
-                            color: const Color(0xFF7B7B7B))),
+                    Text(
+                      "${tweet.mailOfUser} · ${tweet.timeSinceSharing()}",
+                      style: TextStyle(
+                          fontSize: width * 0.046, color: ColorsConstant.grey),
+                    ),
                   ],
                 ),
               ),
@@ -56,7 +60,7 @@ class TweetHeadPart extends StatelessWidget {
             iconSize: width * 0.05,
             icon: const Icon(
               Icons.more_vert_rounded,
-              color: Color(0xFFB1B1B1),
+              color: ColorsConstant.lightBlack,
             ),
           )
         ],

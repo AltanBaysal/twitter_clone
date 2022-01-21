@@ -7,7 +7,7 @@ import 'package:twitter/services/user_finder_by_email.dart';
 late UserModel selectedUser; 
 
 void selectUser({required String userEmail, required String password}) {
-  UserModel? user = userFinderByEmail(userEmail: userEmail, list: users);
+  UserModel? user = userFinderByEmailOrNull(userEmail: userEmail, list: users);
 
   if (user == null) throw Exception(ErrorMessages.userNotFound);
   selectedUser = user;
@@ -46,8 +46,8 @@ class UserModel {
   List<String> get conversations => _conversations;
 
   String getJoinDateAsString(){
-    EnglishTexts.month[_joinDate.month];
-    return "${EnglishTexts.month[_joinDate.month]} ${_joinDate.year}";
+    EnglishTexts.months[_joinDate.month];
+    return "${EnglishTexts.months[_joinDate.month]} ${_joinDate.year}";
   }
   
   void changeUserbio({required String newbio}){

@@ -1,5 +1,5 @@
 class TurkishTexts{
-  static const List<String> turkishMonths = ["Ocak","Şubat","Mart","Nisan","Mayıs","Haziran","Temmuz","Ağustos","Eylül","Ekim","Kasım","Aralık"];
+  static const List<String> months = ["Ocak","Şubat","Mart","Nisan","Mayıs","Haziran","Temmuz","Ağustos","Eylül","Ekim","Kasım","Aralık"];
   
   static const String day = "gün";
   static const String abbreviationOfHour = "sa";

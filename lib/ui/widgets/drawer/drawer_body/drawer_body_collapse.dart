@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:twitter/constants/asset_constants.dart';
+import 'package:twitter/constants/english_constants.dart';
 import 'drawer_scrollview_button.dart';
 
 
@@ -22,27 +23,27 @@ class DrawerBodyCollapseTopPart extends StatelessWidget {
           ),
 
           const DrawerScrollViewButton(
-            text: "Profil",
+            text: EnglishTexts.drawerScrollViewButtonTextProfile,
             icon: IconsConstant.drawerProfile,),
   
           const DrawerScrollViewButton(
-              text: "Listeler",
+              text: EnglishTexts.drawerScrollViewButtonTextLists,
               icon: IconsConstant.drawerLists,),
 
           const DrawerScrollViewButton(
-              text: "Konular",
+              text: EnglishTexts.drawerScrollViewButtonTextTopics,
               icon: IconsConstant.drawerTopics,),
 
           const DrawerScrollViewButton(
-              text: "Yer işaretleri",
+              text: EnglishTexts.drawerScrollViewButtonTextBookmarks,
               icon: IconsConstant.drawerBookmarks,),
 
          const DrawerScrollViewButton(
-              text: "Anlar",
+              text: EnglishTexts.drawerScrollViewButtonTextMoments,
               icon: IconsConstant.drawerMoments,),
               
           const DrawerScrollViewButton(
-              text: "Gelire dönüştürme",
+              text: EnglishTexts.drawerScrollViewButtonTextMonetization,
               icon: IconsConstant.drawerMonetization,),
 
           Container(
@@ -55,7 +56,7 @@ class DrawerBodyCollapseTopPart extends StatelessWidget {
           ),
 
           const DrawerScrollViewButton(
-              text: "Twitter for Professionals",
+              text: EnglishTexts.drawerScrollViewButtonTextTwitterForProfessionals,
               icon: IconsConstant.drawerTwitterForProfessionals,),
           
           Container(
@@ -67,9 +68,9 @@ class DrawerBodyCollapseTopPart extends StatelessWidget {
             color: Colors.grey,
           ),
           
-          const DrawerScrollViewButton(text: "Ayarlar ve gizlilik"),
+          const DrawerScrollViewButton(text: EnglishTexts.drawerScrollViewButtonTextSettingsAndPrivacy),
 
-          const DrawerScrollViewButton(text: "Yardım Merkezi"),
+          const DrawerScrollViewButton(text: EnglishTexts.drawerScrollViewButtonTextHelpCenter),
         ],
       ),
     ),

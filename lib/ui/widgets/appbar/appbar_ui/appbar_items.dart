@@ -40,7 +40,7 @@ class AppbarIconButton extends StatelessWidget {
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
     return GestureDetector(
-      onTap: func(),
+      onTap: (){func();},
       child: SizedBox(
         height: height * 0.031,
         width: height * 0.031,

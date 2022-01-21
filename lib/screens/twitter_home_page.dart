@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:twitter/constants/color_constants.dart';
 import 'package:twitter/models/tweet_model.dart';
 import 'package:twitter/ui/widgets/appbar/appbar_ui/appbar.dart';
 import 'package:twitter/ui/widgets/appbar/home_page_appbar_items.dart';
@@ -32,7 +33,7 @@ class _TwitterMainPageState extends State<HomePage> {
           physics: const NeverScrollableScrollPhysics(),
           separatorBuilder: (context, index) => const Divider(
             thickness: 1,
-            color: Color(0xFFC6CBCB),
+            color: ColorsConstant.lightGrey,
           ),
           itemCount: widget.tweets.length,
           itemBuilder: (context, index) => Tweet(
