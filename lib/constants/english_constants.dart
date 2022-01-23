@@ -23,10 +23,8 @@ class EnglishTexts {
   //CommonTexts
   static const String joined  = "Joined";
   static const String comingSoon = "Coming Soon";
-
-
-  //MessagePage
-  static const String messagePageAppbarSearchTittle = "Search for people and groups";
+  static const String notifications = "Notifications";
+  static const String snoozeNotifications = "Snooze notifications";
 
   //ChatPage
   static const String chatPageBodyUpperPartUserInfoFollowing = " Following ";
@@ -34,20 +32,29 @@ class EnglishTexts {
 
   static const String chatPageBottomBarSendTextHint = "Start a message";
 
-  //ChatPageSettings
-  static const String chatPageSettingsAppBarTitle = "Direct Messages";
+  //ChatPageInfo
+  static const String chatPageInfoAppBarTitle = "Conversation info";
+  static const String chatPageInfoBodyBlock = "Block ";
+  static const String chatPageInfoBodyReport = "Report ";
+  static const String chatPageInfoBodyDeleteConversation = "Delete conversation";
 
-  static const String chatPageSettingsBodyItemClickableBlueText = " Learn more";
+  //MessagePage
+  static const String messagePageAppbarSearchTittle = "Search for people and groups";
+
+  //MessagePageSettings
+  static const String messagePageSettingsAppBarTitle = "Direct Messages";
+
+  static const String messagePageSettingsBodyItemClickableBlueText = " Learn more";
 
   //? doğru kullanım mı ?
-  static const String chatPageSettingsBodyToggleAllowMessageTextTitle ="Allow message requests from everyone";
-  static const String chatPageSettingsBodyToggleAllowMessageText ="Let people who you don't follow send you message request and add you to group conversations. To reply to their messages, you need to accept the request.";
+  static const String messagePageSettingsBodyToggleAllowMessageTextTitle ="Allow message requests from everyone";
+  static const String messagePageSettingsBodyToggleAllowMessageText ="Let people who you don't follow send you message request and add you to group conversations. To reply to their messages, you need to accept the request.";
 
-  static const String chatPageSettingsBodyShowReceiptsTextTitle ="Show read receipts";
-  static const String chatPageSettingsBodyShowReceiptsText ="Let people you're messaging with know when you've seen their messages. Read receipts are not shown on message requests.";
+  static const String messagePageSettingsBodyShowReceiptsTextTitle ="Show read receipts";
+  static const String messagePageSettingsBodyShowReceiptsText ="Let people you're messaging with know when you've seen their messages. Read receipts are not shown on message requests.";
 
-  static const String chatPageSettingsBodyFilterMessageTextTitle = "Filter low-quality messages";
-  static const String chatPageSettingsBodyFilterMessageText = "Hide message requests that have been detected as being potentially spam or low-quality. These will be sent to a separate inbox at the bottom of your message requests. You can still access them if you want.";
+  static const String messagePageSettingsBodyFilterMessageTextTitle = "Filter low-quality messages";
+  static const String messagePageSettingsBodyFilterMessageText = "Hide message requests that have been detected as being potentially spam or low-quality. These will be sent to a separate inbox at the bottom of your message requests. You can still access them if you want.";
 
 
   

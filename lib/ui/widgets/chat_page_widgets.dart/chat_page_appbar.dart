@@ -3,6 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:twitter/constants/asset_constants.dart';
 import 'package:twitter/constants/color_constants.dart';
 import 'package:twitter/models/user_model.dart';
+import 'package:twitter/screens/chat_page_info.dart';
 
 class ChatPageAppbar extends StatelessWidget {
   const ChatPageAppbar({
@@ -49,7 +50,13 @@ class ChatPageAppbar extends StatelessWidget {
           ),
 
           GestureDetector(
-            onTap: (){},
+            onTap: (){
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => ChatPageInfo(user:user)),
+              );
+            },
             child: SizedBox(
               height: height*0.03,
               width: height*0.03,

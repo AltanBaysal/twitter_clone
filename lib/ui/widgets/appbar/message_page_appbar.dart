@@ -3,7 +3,7 @@ import 'package:twitter/constants/asset_constants.dart';
 import 'package:twitter/constants/color_constants.dart';
 import 'package:twitter/constants/english_constants.dart';
 import 'package:twitter/models/user_model.dart';
-import 'package:twitter/screens/chat_page_settings.dart';
+import 'package:twitter/screens/message_page_settings.dart';
 import 'package:twitter/ui/widgets/appbar/appbar_ui/appbar_items.dart';
 
 class MessagePageAppBar extends StatelessWidget {
@@ -46,7 +46,7 @@ class MessagePageAppBar extends StatelessWidget {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                    builder: (context) => const ChatPageSetting()),
+                    builder: (context) => const MessagePageSetting()),
               );
             }
         ),

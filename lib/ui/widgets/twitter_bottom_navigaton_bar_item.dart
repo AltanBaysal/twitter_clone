@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:twitter/ui/widgets/square_svg_icon_creater_from_string_with_sizedbox.dart';
+import 'package:twitter/ui/widgets/common/square_svg_icon_creater_from_string_with_sizedbox.dart';
 
 
 //*

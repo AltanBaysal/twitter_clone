@@ -14,12 +14,14 @@ class MainPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      title:"Twitter Clone",  //!Constant hale getir
       debugShowCheckedModeBanner: false,
       theme: ThemeData(primaryColor: Colors.white),
       home: const TwitterMainPage(),
     );
   }
 }
+
 
 
 /* Yapılanlar
@@ -29,14 +31,30 @@ class MainPage extends StatelessWidget {
   Square_svg_icon_creater_from_string_with_sized_box.dart eklendi
   PageChooser enum olarak çalışacak hale getirldi ama doğru olarak yaptım mı tam emin değilim
   EnglishText ve IconConst a yeni eklemeler yapıldı
-  chat_page_setting.dart eklendi
-  chat_page_settings_body_item.dart eklendi
-  
+  message_page_setting.dart eklendi
+  message_page_settings_body_item.dart eklendi
+
+  extras
+  common folder in widget with text_with_switch.dart,
+  chat_page_info.dart   chatpage in sol üste info butonu ile girilen  info bölümünün ui tasarımı yapıldı
+  chat_page_info_text_button.darts 
+
 */
 
 
+//animated container
 //TODO
+//messagepage settings animation +
+
+
+//message reaction
+//seen
+//açılış ekranı
+//twitter iconuna basınca en yukarı çıkmayı yap
+
+//chatpageinfo fonksiyonel yap
 //appbarların altına çizgi ekle
-//textleri de constant haline getir
-//chatpage geçiş animasyonu
+//chatpage geçiş animasyonu //page transition animation flutter
+
+//... olayına bak
 //class constructor ları isimlendirilmiş yapmaya bak

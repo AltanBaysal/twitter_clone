@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:twitter/constants/color_constants.dart';
 import 'package:twitter/constants/english_constants.dart';
 
-class ChatPageSettingsBodyItem extends StatefulWidget {
-  const ChatPageSettingsBodyItem({
+class MessagePageSettingsBodyItem extends StatefulWidget {
+  const MessagePageSettingsBodyItem({
     Key? key,
     required this.titleText,
     required this.explainertext,
@@ -20,11 +20,11 @@ class ChatPageSettingsBodyItem extends StatefulWidget {
   final bool isSwitched; 
 
   @override
-  State<ChatPageSettingsBodyItem> createState() =>
-      _ChatPageSettingsBodyItemState();
+  State<MessagePageSettingsBodyItem> createState() =>
+      _MessagePageSettingsBodyItemState();
 }
 
-class _ChatPageSettingsBodyItemState extends State<ChatPageSettingsBodyItem> {
+class _MessagePageSettingsBodyItemState extends State<MessagePageSettingsBodyItem> {
 
   @override
   Widget build(BuildContext context) {
@@ -48,7 +48,7 @@ class _ChatPageSettingsBodyItemState extends State<ChatPageSettingsBodyItem> {
                     children: <TextSpan>[
                       TextSpan(text: widget.explainertext,style: TextStyle(color: ColorsConstant.lightBlack,fontSize: height*0.020)),
                       TextSpan(
-                        text: EnglishTexts.chatPageSettingsBodyItemClickableBlueText,
+                        text: EnglishTexts.messagePageSettingsBodyItemClickableBlueText,
                         style: TextStyle(color: Colors.blue,fontSize: height*0.020),
                         recognizer: TapGestureRecognizer()
                           ..onTap = () {
