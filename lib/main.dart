@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:twitter/constants/english_constants.dart';
 import 'package:twitter/core/init/create.dart';
 import 'package:twitter/screens/twitter_main_page.dart';
 
@@ -14,7 +15,7 @@ class MainPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title:"Twitter Clone",  //!Constant hale getir
+      title:EnglishTexts.appName,  //!Constant hale getir
       debugShowCheckedModeBanner: false,
       theme: ThemeData(primaryColor: Colors.white),
       home: const TwitterMainPage(),
@@ -38,23 +39,22 @@ class MainPage extends StatelessWidget {
   common folder in widget with text_with_switch.dart,
   chat_page_info.dart   chatpage in sol üste info butonu ile girilen  info bölümünün ui tasarımı yapıldı
   chat_page_info_text_button.darts 
+  splash screen eklendi
 
 */
 
 
-//animated container
+//visibilty widget
+
 //TODO
-//messagepage settings animation +
-
-
 //message reaction
-//seen
-//açılış ekranı
-//twitter iconuna basınca en yukarı çıkmayı yap
+// add seen for message
+//splash screen
+//get the scrollview top when user click twitter logo on the sliverappbar 
 
-//chatpageinfo fonksiyonel yap
-//appbarların altına çizgi ekle
-//chatpage geçiş animasyonu //page transition animation flutter
+//make functional chatpageinfo 
+//add bottom border to sliverappbar but it isnt working
+//add page transition animation flutter
 
-//... olayına bak
+//look at ...
 //class constructor ları isimlendirilmiş yapmaya bak

@@ -25,6 +25,7 @@ class EnglishTexts {
   static const String comingSoon = "Coming Soon";
   static const String notifications = "Notifications";
   static const String snoozeNotifications = "Snooze notifications";
+  static const String appName ="Twitter Clone";
 
   //ChatPage
   static const String chatPageBodyUpperPartUserInfoFollowing = " Following ";
