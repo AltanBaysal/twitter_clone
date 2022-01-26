@@ -12,34 +12,27 @@ class MessagePageSetting extends StatefulWidget {
 }
 
 class _MessagePageSettingState extends State<MessagePageSetting> {
-  //? bu yanlış bir kullanım muhtemelen
   bool filterMessagesSwitch = false;
   bool allowMessageSwitch = false;
   bool showReceiptsSwitch = false;
 
   bool toggleOpacityFilterMessageWidget = false;
 
-  Duration filterMessageWidgetAnimationDuration =const Duration(milliseconds: 300);//? bunu constant yapmalı mıyım ?
-  
-  void _changeFilterMessageWidgetOpacity() {
-    if (allowMessageSwitch) {
-      Future.delayed(filterMessageWidgetAnimationDuration*1.2, () {
-        setState(() {
-          toggleOpacityFilterMessageWidget = true;
-        });
-      });
-    } else {
-      toggleOpacityFilterMessageWidget = false;
-    }
-  }
+  Duration filterMessageWidgetAnimationDuration =
+      const Duration(milliseconds: 300);
 
+  void _changeFilterMessageWidgetOpacity() {
+    setState(() {
+      if (!toggleOpacityFilterMessageWidget) {
+        toggleOpacityFilterMessageWidget = true;
+      }
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
-
-    _changeFilterMessageWidgetOpacity();
 
     return Scaffold(
       appBar: AppBar(
@@ -79,39 +72,38 @@ class _MessagePageSettingState extends State<MessagePageSetting> {
                 setState(
                   () {
                     allowMessageSwitch = isSwitched;
+                    if (toggleOpacityFilterMessageWidget) {
+                      toggleOpacityFilterMessageWidget = false;
+                    } else {
+                      toggleOpacityFilterMessageWidget = true;
+                    }
                   },
                 );
               },
             ),
-            
-            AnimatedSize(
-              //? muhtemelen çok kötü bir yolla çözdüm  ama yinede bunu yapmam saatlerimi aldı
-              //? çok hızlı açıp kapatınca sıkıntı çıkıyor  direk animated size bağlı animated containerdaki on end gibi bir şey lazım
-              duration: filterMessageWidgetAnimationDuration,
-              curve: Curves.easeIn,
-              child: Opacity(
-                opacity: toggleOpacityFilterMessageWidget ? 1:0,
-                child: Visibility(
-                  visible: allowMessageSwitch,
-                  child: MessagePageSettingsBodyItem(
-                    isSwitched: filterMessagesSwitch,
-                    titleText: EnglishTexts
-                        .messagePageSettingsBodyFilterMessageTextTitle,
-                    explainertext:
-                        EnglishTexts.messagePageSettingsBodyFilterMessageText,
-                    learnMoreFunc: () {},
-                    switchFunc: ({required bool isSwitched}) {
-                      setState(
-                        () {
+            AnimatedContainer(
+                duration: filterMessageWidgetAnimationDuration,
+                height: toggleOpacityFilterMessageWidget ? null : 0,
+                curve: Curves.easeIn,
+                child: SingleChildScrollView(
+                  child: AnimatedOpacity(
+                    duration: filterMessageWidgetAnimationDuration,
+                    opacity: toggleOpacityFilterMessageWidget ? 1 : 0,
+                    child: MessagePageSettingsBodyItem(
+                      isSwitched: filterMessagesSwitch,
+                      titleText: EnglishTexts
+                          .messagePageSettingsBodyFilterMessageTextTitle,
+                      explainertext:
+                          EnglishTexts.messagePageSettingsBodyFilterMessageText,
+                      learnMoreFunc: () {},
+                      switchFunc: ({required bool isSwitched}) {
+                        setState(() {
                           filterMessagesSwitch = isSwitched;
-                        },
-                      );
-                    },
+                        });
+                      },
+                    ),
                   ),
-                ),
-              ),
-            ),
-            
+                )),
             MessagePageSettingsBodyItem(
               isSwitched: showReceiptsSwitch,
               titleText:
