@@ -26,44 +26,25 @@ class BasicTextWithSwitch extends StatelessWidget {
       },
 
       //? custom height kullanımı için daha iyi bir çözümün var mı?
-      child: height == null
-          ? Container(
-              padding: EdgeInsets.symmetric(horizontal: width * 0.025),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    text,
-                    style: TextStyle(fontSize: textFontsize ?? width * 0.040),
-                  ),
-                  Switch(
-                    value: isSwitched,
-                    onChanged: (value) {
-                      switchFunc(isSwitched: value);
-                    },
-                  )
-                ],
-              ),
-            )
-          : Container(
-              height: height,
-              padding: EdgeInsets.symmetric(horizontal: width * 0.025),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    text,
-                    style: TextStyle(fontSize: textFontsize ?? width * 0.040),
-                  ),
-                  Switch(
-                    value: isSwitched,
-                    onChanged: (value) {
-                      switchFunc(isSwitched: value);
-                    },
-                  )
-                ],
-              ),
+      child: Container(
+        height: height,
+        padding: EdgeInsets.symmetric(horizontal: width * 0.025),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              text,
+              style: TextStyle(fontSize: textFontsize ?? width * 0.040),
             ),
+            Switch(
+              value: isSwitched,
+              onChanged: (value) {
+                switchFunc(isSwitched: value);
+              },
+            )
+          ],
+        ),
+      ),
     );
   }
 }

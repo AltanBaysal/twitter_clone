@@ -47,7 +47,6 @@ class EnglishTexts {
 
   static const String messagePageSettingsBodyItemClickableBlueText = " Learn more";
 
-  //? doğru kullanım mı ?
   static const String messagePageSettingsBodyToggleAllowMessageTextTitle ="Allow message requests from everyone";
   static const String messagePageSettingsBodyToggleAllowMessageText ="Let people who you don't follow send you message request and add you to group conversations. To reply to their messages, you need to accept the request.";
 
@@ -60,7 +59,6 @@ class EnglishTexts {
 
   
   //Drawer
-  //? bunlara listedeki sırasına göre isim vermek daha mı doğru olur -> "DrawerScrollViewButtonText1"
 
     //DrawerBody
   static const String drawerScrollViewButtonTextProfile = "Profile";

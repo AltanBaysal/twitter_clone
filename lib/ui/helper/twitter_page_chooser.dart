@@ -6,6 +6,7 @@ import 'package:twitter/ui/enums/page_state.dart';
 
 
 //? bunu ayrı fonksiyon olarak yazmak mantıklı mı ?
+//! Burayi extension ile yap
 class TwitterPageChooser extends StatelessWidget {
    const TwitterPageChooser({
     Key? key,

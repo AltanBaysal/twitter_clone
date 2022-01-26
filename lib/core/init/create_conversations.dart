@@ -5,8 +5,6 @@ import 'package:twitter/services/start_conversation.dart';
 import 'package:twitter/services/user_finder_by_email.dart';
 
 
-//? bunları constant a eklemeli miyim?
-
 List<Conversation> allConversations = [];
 
 void createConversations() {

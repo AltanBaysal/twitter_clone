@@ -13,17 +13,6 @@ class TwitterPageChooserWithTwitterBottomNavigationBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TwitterPageChooser(pageState: pageStateChooserWithTwitterBottomNavigationBar(currentIndex));
-  }
-}
-
-PageState pageStateChooserWithTwitterBottomNavigationBar(int currentIndex){
-  switch (currentIndex) {
-    case 0: return PageState.homePageState;
-    case 1: return PageState.searchPageState;
-    case 2: return PageState.notificationsPageState;
-    case 3: return PageState.messagesPageState; 
-
-    default: return PageState.homePageState;
+    return TwitterPageChooser(pageState: PageState.values[currentIndex]);
   }
 }
