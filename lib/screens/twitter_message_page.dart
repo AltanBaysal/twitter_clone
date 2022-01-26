@@ -6,14 +6,14 @@ import 'package:twitter/ui/widgets/appbar/message_page_appbar.dart';
 import 'package:twitter/ui/widgets/chat.dart';
 
 
-class MessagePage extends StatefulWidget {
-  const MessagePage({ Key? key }) : super(key: key);
+class TwitterMessagePage extends StatefulWidget {
+  const TwitterMessagePage({ Key? key }) : super(key: key);
 
   @override
-  _MessagePageState createState() => _MessagePageState();
+  _TwitterMessagePageState createState() => _TwitterMessagePageState();
 }
 
-class _MessagePageState extends State<MessagePage> {
+class _TwitterMessagePageState extends State<TwitterMessagePage> {
   @override
   Widget build(BuildContext context) {
 

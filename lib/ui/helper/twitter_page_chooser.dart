@@ -20,7 +20,7 @@ class TwitterPageChooser extends StatelessWidget {
       case PageState.homePageState : return HomePage(tweets: tweets);
       case PageState.searchPageState : return Container();
       case PageState.notificationsPageState : return Container();
-      case PageState.messagesPageState : return const MessagePage();
+      case PageState.messagesPageState : return const TwitterMessagePage();
     }
   }
 }

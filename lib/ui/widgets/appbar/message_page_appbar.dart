@@ -3,7 +3,8 @@ import 'package:twitter/constants/asset_constants.dart';
 import 'package:twitter/constants/color_constants.dart';
 import 'package:twitter/constants/english_constants.dart';
 import 'package:twitter/models/user_model.dart';
-import 'package:twitter/screens/message_page_settings.dart';
+import 'package:twitter/screens/twitter_message_page_settings.dart';
+import 'package:twitter/ui/helper/custom_slide_page_route.dart';
 import 'package:twitter/ui/widgets/appbar/appbar_ui/appbar_items.dart';
 
 class MessagePageAppBar extends StatelessWidget {
@@ -21,7 +22,6 @@ class MessagePageAppBar extends StatelessWidget {
             func: () {
               Scaffold.of(context).openDrawer();
             }),
-
         InkWell(
           borderRadius: BorderRadius.circular(20.0),
           onTap: () {},
@@ -39,17 +39,16 @@ class MessagePageAppBar extends StatelessWidget {
             ),
           ),
         ),
-
         AppbarIconButton(
             icon: IconsConstant.messagePageAppbarRightButton,
             func: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) => const MessagePageSetting()),
+              Navigator.of(context).push(
+                CustomSlidePageRoute(
+                  direction: AxisDirection.up,
+                  child: const MessagePageSetting(),
+                ),
               );
-            }
-        ),
+            }),
       ],
     );
   }

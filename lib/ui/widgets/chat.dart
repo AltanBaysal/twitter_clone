@@ -5,7 +5,7 @@ import 'package:twitter/models/conversation_model.dart';
 import 'package:twitter/models/user_model.dart';
 import 'package:twitter/screens/chat_page.dart';
 import 'package:twitter/services/user_finder_by_email.dart';
-
+import 'package:twitter/ui/helper/custom_slide_page_route.dart';
 
 class Chat extends StatefulWidget {
   const Chat({
@@ -22,22 +22,23 @@ class Chat extends StatefulWidget {
 class _ChatState extends State<Chat> {
   @override
   Widget build(BuildContext context) {
-    UserModel otherUser = userFinderByEmail(userEmail: widget.conversation.usersEmailWithoutSelectedUser().first,list: users);
+    UserModel otherUser = userFinderByEmail(
+        userEmail: widget.conversation.usersEmailWithoutSelectedUser().first,
+        list: users);
 
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
     return InkWell(
       onLongPress: () {},
       onTap: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-              builder: (context) =>
-                  ChatPage(user: otherUser, conversation: widget.conversation)),
+        Navigator.of(context).push(
+          CustomSlidePageRoute(
+            direction: AxisDirection.left,
+            child: ChatPage(user: otherUser, conversation: widget.conversation),
+          ),
         );
       },
       child: Container(
-        
         padding: EdgeInsets.symmetric(
             horizontal: width * 0.03, vertical: height * 0.01),
         child: Row(
@@ -51,7 +52,7 @@ class _ChatState extends State<Chat> {
                 backgroundImage: NetworkImage(otherUser.userProfilePicture),
               ),
             ),
-
+           
             SizedBox(
               width: width * 0.65,
               height: height * 0.08,
@@ -92,6 +93,7 @@ class _ChatState extends State<Chat> {
                 ],
               ),
             ),
+            
             Container(
               margin: EdgeInsets.only(left: width * 0.02),
               child:

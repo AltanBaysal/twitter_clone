@@ -16,24 +16,30 @@ class _MessagePageSettingState extends State<MessagePageSetting> {
   bool filterMessagesSwitch = false;
   bool allowMessageSwitch = false;
   bool showReceiptsSwitch = false;
-  
-  bool toggleActiveFilterMessageWidget = false;
 
-  void _changeFilterMessageWidget() {
+  bool toggleOpacityFilterMessageWidget = false;
+
+  Duration filterMessageWidgetAnimationDuration =const Duration(milliseconds: 300);//? bunu constant yapmalı mıyım ?
+  
+  void _changeFilterMessageWidgetOpacity() {
     if (allowMessageSwitch) {
-      setState(() {
-        toggleActiveFilterMessageWidget = allowMessageSwitch;
+      Future.delayed(filterMessageWidgetAnimationDuration*1.2, () {
+        setState(() {
+          toggleOpacityFilterMessageWidget = true;
+        });
       });
+    } else {
+      toggleOpacityFilterMessageWidget = false;
     }
   }
- 
+
 
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
 
-    if(!allowMessageSwitch) toggleActiveFilterMessageWidget = false;
+    _changeFilterMessageWidgetOpacity();
 
     return Scaffold(
       appBar: AppBar(
@@ -62,7 +68,6 @@ class _MessagePageSettingState extends State<MessagePageSetting> {
             horizontal: width * 0.05, vertical: height * 0.03),
         child: Column(
           children: [
-            
             MessagePageSettingsBodyItem(
               isSwitched: allowMessageSwitch,
               titleText: EnglishTexts
@@ -79,29 +84,32 @@ class _MessagePageSettingState extends State<MessagePageSetting> {
               },
             ),
             
-            AnimatedContainer(
-              
-              duration: const Duration(milliseconds: 300),
-              onEnd: _changeFilterMessageWidget,
+            AnimatedSize(
+              //? muhtemelen çok kötü bir yolla çözdüm  ama yinede bunu yapmam saatlerimi aldı
+              //? çok hızlı açıp kapatınca sıkıntı çıkıyor  direk animated size bağlı animated containerdaki on end gibi bir şey lazım
+              duration: filterMessageWidgetAnimationDuration,
               curve: Curves.easeIn,
-              height: allowMessageSwitch ? height*0.214 : 0, //? bura hiç olmadı çözmek için 1,2 saat uğraştım ama hiç bir şey bulamadım
-              //widget ın boyutunu alamıyorum çünkü kaldırdığımda null oluyor
-
-              child: (toggleActiveFilterMessageWidget)
-                  ? MessagePageSettingsBodyItem(
-                      isSwitched: filterMessagesSwitch,
-                      titleText: EnglishTexts.messagePageSettingsBodyFilterMessageTextTitle,
-                      explainertext:EnglishTexts.messagePageSettingsBodyFilterMessageText,
-                      learnMoreFunc: () {},
-                      switchFunc: ({required bool isSwitched}) {
-                        setState(
-                          () {
-                            filterMessagesSwitch = isSwitched;
-                          },
-                        );
-                      },
-                    )
-                  : null,
+              child: Opacity(
+                opacity: toggleOpacityFilterMessageWidget ? 1:0,
+                child: Visibility(
+                  visible: allowMessageSwitch,
+                  child: MessagePageSettingsBodyItem(
+                    isSwitched: filterMessagesSwitch,
+                    titleText: EnglishTexts
+                        .messagePageSettingsBodyFilterMessageTextTitle,
+                    explainertext:
+                        EnglishTexts.messagePageSettingsBodyFilterMessageText,
+                    learnMoreFunc: () {},
+                    switchFunc: ({required bool isSwitched}) {
+                      setState(
+                        () {
+                          filterMessagesSwitch = isSwitched;
+                        },
+                      );
+                    },
+                  ),
+                ),
+              ),
             ),
             
             MessagePageSettingsBodyItem(

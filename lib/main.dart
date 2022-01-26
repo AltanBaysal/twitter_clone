@@ -15,7 +15,7 @@ class MainPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title:EnglishTexts.appName,  //!Constant hale getir
+      title:EnglishTexts.appName,
       debugShowCheckedModeBanner: false,
       theme: ThemeData(primaryColor: Colors.white),
       home: const TwitterMainPage(),
@@ -40,21 +40,17 @@ class MainPage extends StatelessWidget {
   chat_page_info.dart   chatpage in sol üste info butonu ile girilen  info bölümünün ui tasarımı yapıldı
   chat_page_info_text_button.darts 
   splash screen eklendi
+  custom_slide_page_route.dart eklendi gerekli sayfalar arasına geçiş ekledi
 
 */
 
-
-//visibilty widget
-
 //TODO
 //message reaction
-// add seen for message
-//splash screen
+//add seen for message
 //get the scrollview top when user click twitter logo on the sliverappbar 
 
 //make functional chatpageinfo 
 //add bottom border to sliverappbar but it isnt working
-//add page transition animation flutter
 
 //look at ...
 //class constructor ları isimlendirilmiş yapmaya bak
