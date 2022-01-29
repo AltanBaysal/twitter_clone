@@ -12,27 +12,24 @@ class MessagePageSetting extends StatefulWidget {
 }
 
 class _MessagePageSettingState extends State<MessagePageSetting> {
-  bool filterMessagesSwitch = false;
+
   bool allowMessageSwitch = false;
+  bool filterMessagesSwitch = false;
   bool showReceiptsSwitch = false;
 
   bool toggleOpacityFilterMessageWidget = false;
 
-  Duration filterMessageWidgetAnimationDuration =
-      const Duration(milliseconds: 300);
-
   void _changeFilterMessageWidgetOpacity() {
-    setState(() {
-      if (!toggleOpacityFilterMessageWidget) {
+    if (allowMessageSwitch) {
+      setState(() {
         toggleOpacityFilterMessageWidget = true;
-      }
-    });
+      });
+    }
   }
 
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
-    double width = MediaQuery.of(context).size.width;
 
     return Scaffold(
       appBar: AppBar(
@@ -56,72 +53,129 @@ class _MessagePageSettingState extends State<MessagePageSetting> {
           ],
         ),
       ),
-      body: Container(
-        margin: EdgeInsets.symmetric(
-            horizontal: width * 0.05, vertical: height * 0.03),
-        child: Column(
-          children: [
-            MessagePageSettingsBodyItem(
-              isSwitched: allowMessageSwitch,
-              titleText: EnglishTexts
-                  .messagePageSettingsBodyToggleAllowMessageTextTitle,
-              explainertext:
-                  EnglishTexts.messagePageSettingsBodyToggleAllowMessageText,
-              learnMoreFunc: () {},
-              switchFunc: ({required bool isSwitched}) {
-                setState(
-                  () {
-                    allowMessageSwitch = isSwitched;
-                    if (toggleOpacityFilterMessageWidget) {
-                      toggleOpacityFilterMessageWidget = false;
-                    } else {
-                      toggleOpacityFilterMessageWidget = true;
-                    }
+      body: Column(
+        children: [
+          MessagePageSettingsBodyItem(
+            isSwitched: allowMessageSwitch,
+            titleText: EnglishTexts
+                .messagePageSettingsBodyToggleAllowMessageTextTitle,
+            explainertext:
+                EnglishTexts.messagePageSettingsBodyToggleAllowMessageText,
+            learnMoreFunc: () {},
+            switchFunc: ({required bool isSwitched}) {
+              setState(
+                () {
+                  allowMessageSwitch = isSwitched;
+                  if (!allowMessageSwitch) {
+                    toggleOpacityFilterMessageWidget = false;
+                  }
+                },
+              );
+            },
+          ),
+          
+          AnimatedContainer(
+            onEnd: _changeFilterMessageWidgetOpacity,
+            duration: const Duration(milliseconds: 300),
+            constraints: BoxConstraints(
+              maxHeight: allowMessageSwitch ? height : 0,
+            ), //? senin dediğine geldim :)
+            curve: Curves.easeIn,
+            child: SingleChildScrollView(
+              child: Opacity(
+                opacity: toggleOpacityFilterMessageWidget ? 1 : 0,
+                child: MessagePageSettingsBodyItem(
+                  isSwitched: filterMessagesSwitch,
+                  titleText: EnglishTexts
+                      .messagePageSettingsBodyFilterMessageTextTitle,
+                  explainertext:
+                      EnglishTexts.messagePageSettingsBodyFilterMessageText,
+                  learnMoreFunc: () {},
+                  switchFunc: ({required bool isSwitched}) {
+                    setState(() {
+                      filterMessagesSwitch = isSwitched;
+                    });
                   },
-                );
-              },
+                ),
+              ),
             ),
-            AnimatedContainer(
-                duration: filterMessageWidgetAnimationDuration,
-                height: toggleOpacityFilterMessageWidget ? null : 0,
-                curve: Curves.easeIn,
-                child: SingleChildScrollView(
-                  child: AnimatedOpacity(
-                    duration: filterMessageWidgetAnimationDuration,
-                    opacity: toggleOpacityFilterMessageWidget ? 1 : 0,
-                    child: MessagePageSettingsBodyItem(
-                      isSwitched: filterMessagesSwitch,
-                      titleText: EnglishTexts
-                          .messagePageSettingsBodyFilterMessageTextTitle,
-                      explainertext:
-                          EnglishTexts.messagePageSettingsBodyFilterMessageText,
-                      learnMoreFunc: () {},
-                      switchFunc: ({required bool isSwitched}) {
-                        setState(() {
-                          filterMessagesSwitch = isSwitched;
-                        });
-                      },
-                    ),
-                  ),
-                )),
-            MessagePageSettingsBodyItem(
-              isSwitched: showReceiptsSwitch,
-              titleText:
-                  EnglishTexts.messagePageSettingsBodyShowReceiptsTextTitle,
-              explainertext:
-                  EnglishTexts.messagePageSettingsBodyShowReceiptsText,
-              learnMoreFunc: () {},
-              switchFunc: ({required bool isSwitched}) {
-                setState(
-                  () {
-                    showReceiptsSwitch = isSwitched;
-                  },
-                );
-              },
-            ),
-          ],
-        ),
+          ),
+        
+          MessagePageSettingsBodyItem(
+            isSwitched: showReceiptsSwitch,
+            titleText:
+                EnglishTexts.messagePageSettingsBodyShowReceiptsTextTitle,
+            explainertext:
+                EnglishTexts.messagePageSettingsBodyShowReceiptsText,
+            learnMoreFunc: () {},
+            switchFunc: ({required bool isSwitched}) {
+              setState(
+                () {
+                  showReceiptsSwitch = isSwitched;
+                },
+              );
+            },
+          ),
+        ],
       ),
     );
   }
 }
+
+//expensiontile denemesi
+/*
+//for ExpansionTile
+  UniqueKey keyTile = UniqueKey();
+  void expandtile(){
+    setState(() {
+      keyTile = UniqueKey();
+    });
+  }
+
+ExpansionTile(
+              
+              trailing: const SizedBox.shrink(),
+              key: keyTile,
+              initiallyExpanded: allowMessageSwitch,
+              textColor: Colors.black,
+              tilePadding: EdgeInsets.zero,
+              childrenPadding: EdgeInsets.zero,
+
+              title: MessagePageSettingsBodyItem(
+                isSwitched: allowMessageSwitch,
+                titleText: EnglishTexts
+                    .messagePageSettingsBodyToggleAllowMessageTextTitle,
+                explainertext:
+                    EnglishTexts.messagePageSettingsBodyToggleAllowMessageText,
+                learnMoreFunc: () {},
+                switchFunc: ({required bool isSwitched}) {
+                  setState(
+                    () {
+                      allowMessageSwitch = isSwitched;
+                      expandtile();
+                      if (!allowMessageSwitch) {
+                        toggleOpacityFilterMessageWidget = false;
+                      }
+                    },
+                  );
+                },
+              ),
+
+              children: [
+                MessagePageSettingsBodyItem(
+                  isSwitched: filterMessagesSwitch,
+                  titleText: EnglishTexts
+                      .messagePageSettingsBodyFilterMessageTextTitle,
+                  explainertext:
+                      EnglishTexts.messagePageSettingsBodyFilterMessageText,
+                  learnMoreFunc: () {},
+                  switchFunc: ({required bool isSwitched}) {
+                    setState(() {
+                      filterMessagesSwitch = isSwitched;
+                    });
+                  },
+                ),
+              ],
+            ),
+
+*/

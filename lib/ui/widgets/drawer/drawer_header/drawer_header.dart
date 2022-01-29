@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:twitter/constants/asset_constants.dart';
 import 'package:twitter/constants/color_constants.dart';
-import 'package:twitter/constants/english_constants.dart';
 import 'package:twitter/models/user_model.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 bool isArrowDown = true;
 
@@ -90,7 +90,7 @@ class CustomDrawerHeader extends StatelessWidget {
                         TextStyle(color: Colors.black, fontSize: width * 0.04),
                     children: [
                       TextSpan(
-                        text: EnglishTexts.drawerHeaderFollowing,
+                        text: AppLocalizations.of(context)!.drawerHeaderFollowers, //? bu ünlemleri kullanmak zorunda mıyım flutter kendi sitesinde anlatırken kullanmış ama her yere ünlem koymak hoş değil
                         style: TextStyle(
                             color: ColorsConstant.grey,
                             fontSize: width * 0.04),
@@ -108,7 +108,7 @@ class CustomDrawerHeader extends StatelessWidget {
                         TextStyle(color: Colors.black, fontSize: width * 0.04),
                     children: [
                       TextSpan(
-                        text: EnglishTexts.drawerHeaderFollowers,
+                        text: AppLocalizations.of(context)!.drawerHeaderFollowing,
                         style: TextStyle(
                             color: ColorsConstant.grey,
                             fontSize: width * 0.04),

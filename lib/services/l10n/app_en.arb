@@ -1,0 +1,63 @@
+{
+    "appName":"Twitter",
+
+    "abbreviationOfDay":"d",
+    "abbreviationOfHour":"h",
+    "abbreviationOfMinutes":"m",
+    "abbreviationOfSeconds":"s",
+
+    "months": "january,february,march,april,may,june,july,august,september,october,november,december",
+
+
+
+    "drawerHeaderFollowing": " Following",
+    "drawerHeaderFollowers": " Followers",
+
+    "drawerScrollViewButtonTextProfile":"Profile",
+    "drawerScrollViewButtonTextLists":"Lists",
+    "drawerScrollViewButtonTextTopics":"Topics",
+    "drawerScrollViewButtonTextBookmarks":"Bookmarks",
+    "drawerScrollViewButtonTextMoments":"Moments",
+    "drawerScrollViewButtonTextMonetization":"Monetization",
+    "drawerScrollViewButtonTextTwitterForProfessionals":"Twitter for Professionals",
+    "drawerScrollViewButtonTextSettingsAndPrivacy":"Settings and privacy",
+    "drawerScrollViewButtonTextHelpCenter":"Help Center",
+    "drawerBodyExpandedTextCreateANewAccount":"Create a new account",
+    "drawerTextAddanExistingAccount":"Add an existing account",
+
+
+
+    "retweetBottomSheetRetweet":"Retweet",
+    "retweetBottomSheetQuoteTweet":"Quote Tweet",
+
+    "retweetBottomSheetUndoRetweet":"Undo Retweet",
+
+
+
+    "chatPageBodyUpperPartUserInfoFollowing":" Following",
+    "chatPageBodyUpperPartUserInfoFollowers":" Followers",
+    "chatPageBodyUpperParjoined":"joined",
+
+    "chatPageBottomBarSendTextHint":"Start a message",
+
+
+    "chatPageInfoAppBarTitle":"Conversation info",
+    "chatPageInfoBodyBlock":"Block ",
+    "chatPageInfoBodyReport":"Report ",
+    "chatPageInfoBodyDeleteConversation":"Delete conversation",
+    "chatPageInfoBodySnoozeNotifications":"Snooze notifications",
+    "chatPageInfoBodyNotifications":"Notifications",
+
+
+
+    "messagePageAppbarSearchTittle":"Search for people and groups",
+
+    "messagePageSettingsAppBarTitle":"Direct Messages",
+    "messagePageSettingsBodyItemClickableBlueText":" Learn more",
+    "messagePageSettingsBodyToggleAllowMessageTextTitle":"Allow message requests from everyone",
+    "messagePageSettingsBodyToggleAllowMessageText":"Let people who you don't follow send you message request and add you to group conversations. To reply to their messages, you need to accept the request.",
+    "messagePageSettingsBodyShowReceiptsTextTitle":"Show read receipts",
+    "messagePageSettingsBodyShowReceiptsText":"Let people you're messaging with know when you've seen their messages. Read receipts are not shown on message requests.",
+    "messagePageSettingsBodyFilterMessageTextTitle":"Filter low-quality messages",
+    "messagePageSettingsBodyFilterMessageText":"Hide message requests that have been detected as being potentially spam or low-quality. These will be sent to a separate inbox at the bottom of your message requests. You can still access them if you want."
+}

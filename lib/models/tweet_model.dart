@@ -62,7 +62,7 @@ class TweetModel {
   String timeSinceSharing() {
     Duration elapsedTimeD = DateTime.now().difference(_releaseTime);
 
-    if (elapsedTimeD.inDays > 6) return "${_releaseTime.day} ${EnglishTexts.months[_releaseTime.month - 1].substring(4)}";//!
+    if (elapsedTimeD.inDays > 6) return "${_releaseTime.day} ${EnglishTexts.months[_releaseTime.month - 1].substring(4)}";
 
     if (elapsedTimeD.inDays > 0) return "${elapsedTimeD.inDays} ${EnglishTexts.abbreviationOfDay}";
 

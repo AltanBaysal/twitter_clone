@@ -1,0 +1,6 @@
+arb-dir: lib/services/l10n
+template-arb-file: app_en.arb
+output-localization-file: app_localizations.dart
+
+#//? bunları normal yaml dosyası içine yazamaz mıyım ?
+# flutterın kendisi böyle göstermiş https://docs.flutter.dev/development/accessibility-and-localization/internationalization

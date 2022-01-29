@@ -1,5 +1,7 @@
+
 class EnglishTexts {
 
+  //CommonTexts+
   static const String abbreviationOfDay = "d";
   static const String abbreviationOfHour = "h";
   static const String abbreviationOfMinutes = "m";
@@ -20,30 +22,29 @@ class EnglishTexts {
     'December'
   ];
 
-  //CommonTexts
-  static const String joined  = "Joined";
-  static const String comingSoon = "Coming Soon";
-  static const String notifications = "Notifications";
-  static const String snoozeNotifications = "Snooze notifications";
   static const String appName ="Twitter Clone";
 
-  //ChatPage
+  //ChatPage+
   static const String chatPageBodyUpperPartUserInfoFollowing = " Following ";
   static const String chatPageBodyUpperPartUserInfoFollowers  = " Followers ";
 
   static const String chatPageBottomBarSendTextHint = "Start a message";
+  static const String joined  = "Joined";
 
-  //ChatPageInfo
+  //ChatPageInfo+
   static const String chatPageInfoAppBarTitle = "Conversation info";
   static const String chatPageInfoBodyBlock = "Block ";
   static const String chatPageInfoBodyReport = "Report ";
   static const String chatPageInfoBodyDeleteConversation = "Delete conversation";
+  static const String notifications = "Notifications";
+  static const String snoozeNotifications = "Snooze notifications";
 
-  //MessagePage
+  //MessagePage +
   static const String messagePageAppbarSearchTittle = "Search for people and groups";
 
-  //MessagePageSettings
+  //MessagePageSettings +
   static const String messagePageSettingsAppBarTitle = "Direct Messages";
+
 
   static const String messagePageSettingsBodyItemClickableBlueText = " Learn more";
 
@@ -58,9 +59,9 @@ class EnglishTexts {
 
 
   
-  //Drawer
+  //Drawer+
 
-    //DrawerBody
+    //DrawerBody +
   static const String drawerScrollViewButtonTextProfile = "Profile";
   static const String drawerScrollViewButtonTextLists = "Lists";
   static const String drawerScrollViewButtonTextTopics = "Topics";
@@ -75,12 +76,13 @@ class EnglishTexts {
   static const String drawerTextAddanExistingAccount = "Add an existing account";
 
 
-    //DrawerHeader
+    //DrawerHeader +
   static const String drawerHeaderFollowing = " Following";
   static const String drawerHeaderFollowers = " Followers";
 
 
-  //RetweetBottomSheet
+
+  //RetweetBottomSheet+ 
   static const String retweetBottomSheetRetweet = "Retweet";
   static const String retweetBottomSheetQuoteTweet = "Quote Tweet";
 

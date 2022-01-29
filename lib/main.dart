@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:twitter/constants/english_constants.dart';
 import 'package:twitter/core/init/create.dart';
 import 'package:twitter/screens/twitter_main_page.dart';
+import 'package:twitter/services/l10n/l10n.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
+
+dynamic local;  //? bunu nereye koymam gerektiğinden emin değilim
 
 void main() {
   create();
@@ -14,35 +19,26 @@ class MainPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    local = AppLocalizations.of(context);
+
     return MaterialApp(
-      title:EnglishTexts.appName,
+      title: EnglishTexts.appName,
       debugShowCheckedModeBanner: false,
       theme: ThemeData(primaryColor: Colors.white),
+      localizationsDelegates: [
+        AppLocalizations.delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      supportedLocales: L10n.all,
+
       home: const TwitterMainPage(),
     );
   }
 }
 
 
-
-/* Yapılanlar
-  
-  Constant düzlendi
-  TwitterBottomNavigationBar düzlendi
-  Square_svg_icon_creater_from_string_with_sized_box.dart eklendi
-  PageChooser enum olarak çalışacak hale getirldi ama doğru olarak yaptım mı tam emin değilim
-  EnglishText ve IconConst a yeni eklemeler yapıldı
-  message_page_setting.dart eklendi
-  message_page_settings_body_item.dart eklendi
-
-  extras
-  common folder in widget with text_with_switch.dart,
-  chat_page_info.dart   chatpage in sol üste info butonu ile girilen  info bölümünün ui tasarımı yapıldı
-  chat_page_info_text_button.darts 
-  splash screen eklendi
-  custom_slide_page_route.dart eklendi gerekli sayfalar arasına geçiş ekledi
-
-*/
 
 //TODO
 //message reaction

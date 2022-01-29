@@ -32,7 +32,3 @@ class CustomSlidePageRoute extends PageRouteBuilder {
     }
   }
 }
-
-
-
-//SlideTransition ı araştır

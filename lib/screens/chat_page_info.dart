@@ -47,7 +47,7 @@ class _ChatPageInfoState extends State<ChatPageInfo> {
             margin: EdgeInsets.symmetric(vertical: height * 0.025),
             child: InkWell(
               customBorder:
-                  const CircleBorder(), //? bunu kullanmak performans düşürür mü kullanılması mantıklı mı?
+                  const CircleBorder(),
               onTap: () {},
               child: CircleAvatar(
                 radius: width * 0.1,

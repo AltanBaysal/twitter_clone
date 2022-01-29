@@ -30,50 +30,55 @@ class _MessagePageSettingsBodyItemState extends State<MessagePageSettingsBodyIte
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
-    return Container(
-      margin: EdgeInsets.only(bottom: height*0.05),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Flexible(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(widget.titleText,style: TextStyle(fontSize: height*0.022),softWrap: true,),
+    return InkWell(
+      onTap: (){
+        widget.switchFunc(isSwitched:!widget.isSwitched);
+      },
+      child: Container(
+        padding: EdgeInsets.symmetric(horizontal: width * 0.05, vertical: height * 0.025),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Flexible(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(widget.titleText,style: TextStyle(fontSize: height*0.022),softWrap: true,),
 
-                RichText(
-                  softWrap: true,
-                  text: TextSpan(
-                    style: DefaultTextStyle.of(context).style,
-                    children: <TextSpan>[
-                      TextSpan(text: widget.explainertext,style: TextStyle(color: ColorsConstant.lightBlack,fontSize: height*0.020)),
-                      TextSpan(
-                        text: EnglishTexts.messagePageSettingsBodyItemClickableBlueText,
-                        style: TextStyle(color: Colors.blue,fontSize: height*0.020),
-                        recognizer: TapGestureRecognizer()
-                          ..onTap = () {
-                            widget.learnMoreFunc();
-                          },
-                      ),
-                    ],
+                  RichText(
+                    softWrap: true,
+                    text: TextSpan(
+                      style: DefaultTextStyle.of(context).style,
+                      children: <TextSpan>[
+                        TextSpan(text: widget.explainertext,style: TextStyle(color: ColorsConstant.lightBlack,fontSize: height*0.020)),
+                        TextSpan(
+                          text: EnglishTexts.messagePageSettingsBodyItemClickableBlueText,
+                          style: TextStyle(color: Colors.blue,fontSize: height*0.020),
+                          recognizer: TapGestureRecognizer()
+                            ..onTap = () {
+                              widget.learnMoreFunc();
+                            },
+                        ),
+                      ],
+                    ),
                   ),
-                ),
-              ],
-            ),
-          ),
-          
-          SizedBox(
-            width: width * 0.15 ,
-            child: Center(
-              child: Switch(
-                value: widget.isSwitched,
-                onChanged: (value) {
-                  widget.switchFunc(isSwitched:value);
-                },
+                ],
               ),
             ),
-          )
-        ],
+            
+            SizedBox(
+              width: width * 0.15 ,
+              child: Center(
+                child: Switch(
+                  value: widget.isSwitched,
+                  onChanged: (value) {
+                    widget.switchFunc(isSwitched:value);
+                  },
+                ),
+              ),
+            )
+          ],
+        ),
       ),
     );
   }
