@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:twitter/constants/asset_constants.dart';
-import 'package:twitter/constants/english_constants.dart';
+import 'package:twitter/main.dart';
 import 'drawer_scrollview_button.dart';
 
 
@@ -22,28 +22,28 @@ class DrawerBodyCollapseTopPart extends StatelessWidget {
             color: Colors.grey,
           ),
 
-          const DrawerScrollViewButton(
-            text: EnglishTexts.drawerScrollViewButtonTextProfile,
+          DrawerScrollViewButton(
+            text: local.drawerScrollViewButtonTextProfile,
             icon: IconsConstant.drawerProfile,),
   
-          const DrawerScrollViewButton(
-              text: EnglishTexts.drawerScrollViewButtonTextLists,
+          DrawerScrollViewButton(
+              text: local.drawerScrollViewButtonTextLists,
               icon: IconsConstant.drawerLists,),
 
-          const DrawerScrollViewButton(
-              text: EnglishTexts.drawerScrollViewButtonTextTopics,
+          DrawerScrollViewButton(
+              text: local.drawerScrollViewButtonTextTopics,
               icon: IconsConstant.drawerTopics,),
 
-          const DrawerScrollViewButton(
-              text: EnglishTexts.drawerScrollViewButtonTextBookmarks,
+          DrawerScrollViewButton(
+              text: local.drawerScrollViewButtonTextBookmarks,
               icon: IconsConstant.drawerBookmarks,),
 
-         const DrawerScrollViewButton(
-              text: EnglishTexts.drawerScrollViewButtonTextMoments,
+         DrawerScrollViewButton(
+              text: local.drawerScrollViewButtonTextMoments,
               icon: IconsConstant.drawerMoments,),
               
-          const DrawerScrollViewButton(
-              text: EnglishTexts.drawerScrollViewButtonTextMonetization,
+          DrawerScrollViewButton(
+              text: local.drawerScrollViewButtonTextMonetization,
               icon: IconsConstant.drawerMonetization,),
 
           Container(
@@ -55,8 +55,8 @@ class DrawerBodyCollapseTopPart extends StatelessWidget {
             color: Colors.grey,
           ),
 
-          const DrawerScrollViewButton(
-              text: EnglishTexts.drawerScrollViewButtonTextTwitterForProfessionals,
+          DrawerScrollViewButton(
+              text: local.drawerScrollViewButtonTextTwitterForProfessionals,
               icon: IconsConstant.drawerTwitterForProfessionals,),
           
           Container(
@@ -68,9 +68,9 @@ class DrawerBodyCollapseTopPart extends StatelessWidget {
             color: Colors.grey,
           ),
           
-          const DrawerScrollViewButton(text: EnglishTexts.drawerScrollViewButtonTextSettingsAndPrivacy),
+          DrawerScrollViewButton(text: local.drawerScrollViewButtonTextSettingsAndPrivacy),
 
-          const DrawerScrollViewButton(text: EnglishTexts.drawerScrollViewButtonTextHelpCenter),
+          DrawerScrollViewButton(text: local.drawerScrollViewButtonTextHelpCenter),
         ],
       ),
     ),

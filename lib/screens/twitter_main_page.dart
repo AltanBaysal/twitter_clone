@@ -2,9 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:twitter/constants/asset_constants.dart';
-import 'package:twitter/ui/helper/twitter_page_chooser_with_bottom_navigation_bar.dart';
+import 'package:twitter/main.dart';
+import 'package:twitter/ui/enums/page_state.dart';
+import 'package:twitter/ui/helper/twitter_main_page_state_extension.dart';
 import 'package:twitter/ui/widgets/drawer/twitter_drawer.dart';
 import 'package:twitter/ui/widgets/twitter_bottom_navigaton_bar_item.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 
 int _currentIndex = 0;
 
@@ -18,6 +22,7 @@ class TwitterMainPage extends StatefulWidget {
 class _TwitterMainPageState extends State<TwitterMainPage> {
   @override
   Widget build(BuildContext context) {
+    local = AppLocalizations.of(context); //? bunu burda tanımlamak zorunda kaldım
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
 
@@ -54,12 +59,14 @@ class _TwitterMainPageState extends State<TwitterMainPage> {
               icon: IconsConstant.twitterBottomNavigationBarItemHome,
               activeIcon: IconsConstant.bottomNavigationBarItemHomeFilled,
               label: ''),
+          
           TwitterBottomNavigationBarItem(
               height: height,
               icon: IconsConstant.twitterBottomNavigationBarItemSearch,
               activeIcon:
                   IconsConstant.twitterBottomNavigationBarItemSearchFilled,
               label: ''),
+          
           TwitterBottomNavigationBarItem(
               height: height,
               icon:
@@ -67,6 +74,7 @@ class _TwitterMainPageState extends State<TwitterMainPage> {
               activeIcon: IconsConstant
                   .twitterBottomNavigationBarItemNotificationsFilled,
               label: ''),
+          
           TwitterBottomNavigationBarItem(
               height: height,
               icon: IconsConstant.twitterBottomNavigationBarItemMessages,
@@ -75,7 +83,7 @@ class _TwitterMainPageState extends State<TwitterMainPage> {
         ],
       ),
       body: SafeArea(
-        child: TwitterPageChooserWithTwitterBottomNavigationBar(currentIndex: _currentIndex),
+        child: TwitterMainPageState.values[_currentIndex].twitterMainPageChooser(),
       ),
     );
   }

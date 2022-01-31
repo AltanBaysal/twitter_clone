@@ -1,7 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:twitter/constants/color_constants.dart';
-import 'package:twitter/constants/english_constants.dart';
+import 'package:twitter/main.dart';
 
 class MessagePageSettingsBodyItem extends StatefulWidget {
   const MessagePageSettingsBodyItem({
@@ -52,7 +52,7 @@ class _MessagePageSettingsBodyItemState extends State<MessagePageSettingsBodyIte
                       children: <TextSpan>[
                         TextSpan(text: widget.explainertext,style: TextStyle(color: ColorsConstant.lightBlack,fontSize: height*0.020)),
                         TextSpan(
-                          text: EnglishTexts.messagePageSettingsBodyItemClickableBlueText,
+                          text: local.messagePageSettingsBodyItemClickableBlueText,
                           style: TextStyle(color: Colors.blue,fontSize: height*0.020),
                           recognizer: TapGestureRecognizer()
                             ..onTap = () {

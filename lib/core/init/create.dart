@@ -1,8 +1,8 @@
 import 'package:twitter/core/init/create_conversations.dart';
 import 'package:twitter/core/init/create_tweets.dart';
 import 'package:twitter/core/init/create_users.dart';
-import 'package:twitter/models/user_model.dart';
 import 'package:twitter/core/init/follow_users.dart';
+import 'package:twitter/services/login_services/select_user_func.dart';
 
 
 void create() {
@@ -17,5 +17,5 @@ void create() {
   followUser();
 
   createConversations();
-  sendMessage();
+  createMessage();
 }

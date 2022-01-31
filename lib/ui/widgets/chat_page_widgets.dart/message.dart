@@ -4,7 +4,7 @@ import 'package:twitter/constants/asset_constants.dart';
 import 'package:twitter/constants/color_constants.dart';
 import 'package:twitter/core/init/create_users.dart';
 import 'package:twitter/models/message_model.dart';
-import 'package:twitter/services/user_finder_by_email.dart';
+import 'package:twitter/services/user_model_finder_extension.dart';
 
 class MessageYouSent extends StatelessWidget {
   const MessageYouSent(
@@ -79,12 +79,10 @@ class MessageOppenentSent extends StatelessWidget {
         CircleAvatar(
           radius: width * 0.06,
           backgroundImage: NetworkImage(
-            userFinderByEmail(
-              userEmail: message.emailWhoSent,
-              list: users,
-            ).userProfilePicture,
+            users.userModelFinderByEmail(userEmail: message.senderEmail).userProfilePicture
           ),
         ),
+        
         Container(
           margin: EdgeInsets.only(left: width * 0.03),
           child: Column(

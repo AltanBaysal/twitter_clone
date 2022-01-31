@@ -1,4 +1,4 @@
-enum PageState{
+enum TwitterMainPageState{
   homePageState,
   searchPageState,
   notificationsPageState,

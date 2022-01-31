@@ -6,11 +6,13 @@ import 'package:twitter/ui/widgets/chat_page_widgets.dart/chat_page_body.dart';
 import 'package:twitter/ui/widgets/chat_page_widgets.dart/chat_page_bottom_bar.dart';
 
 class ChatPage extends StatefulWidget {
-  const ChatPage({Key? key, required this.user, required this.conversation})
-      : super(key: key);
+  const ChatPage({
+    Key? key, required this.user, 
+    required this.conversation,
+  }): super(key: key);
 
   final UserModel user;
-  final Conversation conversation;
+  final ConversationModal conversation;
 
   @override
   _ChatPageState createState() => _ChatPageState();
@@ -28,7 +30,7 @@ class _ChatPageState extends State<ChatPage> {
             Flexible(
               child: Column(
                 children: [
-                  ChatPageAppbar(user: widget.user),
+                  ChatPageAppbar(user: widget.user,oppositeUserEmail: widget.conversation.oppositeUserEmail),
 
                   Flexible(
                     child: ChatPageBody(

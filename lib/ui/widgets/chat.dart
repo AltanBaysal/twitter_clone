@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:twitter/constants/color_constants.dart';
-import 'package:twitter/core/init/create_users.dart';
 import 'package:twitter/models/conversation_model.dart';
 import 'package:twitter/models/user_model.dart';
 import 'package:twitter/screens/chat_page.dart';
-import 'package:twitter/services/user_finder_by_email.dart';
 import 'package:twitter/ui/helper/custom_slide_page_route.dart';
 
 class Chat extends StatefulWidget {
@@ -13,7 +11,7 @@ class Chat extends StatefulWidget {
     required this.conversation,
   }) : super(key: key);
 
-  final Conversation conversation;
+  final ConversationModal conversation;
 
   @override
   _ChatState createState() => _ChatState();
@@ -22,14 +20,11 @@ class Chat extends StatefulWidget {
 class _ChatState extends State<Chat> {
   @override
   Widget build(BuildContext context) {
-    UserModel otherUser = userFinderByEmail(
-        userEmail: widget.conversation.usersEmailWithoutSelectedUser().first,
-        list: users);
+    UserModel otherUser = widget.conversation.oppositeUser;
 
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
     return InkWell(
-      onLongPress: () {},
       onTap: () {
         Navigator.of(context).push(
           CustomSlidePageRoute(
@@ -38,9 +33,9 @@ class _ChatState extends State<Chat> {
           ),
         );
       },
+
       child: Container(
-        padding: EdgeInsets.symmetric(
-            horizontal: width * 0.03, vertical: height * 0.01),
+        padding: EdgeInsets.symmetric(horizontal: width * 0.03, vertical: height * 0.01),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -79,6 +74,7 @@ class _ChatState extends State<Chat> {
                       ],
                     ),
                   ),
+                  
                   Text(
                     widget.conversation.allMessages.isNotEmpty
                         ? widget.conversation.allMessages.last.text
@@ -96,8 +92,7 @@ class _ChatState extends State<Chat> {
             
             Container(
               margin: EdgeInsets.only(left: width * 0.02),
-              child:
-                  Text(widget.conversation.elapsedTimeSinceSentLastMessage()),
+              child:Text(widget.conversation.elapsedTimeSinceSentLastMessage()),
             )
           ],
         ),

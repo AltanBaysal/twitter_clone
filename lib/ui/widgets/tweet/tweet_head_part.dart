@@ -46,7 +46,7 @@ class TweetHeadPart extends StatelessWidget {
                           fontSize: width * 0.046),
                     ),
                     Text(
-                      "${tweet.mailOfUser} · ${tweet.timeSinceSharing()}",
+                      "${tweet.userEmail} · ${tweet.timeSinceSharing()}",
                       style: TextStyle(
                           fontSize: width * 0.046, color: ColorsConstant.grey),
                     ),

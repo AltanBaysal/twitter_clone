@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:twitter/constants/asset_constants.dart';
 import 'package:twitter/constants/color_constants.dart';
-import 'package:twitter/constants/english_constants.dart';
 import 'package:twitter/models/user_model.dart';
 import 'package:twitter/screens/twitter_message_page_settings.dart';
 import 'package:twitter/ui/helper/custom_slide_page_route.dart';
 import 'package:twitter/ui/widgets/appbar/appbar_ui/appbar_items.dart';
+
+import '../../../main.dart';
 
 class MessagePageAppBar extends StatelessWidget {
   const MessagePageAppBar({Key? key}) : super(key: key);
@@ -33,7 +34,7 @@ class MessagePageAppBar extends StatelessWidget {
                 color: ColorsConstant.lightGrey,
                 borderRadius: BorderRadius.all(Radius.circular(20))),
             child: Text(
-              EnglishTexts.messagePageAppbarSearchTittle,
+              local.messagePageAppbarSearchTittle,
               style: TextStyle(
                   fontSize: width * 0.038, color: ColorsConstant.grey),
             ),

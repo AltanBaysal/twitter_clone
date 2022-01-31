@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:twitter/constants/color_constants.dart';
-import 'package:twitter/constants/english_constants.dart';
 import 'package:twitter/models/conversation_model.dart';
 import 'package:twitter/models/user_model.dart';
 import 'package:twitter/ui/helper/message_designer.dart';
+import '../../../main.dart';
 
 class ChatPageBody extends StatelessWidget {
   const ChatPageBody({
@@ -13,7 +13,7 @@ class ChatPageBody extends StatelessWidget {
   }) : super(key: key);
 
   final UserModel otherUser;
-  final Conversation conversation;
+  final ConversationModal conversation;
 
   @override
   Widget build(BuildContext context) {
@@ -58,7 +58,7 @@ class ChatPageBody extends StatelessWidget {
                     TextStyle(color: Colors.black, fontSize: width * 0.04),
                 children: [
                   TextSpan(
-                    text: EnglishTexts.chatPageBodyUpperPartUserInfoFollowing,
+                    text: local.chatPageBodyUpperPartUserInfoFollowing,
                     style: TextStyle(
                         color: ColorsConstant.grey,
                         fontSize: width * 0.04),
@@ -69,7 +69,7 @@ class ChatPageBody extends StatelessWidget {
                         color: Colors.black, fontSize: width * 0.04),
                   ),
                   TextSpan(
-                    text: EnglishTexts.chatPageBodyUpperPartUserInfoFollowers,
+                    text: local.chatPageBodyUpperPartUserInfoFollowers,
                     style: TextStyle(
                         color: ColorsConstant.grey,
                         fontSize: width * 0.04),
@@ -77,7 +77,7 @@ class ChatPageBody extends StatelessWidget {
                 ],
               ),
             ),
-            Text("${EnglishTexts.joined} ${otherUser.getJoinDateAsString()}"),
+            Text("${local.chatPageBodyUpperParjoined} ${otherUser.getJoinDateAsString()}"),
           ],
         ),
       ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:twitter/constants/color_constants.dart';
 
 class AppbarUI extends StatelessWidget {
   const AppbarUI({
@@ -10,15 +11,17 @@ class AppbarUI extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
-    //? alt çizgi ekleyemiyorum
     return SliverAppBar(
       elevation: 1,
       shadowColor: Colors.grey,
       automaticallyImplyLeading: false,
       floating: true,
       backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-      title: appbaritems
+      title: appbaritems,
+      bottom: const PreferredSize(  //? sliverapp bar a alt çizgi eklemeyi sonunda başardım belki görmek istersin
+        preferredSize: Size(double.infinity, 0.01),
+        child: Divider(color: ColorsConstant.lightGrey,height: 0.01,),
+      ),
     );
   }
 }

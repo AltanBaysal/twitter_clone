@@ -1,56 +1,42 @@
-import 'package:twitter/constants/english_constants.dart';
 import 'package:twitter/core/init/create_users.dart';
+import 'package:twitter/main.dart';
 import 'package:twitter/models/message_model.dart';
 import 'package:twitter/models/user_model.dart';
-import 'package:twitter/services/user_finder_by_email.dart';
+import 'package:twitter/services/conversations_model_finder_extension.dart';
+import 'package:twitter/services/user_model_finder_extension.dart';
 
-class Conversation {
-  final List<String> _usersEmail;
+class ConversationModal {
+  final String _ownerUserEmail;
+  final String _oppositeUserEmail;
 
-  String _conversationUniqueId = "";
+  final List<Message> _allMessages = [];
 
-  final List<Message> allMessages = [];
+  ConversationModal(this._ownerUserEmail,this._oppositeUserEmail);
 
-  Conversation(this._usersEmail) {
-    createUniqueId();
+  String get ownerUserEmail => _ownerUserEmail;
+  String get oppositeUserEmail => _oppositeUserEmail;
+  List<Message> get allMessages => _allMessages;
+
+  UserModel get ownerUser => users.userModelFinderByEmail(userEmail: _ownerUserEmail);
+  UserModel get oppositeUser => users.userModelFinderByEmail(userEmail: _oppositeUserEmail);
+
+
+  void allMessagesAddMessage({required Message message}){
+    _allMessages.add(message);
   }
 
-  List<String> get usersEmail => _usersEmail;
-  String get conversationUniqueId => _conversationUniqueId;
-
-  List<String> usersEmailWithoutSelectedUser() {
-    List<String> newUserEmail = _usersEmail;
-    newUserEmail.remove(selectedUser.userEmail);
-    return newUserEmail;
-  }
-
-  List<UserModel> usersOfConversation() {
-    List<UserModel> usersOfConversation = [];
-    for (var element in _usersEmail) {
-      usersOfConversation
-          .add(userFinderByEmail(userEmail: element, list: users));
-    }
-
-    return usersOfConversation;
-  }
-
-  void createUniqueId() {
-    for (var element in _usersEmail) {
-      _conversationUniqueId += element;
-    }
-    _conversationUniqueId += DateTime.now().toString();
-  }
-
-  void sendMessage(String emailWhoSent, String text) {
-    allMessages.add(Message(text, emailWhoSent));
+  void sendMessage(String text) {
+    Message newMessage = Message(text, _oppositeUserEmail, _ownerUserEmail);
+    _allMessages.add(newMessage);
+    oppositeUser.conversations.findConversation(oppositeUserEmail: _ownerUserEmail).allMessagesAddMessage(message :newMessage);
   }
 
   String elapsedTimeSinceSentLastMessage() {
-    Duration elapsedTime = DateTime.now().difference(allMessages.last.sendingDate);
-    if (elapsedTime.inDays >= 1) return "${elapsedTime.inDays} ${EnglishTexts.abbreviationOfDay}";
-    if (elapsedTime.inHours >= 1) return "${elapsedTime.inHours} ${EnglishTexts.abbreviationOfHour}";
-    if (elapsedTime.inMinutes >= 1) return "${elapsedTime.inMinutes} ${EnglishTexts.abbreviationOfMinutes}";
-    if (elapsedTime.inSeconds >= 1) return "${elapsedTime.inSeconds} ${EnglishTexts.abbreviationOfSeconds}";
+    Duration elapsedTime = DateTime.now().difference(_allMessages.last.sendingDate);
+    if (elapsedTime.inDays >= 1) return "${elapsedTime.inDays} ${local.abbreviationOfDay}";
+    if (elapsedTime.inHours >= 1) return "${elapsedTime.inHours} ${local.abbreviationOfHour}";
+    if (elapsedTime.inMinutes >= 1) return "${elapsedTime.inMinutes} ${local.abbreviationOfMinutes}";
+    if (elapsedTime.inSeconds >= 1) return "${elapsedTime.inSeconds} ${local.abbreviationOfSeconds}";
     return "";
   }
 }

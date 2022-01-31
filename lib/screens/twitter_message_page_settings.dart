@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:twitter/constants/color_constants.dart';
-import 'package:twitter/constants/english_constants.dart';
 import 'package:twitter/models/user_model.dart';
 import 'package:twitter/ui/widgets/message_page.dart/message_page_settings_body_item.dart';
+
+import '../main.dart';
 
 class MessagePageSetting extends StatefulWidget {
   const MessagePageSetting({Key? key}) : super(key: key);
@@ -42,7 +43,7 @@ class _MessagePageSettingState extends State<MessagePageSetting> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              EnglishTexts.messagePageSettingsAppBarTitle,
+              local.messagePageSettingsAppBarTitle,
               style: TextStyle(color: Colors.black, fontSize: height * 0.03),
             ),
             Text(
@@ -57,10 +58,10 @@ class _MessagePageSettingState extends State<MessagePageSetting> {
         children: [
           MessagePageSettingsBodyItem(
             isSwitched: allowMessageSwitch,
-            titleText: EnglishTexts
+            titleText: local
                 .messagePageSettingsBodyToggleAllowMessageTextTitle,
             explainertext:
-                EnglishTexts.messagePageSettingsBodyToggleAllowMessageText,
+                local.messagePageSettingsBodyToggleAllowMessageText,
             learnMoreFunc: () {},
             switchFunc: ({required bool isSwitched}) {
               setState(
@@ -86,10 +87,10 @@ class _MessagePageSettingState extends State<MessagePageSetting> {
                 opacity: toggleOpacityFilterMessageWidget ? 1 : 0,
                 child: MessagePageSettingsBodyItem(
                   isSwitched: filterMessagesSwitch,
-                  titleText: EnglishTexts
+                  titleText: local
                       .messagePageSettingsBodyFilterMessageTextTitle,
                   explainertext:
-                      EnglishTexts.messagePageSettingsBodyFilterMessageText,
+                      local.messagePageSettingsBodyFilterMessageText,
                   learnMoreFunc: () {},
                   switchFunc: ({required bool isSwitched}) {
                     setState(() {
@@ -104,9 +105,9 @@ class _MessagePageSettingState extends State<MessagePageSetting> {
           MessagePageSettingsBodyItem(
             isSwitched: showReceiptsSwitch,
             titleText:
-                EnglishTexts.messagePageSettingsBodyShowReceiptsTextTitle,
+                local.messagePageSettingsBodyShowReceiptsTextTitle,
             explainertext:
-                EnglishTexts.messagePageSettingsBodyShowReceiptsText,
+                local.messagePageSettingsBodyShowReceiptsText,
             learnMoreFunc: () {},
             switchFunc: ({required bool isSwitched}) {
               setState(

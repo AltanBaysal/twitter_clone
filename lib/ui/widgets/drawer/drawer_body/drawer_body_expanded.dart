@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:twitter/constants/english_constants.dart';
+import 'package:twitter/main.dart';
 
 class DrawerBodyExpanded extends StatefulWidget {
   const DrawerBodyExpanded({Key? key}) : super(key: key);
@@ -23,7 +23,7 @@ class _DrawerBodyExpandedState extends State<DrawerBodyExpanded> {
             height: height * 0.06,
             alignment: Alignment.centerLeft,
             child: Text(
-              EnglishTexts.drawerBodyExpandedTextCreateANewAccount,
+              local.drawerBodyExpandedTextCreateANewAccount,
               style: TextStyle(fontSize: width * 0.04),
             ),
           ),
@@ -37,7 +37,7 @@ class _DrawerBodyExpandedState extends State<DrawerBodyExpanded> {
             height: height * 0.06,
             alignment: Alignment.centerLeft,
             child: Text(
-              EnglishTexts.drawerTextAddanExistingAccount,
+              local.drawerTextAddanExistingAccount,
               style: TextStyle(fontSize: width * 0.04),
             ),
           ),

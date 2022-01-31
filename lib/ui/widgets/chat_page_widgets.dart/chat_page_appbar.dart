@@ -10,9 +10,11 @@ class ChatPageAppbar extends StatelessWidget {
   const ChatPageAppbar({
     Key? key,
     required this.user,
+    required this.oppositeUserEmail,
   }) : super(key: key);
 
   final UserModel user;
+  final String oppositeUserEmail;
 
   @override
   Widget build(BuildContext context) {
@@ -65,7 +67,7 @@ class ChatPageAppbar extends StatelessWidget {
               Navigator.of(context).push(
                 CustomSlidePageRoute(
                   direction: AxisDirection.left,
-                  child: ChatPageInfo(user: user),
+                  child: ChatPageInfo(user: user, oppositeUserEmail: oppositeUserEmail),
                 ),
               );
             },

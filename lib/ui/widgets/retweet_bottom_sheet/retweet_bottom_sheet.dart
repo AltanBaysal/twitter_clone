@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:twitter/constants/asset_constants.dart';
-import 'package:twitter/constants/english_constants.dart';
+import 'package:twitter/main.dart';
 import 'package:twitter/models/tweet_model.dart';
 import 'package:twitter/models/user_model.dart';
 import 'package:twitter/ui/widgets/retweet_bottom_sheet/retweet_buttom_sheet_button.dart';
@@ -21,6 +21,7 @@ class RetweetBottomSheet extends StatelessWidget {
   Widget build(BuildContext context) {
     final double height = MediaQuery.of(context).size.height;
     final double width = MediaQuery.of(context).size.width;
+
     return Container(
       padding: EdgeInsets.only(top: height * 0.03),
       child: Column(
@@ -30,7 +31,7 @@ class RetweetBottomSheet extends StatelessWidget {
             RetweetButtomSheetButton(
               width: width,
               height: height,
-              text: EnglishTexts.retweetBottomSheetUndoRetweet,
+              text: local.retweetBottomSheetUndoRetweet,
               image: IconsConstant.retweetBottomSheetRetweet,
               func: () {
                 tweet.retweetToggle(userEmail: selectedUser.userEmail);
@@ -42,7 +43,7 @@ class RetweetBottomSheet extends StatelessWidget {
             RetweetButtomSheetButton(
                 width: width,
                 height: height,
-                text: EnglishTexts.retweetBottomSheetRetweet,
+                text: local.retweetBottomSheetRetweet,
                 image: IconsConstant.retweetBottomSheetRetweet,
                 func: () {
                   tweet.retweetToggle(userEmail: selectedUser.userEmail);
@@ -52,7 +53,7 @@ class RetweetBottomSheet extends StatelessWidget {
             RetweetButtomSheetButton(
                 width: width,
                 height: height,
-                text: EnglishTexts.retweetBottomSheetQuoteTweet,
+                text: local.retweetBottomSheetQuoteTweet,
                 image: IconsConstant.retweetBottomsheetQuoteTweet,
                 func: () {}),
           ],

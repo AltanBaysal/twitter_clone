@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:twitter/models/user_model.dart';
-import 'package:twitter/services/conversations_finder_by_id.dart';
 import 'package:twitter/ui/widgets/appbar/appbar_ui/appbar.dart';
 import 'package:twitter/ui/widgets/appbar/message_page_appbar.dart';
 import 'package:twitter/ui/widgets/chat.dart';
@@ -30,7 +29,7 @@ class _TwitterMessagePageState extends State<TwitterMessagePage> {
           shrinkWrap: true,
           physics: const NeverScrollableScrollPhysics(),
           itemCount: selectedUser.conversations.length,
-          itemBuilder: (context, index) => Chat(conversation: conversationFinderbyId(id: selectedUser.conversations[index])),
+          itemBuilder: (context, index) => Chat(conversation: selectedUser.conversations[index]),
         ),
       ),
     );

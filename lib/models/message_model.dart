@@ -1,18 +1,18 @@
-
-
-
 class Message{
   final String _text;
-  final String _emailWhoSent;
+  final String _receiverEmail;
+  final String _senderEmail;
 
   late DateTime _sendingDate;
 
-  Message(this._text,this._emailWhoSent){
+  Message(this._text,this._receiverEmail,this._senderEmail){
     _sendingDate = DateTime.now();
   }
 
   String get text => _text;
-  String get emailWhoSent => _emailWhoSent;
+  String get receiverEmail => _receiverEmail;
+  String get senderEmail => _senderEmail;
+
   DateTime get sendingDate => _sendingDate;
 
   String sendingDateAsString(){

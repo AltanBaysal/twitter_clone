@@ -42,8 +42,8 @@
 
 
     "chatPageInfoAppBarTitle":"Conversation info",
-    "chatPageInfoBodyBlock":"Block ",
-    "chatPageInfoBodyReport":"Report ",
+    "chatPageInfoBodyBlock":"Block: ",
+    "chatPageInfoBodyReport":"Report: ",
     "chatPageInfoBodyDeleteConversation":"Delete conversation",
     "chatPageInfoBodySnoozeNotifications":"Snooze notifications",
     "chatPageInfoBodyNotifications":"Notifications",

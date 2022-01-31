@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:twitter/constants/asset_constants.dart';
-import 'package:twitter/constants/english_constants.dart';
+import 'package:twitter/main.dart';
 import 'package:twitter/models/conversation_model.dart';
-import 'package:twitter/models/user_model.dart';
+
 
 class ChatPageBottomBar extends StatefulWidget {
   const ChatPageBottomBar({
@@ -12,7 +12,7 @@ class ChatPageBottomBar extends StatefulWidget {
     required this.onChange,
   }) : super(key: key);
 
-  final Conversation conversation;
+  final ConversationModal conversation;
   final VoidCallback onChange;
 
   @override
@@ -73,7 +73,7 @@ class _ChatPageBottomBarState extends State<ChatPageBottomBar> {
             child: TextField(
               textInputAction: TextInputAction.send,
               onSubmitted: (value) {
-                widget.conversation.sendMessage(selectedUser.userEmail, textController.text);
+                widget.conversation.sendMessage(textController.text);
                 textController.clear();
                 widget.onChange();
               },
@@ -82,7 +82,7 @@ class _ChatPageBottomBarState extends State<ChatPageBottomBar> {
               },
               controller: textController,
               decoration: InputDecoration(
-                hintText: EnglishTexts.chatPageBottomBarSendTextHint,
+                hintText: local.chatPageBottomBarSendTextHint,
                 hintStyle: TextStyle(fontSize: width * 0.035),
               ),
             ),
@@ -107,7 +107,7 @@ class _ChatPageBottomBarState extends State<ChatPageBottomBar> {
             GestureDetector(
               onTap: () {
                 widget.conversation
-                    .sendMessage(selectedUser.userEmail, textController.text);
+                    .sendMessage(textController.text);
                 textController.clear();
                 widget.onChange();
               },

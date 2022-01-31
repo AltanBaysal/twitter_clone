@@ -1,15 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:twitter/constants/color_constants.dart';
-import 'package:twitter/constants/english_constants.dart';
 import 'package:twitter/models/user_model.dart';
 import 'package:twitter/ui/widgets/chat_page_widgets.dart/chat_page_info_text_button.dart';
 import 'package:twitter/ui/widgets/common/basic_text_with_switch.dart';
+import '../main.dart';
 
 
 class ChatPageInfo extends StatefulWidget {
-  const ChatPageInfo({Key? key, required this.user}) : super(key: key);
+  const ChatPageInfo({
+    Key? key, 
+    required this.user,
+    required this.oppositeUserEmail
+  }) : super(key: key);
 
   final UserModel user;
+  final String oppositeUserEmail;
 
   @override
   State<ChatPageInfo> createState() => _ChatPageInfoState();
@@ -34,7 +39,7 @@ class _ChatPageInfoState extends State<ChatPageInfo> {
         elevation: 1,
         
         title: Text(
-          EnglishTexts.chatPageInfoAppBarTitle,
+          local.chatPageInfoAppBarTitle,
           style: TextStyle(fontSize: height * 0.03, color: Colors.black),
         ),
       ),
@@ -46,8 +51,7 @@ class _ChatPageInfoState extends State<ChatPageInfo> {
           Container(
             margin: EdgeInsets.symmetric(vertical: height * 0.025),
             child: InkWell(
-              customBorder:
-                  const CircleBorder(),
+              customBorder:const CircleBorder(),
               onTap: () {},
               child: CircleAvatar(
                 radius: width * 0.1,
@@ -84,15 +88,16 @@ class _ChatPageInfoState extends State<ChatPageInfo> {
                   margin: EdgeInsets.symmetric(
                       vertical: height * 0.03, horizontal: width * 0.025),
                   child: Text(
-                    EnglishTexts.notifications,
+                    local.chatPageInfoBodyNotifications,
                     style: TextStyle(
                         color: Colors.black,
                         fontSize: width * 0.05,
                         fontWeight: FontWeight.bold),
                   ),
                 ),
+                
                 BasicTextWithSwitch(
-                    text: EnglishTexts.snoozeNotifications,
+                    text: local.chatPageInfoBodySnoozeNotifications,
                     height: height * 0.06,
                     isSwitched: toggleSwitch,
                     switchFunc: ({required bool isSwitched}) {
@@ -107,21 +112,23 @@ class _ChatPageInfoState extends State<ChatPageInfo> {
           ),
           
           ChatPageInfoTextButton(
-            text:  EnglishTexts.chatPageInfoBodyBlock+selectedUser.userEmail,
+            text:  local.chatPageInfoBodyBlock+selectedUser.userEmail,
             textColor: Colors.blue,
             func: () {},
           ),
           
           ChatPageInfoTextButton(
-            text:  EnglishTexts.chatPageInfoBodyReport+selectedUser.userEmail,
+            text:  local.chatPageInfoBodyReport+selectedUser.userEmail,
             textColor: Colors.blue,
             func: () {},
           ),
          
           ChatPageInfoTextButton(
-            text: EnglishTexts.chatPageInfoBodyDeleteConversation,
+            text: local.chatPageInfoBodyDeleteConversation,
             textColor: Colors.red,
-            func: () {},
+            func: () {
+              selectedUser.deleteConversation(oppositeUserEmail: widget.oppositeUserEmail);//@User_2
+            },
           ),
         
         ],

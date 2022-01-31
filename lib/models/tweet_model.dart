@@ -1,12 +1,13 @@
-import 'package:twitter/constants/english_constants.dart';
 import 'package:twitter/core/init/create_users.dart';
 import 'package:twitter/models/user_model.dart';
-import 'package:twitter/services/user_finder_by_email.dart';
+import 'package:twitter/services/user_model_finder_extension.dart';
+
+import '../main.dart';
 
 class TweetModel {
   late String _tweetId;
 
-  final String _mailOfUser;
+  final String _userEmail;
   final String _text;
   String? _image;
 
@@ -18,22 +19,24 @@ class TweetModel {
   final Map<String, String> _personAndComments = {};
 
 
-  TweetModel(this._mailOfUser, this._text) {
+  TweetModel(this._userEmail, this._text) {
     tweetModelStarterCommonFuncs();
   }
 
-  TweetModel.withImage(this._mailOfUser, this._text, this._image) {
+  TweetModel.withImage(this._userEmail, this._text, this._image) {
     tweetModelStarterCommonFuncs();
   }
 
   void tweetModelStarterCommonFuncs() {
     _releaseTime = DateTime.now();
-    _tweetId = "$_mailOfUser  ${releaseTime.toString()}";
+    _tweetId = "$_userEmail  ${releaseTime.toString()}";
   }
+
+
 
   String get tweetId => _tweetId;
 
-  String get mailOfUser => _mailOfUser;
+  String get userEmail => _userEmail;
   String get text => _text;
   String? get image => _image;
 
@@ -42,6 +45,8 @@ class TweetModel {
   int get totalRetweets => _personEmailWhoRetweets.length;
   int get totalLike => _personEmailWhoLikes.length;
   int get totalComments => _personAndComments.length;
+
+
 
   void likeToggle({required String userEmail}) {
     if (isPersonLiked(userEmail: userEmail)) {
@@ -62,22 +67,22 @@ class TweetModel {
   String timeSinceSharing() {
     Duration elapsedTimeD = DateTime.now().difference(_releaseTime);
 
-    if (elapsedTimeD.inDays > 6) return "${_releaseTime.day} ${EnglishTexts.months[_releaseTime.month - 1].substring(4)}";
+    if (elapsedTimeD.inDays > 6) return "${_releaseTime.day} ${local.months.split(',')[_releaseTime.month - 1].substring(4)}";
 
-    if (elapsedTimeD.inDays > 0) return "${elapsedTimeD.inDays} ${EnglishTexts.abbreviationOfDay}";
+    if (elapsedTimeD.inDays > 0) return "${elapsedTimeD.inDays} ${local.abbreviationOfDay}";
 
-    if (elapsedTimeD.inHours > 0) return "${elapsedTimeD.inHours} ${EnglishTexts.abbreviationOfHour}";
+    if (elapsedTimeD.inHours > 0) return "${elapsedTimeD.inHours} ${local.abbreviationOfHour}";
 
-    if (elapsedTimeD.inMinutes > 0) return "${elapsedTimeD.inMinutes.toString()} ${EnglishTexts.abbreviationOfMinutes}";
+    if (elapsedTimeD.inMinutes > 0) return "${elapsedTimeD.inMinutes.toString()} ${local.abbreviationOfMinutes}";
 
-    if (elapsedTimeD.inSeconds > 0)return "${elapsedTimeD.inSeconds.toString()} ${EnglishTexts.abbreviationOfSeconds}";
+    if (elapsedTimeD.inSeconds > 0)return "${elapsedTimeD.inSeconds.toString()} ${local.abbreviationOfSeconds}";
     
 
-    return "0 ${EnglishTexts.abbreviationOfSeconds}";
+    return "0 ${local.abbreviationOfSeconds}";
   }
 
   UserModel userOfTweet() {
-    return userFinderByEmail(userEmail: _mailOfUser, list: users);
+    return  users.userModelFinderByEmail(userEmail: _userEmail);
   }
 
   bool isPersonLiked({required String userEmail}) {

@@ -1,4 +1,63 @@
 {
+    "appName":"Twitter",
+
+    "abbreviationOfDay":"gün",
+    "abbreviationOfHour":"sa",
+    "abbreviationOfMinutes":"dk",
+    "abbreviationOfSeconds":"sn",
+
+    "months": "Ocak,Şubat,Mart,Nisan,Mayıs,Haziran,Temmuz,Ağustos,Eylül,Ekim,Kasım,Aralık",
+
+    
+
     "drawerHeaderFollowing": " Takip edilen",
-    "drawerHeaderFollowers": " Takipçi"
+    "drawerHeaderFollowers": " Takipçi",
+
+    "drawerScrollViewButtonTextProfile":"Profil",
+    "drawerScrollViewButtonTextLists":"Listeler",
+    "drawerScrollViewButtonTextTopics":"Konular",
+    "drawerScrollViewButtonTextBookmarks":"Yer işaretleri",
+    "drawerScrollViewButtonTextMoments":"Anlar",
+    "drawerScrollViewButtonTextMonetization":"Gelire dönüştürme",
+    "drawerScrollViewButtonTextTwitterForProfessionals":"Twitter for Professionals",
+    "drawerScrollViewButtonTextSettingsAndPrivacy":"Ayarlar ve gizlilik",
+    "drawerScrollViewButtonTextHelpCenter":"Yardım Merkezi",
+    "drawerBodyExpandedTextCreateANewAccount":"Yeni hesap oluştur",
+    "drawerTextAddanExistingAccount":"Var olan bir hesabı ekle",
+
+
+
+    "retweetBottomSheetRetweet":"Retweetle",
+    "retweetBottomSheetQuoteTweet":"Tweeti Alıntıla",
+
+    "retweetBottomSheetUndoRetweet":"Retweetlemeyi geri al",
+
+
+
+    "chatPageBodyUpperPartUserInfoFollowing":" Takip edilen",
+    "chatPageBodyUpperPartUserInfoFollowers":" Takipçi",
+    "chatPageBodyUpperParjoined":"katıldı",
+
+    "chatPageBottomBarSendTextHint":"Bir mesaj başlat",
+
+
+    "chatPageInfoAppBarTitle":"Sohbet bilgileri",
+    "chatPageInfoBodyBlock":"Engelle: ",
+    "chatPageInfoBodyReport":"Bildir: ",
+    "chatPageInfoBodyDeleteConversation":"Sohbeti sil",
+    "chatPageInfoBodySnoozeNotifications":"Bildirimleri ertele",
+    "chatPageInfoBodyNotifications":"Bildirimler",
+
+
+
+    "messagePageAppbarSearchTittle":"Kişi ve grupları ara",
+
+    "messagePageSettingsAppBarTitle":"Direkt Mesajlar",
+    "messagePageSettingsBodyItemClickableBlueText":" Daha fazla bilgi al",
+    "messagePageSettingsBodyToggleAllowMessageTextTitle":"Herkesten mesaj isteğine izin ver",
+    "messagePageSettingsBodyToggleAllowMessageText":"Takip etmediğin kişilerin sana mesaj isteği göndermesine ve seni grup sohbetlerine eklemesine izin ver. Birinin mesajını yanıtlamak için isteğini kabul etmelisin",
+    "messagePageSettingsBodyShowReceiptsTextTitle":"Okundu bilgilerini göster",
+    "messagePageSettingsBodyShowReceiptsText":"Mesajlaştığın kişiler, gönderdikleri mesajları ne zaman gördüğünü bilsin. Okundu bildirimleri mesaj isteklerinde görünmez.",
+    "messagePageSettingsBodyFilterMessageTextTitle":"Düşük kaliteli mesajları filtrele",
+    "messagePageSettingsBodyFilterMessageText":"Potansiyel spam veya düşük kaliteli olarak tespit edilen mesaj isteklerini gizle. Bunlar, mesaj isteklerinin en altında bulunan ayrı bir gelen kutusuna göderilir. Onlara dilediğin zaman ulaşabilirsin."
 }
