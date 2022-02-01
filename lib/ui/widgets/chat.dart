@@ -8,10 +8,12 @@ import 'package:twitter/ui/helper/custom_slide_page_route.dart';
 class Chat extends StatefulWidget {
   const Chat({
     Key? key,
+    required this.onChange,
     required this.conversation,
   }) : super(key: key);
 
   final ConversationModal conversation;
+  final VoidCallback onChange;
 
   @override
   _ChatState createState() => _ChatState();
@@ -29,7 +31,7 @@ class _ChatState extends State<Chat> {
         Navigator.of(context).push(
           CustomSlidePageRoute(
             direction: AxisDirection.left,
-            child: ChatPage(user: otherUser, conversation: widget.conversation),
+            child: ChatPage(user: otherUser, conversation: widget.conversation,onChange: widget.onChange),
           ),
         );
       },

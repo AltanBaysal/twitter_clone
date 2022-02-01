@@ -7,12 +7,15 @@ import 'package:twitter/ui/widgets/chat_page_widgets.dart/chat_page_bottom_bar.d
 
 class ChatPage extends StatefulWidget {
   const ChatPage({
-    Key? key, required this.user, 
+    Key? key, 
+    required this.user, 
+    required this.onChange,
     required this.conversation,
   }): super(key: key);
 
   final UserModel user;
   final ConversationModal conversation;
+  final VoidCallback onChange;
 
   @override
   _ChatPageState createState() => _ChatPageState();
@@ -30,7 +33,7 @@ class _ChatPageState extends State<ChatPage> {
             Flexible(
               child: Column(
                 children: [
-                  ChatPageAppbar(user: widget.user,oppositeUserEmail: widget.conversation.oppositeUserEmail),
+                  ChatPageAppbar(user: widget.user,oppositeUserEmail: widget.conversation.oppositeUserEmail,onChange: widget.onChange,),
 
                   Flexible(
                     child: ChatPageBody(

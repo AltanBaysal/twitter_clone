@@ -48,6 +48,11 @@
     "chatPageInfoBodySnoozeNotifications":"Bildirimleri ertele",
     "chatPageInfoBodyNotifications":"Bildirimler",
 
+    "chatPageInfoBodyDeleteConversationAlertDialogTitleText":"Sohbeti silmek mi istiyorsun",
+    "chatPageInfoBodyDeleteConversationAlertDialogContentText":"Bu sohbet gelen kutundan silinecek. Sohbetteki diğer kişiler sohbeti görmeye devam edecek.",
+    "chatPageInfoBodyDeleteConversationAlertDialogActionsCancel":"İptal",
+    "chatPageInfoBodyDeleteConversationAlertDialogActionsDelete":"Sil",
+
 
 
     "messagePageAppbarSearchTittle":"Kişi ve grupları ara",

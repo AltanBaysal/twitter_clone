@@ -48,6 +48,11 @@
     "chatPageInfoBodySnoozeNotifications":"Snooze notifications",
     "chatPageInfoBodyNotifications":"Notifications",
 
+    "chatPageInfoBodyDeleteConversationAlertDialogTitleText":"Delete conversation",
+    "chatPageInfoBodyDeleteConversationAlertDialogContentText":"This conversation will be deleted from your inbox. Other people in the conversation will still be able to see it.",
+    "chatPageInfoBodyDeleteConversationAlertDialogActionsCancel":"Cancel",
+    "chatPageInfoBodyDeleteConversationAlertDialogActionsDelete":"Delete",
+
 
 
     "messagePageAppbarSearchTittle":"Search for people and groups",

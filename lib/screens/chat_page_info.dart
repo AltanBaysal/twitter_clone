@@ -1,20 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:twitter/constants/color_constants.dart';
 import 'package:twitter/models/user_model.dart';
+import 'package:twitter/ui/widgets/chat_page_widgets.dart/chat_page_info_alert_dialog.dart';
 import 'package:twitter/ui/widgets/chat_page_widgets.dart/chat_page_info_text_button.dart';
 import 'package:twitter/ui/widgets/common/basic_text_with_switch.dart';
 import '../main.dart';
 
-
 class ChatPageInfo extends StatefulWidget {
-  const ChatPageInfo({
-    Key? key, 
-    required this.user,
-    required this.oppositeUserEmail
-  }) : super(key: key);
+  const ChatPageInfo(
+      {Key? key,
+      required this.user,
+      required this.onChange,
+      required this.oppositeUserEmail})
+      : super(key: key);
 
   final UserModel user;
   final String oppositeUserEmail;
+  final VoidCallback onChange;
 
   @override
   State<ChatPageInfo> createState() => _ChatPageInfoState();
@@ -33,25 +35,20 @@ class _ChatPageInfoState extends State<ChatPageInfo> {
         iconTheme: const IconThemeData(
           color: Colors.black,
         ),
-        
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-        
         elevation: 1,
-        
         title: Text(
           local.chatPageInfoAppBarTitle,
           style: TextStyle(fontSize: height * 0.03, color: Colors.black),
         ),
       ),
-
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-
           Container(
             margin: EdgeInsets.symmetric(vertical: height * 0.025),
             child: InkWell(
-              customBorder:const CircleBorder(),
+              customBorder: const CircleBorder(),
               onTap: () {},
               child: CircleAvatar(
                 radius: width * 0.1,
@@ -95,7 +92,6 @@ class _ChatPageInfoState extends State<ChatPageInfo> {
                         fontWeight: FontWeight.bold),
                   ),
                 ),
-                
                 BasicTextWithSwitch(
                     text: local.chatPageInfoBodySnoozeNotifications,
                     height: height * 0.06,
@@ -112,25 +108,34 @@ class _ChatPageInfoState extends State<ChatPageInfo> {
           ),
           
           ChatPageInfoTextButton(
-            text:  local.chatPageInfoBodyBlock+selectedUser.userEmail,
+            text: local.chatPageInfoBodyBlock + selectedUser.userEmail,
             textColor: Colors.blue,
             func: () {},
           ),
           
           ChatPageInfoTextButton(
-            text:  local.chatPageInfoBodyReport+selectedUser.userEmail,
+            text: local.chatPageInfoBodyReport + selectedUser.userEmail,
             textColor: Colors.blue,
             func: () {},
           ),
-         
+          
           ChatPageInfoTextButton(
             text: local.chatPageInfoBodyDeleteConversation,
             textColor: Colors.red,
             func: () {
-              selectedUser.deleteConversation(oppositeUserEmail: widget.oppositeUserEmail);//@User_2
+              showDialog(
+                context: context,
+                builder: (context) => ChatPageInfoAlertDialog(
+                  func: () {
+                    selectedUser.deleteConversation(oppositeUserEmail: widget.oppositeUserEmail);
+                    widget.onChange(); //? çok fazla widget ın içinden onChange geçirmek zorunda kalınca statemanagment ın değerini anladım
+                    Navigator.of(context).pop(); //? bunu çalışmasını beklemiyordum ama çalıştı
+                    Navigator.of(context).pop();
+                  },
+                ),
+              );
             },
           ),
-        
         ],
       ),
     );

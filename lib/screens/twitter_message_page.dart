@@ -4,9 +4,10 @@ import 'package:twitter/ui/widgets/appbar/appbar_ui/appbar.dart';
 import 'package:twitter/ui/widgets/appbar/message_page_appbar.dart';
 import 'package:twitter/ui/widgets/chat.dart';
 
-
 class TwitterMessagePage extends StatefulWidget {
-  const TwitterMessagePage({ Key? key }) : super(key: key);
+  const TwitterMessagePage({
+    Key? key,
+  }) : super(key: key);
 
   @override
   _TwitterMessagePageState createState() => _TwitterMessagePageState();
@@ -15,30 +16,31 @@ class TwitterMessagePage extends StatefulWidget {
 class _TwitterMessagePageState extends State<TwitterMessagePage> {
   @override
   Widget build(BuildContext context) {
-
     return NestedScrollView(
       floatHeaderSlivers: true,
       headerSliverBuilder: (context, innerBoxScrolled) => [
         const AppbarUI(appbaritems: MessagePageAppBar()),
       ],
-      
       body: RefreshIndicator(
         onRefresh: () => _refresh(),
-        child: ListView.builder(          
+        child: ListView.builder(
           padding: const EdgeInsets.only(top: 0),
           shrinkWrap: true,
           physics: const NeverScrollableScrollPhysics(),
           itemCount: selectedUser.conversations.length,
-          itemBuilder: (context, index) => Chat(conversation: selectedUser.conversations[index]),
+          itemBuilder: (context, index) => Chat(
+            conversation: selectedUser.conversations[index],
+            onChange: () {
+              setState(() {});
+            },
+          ),
         ),
       ),
     );
   }
 
-    Future _refresh() {
+  Future _refresh() {
     setState(() {});
     return Future.value(true);
   }
 }
-
-
