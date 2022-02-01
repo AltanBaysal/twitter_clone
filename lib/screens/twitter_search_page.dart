@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:twitter/constants/color_constants.dart';
 import 'package:twitter/core/init/create_topics.dart';
 import 'package:twitter/main.dart';
 import 'package:twitter/ui/widgets/appbar/appbar_ui/appbar.dart';
 import 'package:twitter/ui/widgets/appbar/home_page_appbar_with_searchbar_and_setting.dart';
+import 'package:twitter/ui/widgets/search_page_trend_widget.dart';
 
 class TwitterSearchPage extends StatefulWidget {
   const TwitterSearchPage({
@@ -17,6 +17,8 @@ class TwitterSearchPage extends StatefulWidget {
 class _TwitterSearchPageState extends State<TwitterSearchPage> {
   @override
   Widget build(BuildContext context) {
+    double height = MediaQuery.of(context).size.height;
+    double width = MediaQuery.of(context).size.width;
     return NestedScrollView(
       floatHeaderSlivers: true,
       headerSliverBuilder: (context, innerBoxScrolled) => [
@@ -33,14 +35,61 @@ class _TwitterSearchPageState extends State<TwitterSearchPage> {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              Container(),
 
+              InkWell(//? uygulamada bu bölümü tam anlamadım  
+              //?Inkwell kullandığımda gesturedetector gibi çalışıyor aklımda bir şey var ama çok zorlama yaratıcı bir çözümün var mı
+                onTap: (){},
+                child: Container(
+                  width: width,
+                  height: height*0.29,
+                  margin: EdgeInsets.only(bottom: height * 0.001),
+                  padding: EdgeInsets.symmetric(vertical: height * 0.02, horizontal: width * 0.04),
+
+                  decoration: const BoxDecoration(
+                    image: DecorationImage(
+                      image: NetworkImage("https://pbs.twimg.com/semantic_core_img/1255910073831788550/xm0-QtpW?format=jpg&name=small"),
+                      fit: BoxFit.contain,
+                    ),
+                  ),
+
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      Text(local.twitterSearchPageImageTopic ,style: TextStyle(color: Colors.white,fontSize: width*0.045,fontWeight: FontWeight.bold),),
+                      Text(local.twitterSearchPageImageTitle ,style: TextStyle(color: Colors.white,fontSize: width*0.06,fontWeight: FontWeight.bold),),
+                    ],
+                  ),
+                ),
+              ),
+              
+              Container(
+                decoration: const BoxDecoration(
+                  border:Border(top: BorderSide(width: 0.5, color: Colors.grey)),
+                ),
+                width: width,
+                padding: EdgeInsets.fromLTRB(width * 0.04, height * 0.02, width * 0.04, 0),
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  local.twitterSearchPageTrendsForYou,
+                  style: TextStyle(
+                      fontSize: width * 0.05,
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold),
+                ),
+              ),
+              
               ListView.builder(
                 padding: const EdgeInsets.only(top: 0),
                 shrinkWrap: true,
                 physics: const NeverScrollableScrollPhysics(),
                 itemCount: trends.length,
-                itemBuilder: (context, index) => TrendWidget(hashtag: trends[index].hashtag, countOfTweetsContainHashtag: trends[index].countOfTweetsContainHashtag,clickFunc: (){},),
+                itemBuilder: (context, index) => TrendWidget(
+                  hashtag: trends[index].hashtag,
+                  countOfTweetsContainHashtag:
+                      trends[index].countOfTweetsContainHashtag,
+                  clickFunc: () {},
+                ),
               ),
             ],
           ),
@@ -52,47 +101,5 @@ class _TwitterSearchPageState extends State<TwitterSearchPage> {
   Future _refresh() {
     setState(() {});
     return Future.value(true);
-  }
-}
-
-
-class TrendWidget extends StatelessWidget {
-  const TrendWidget({
-    Key? key,
-    required this.hashtag,
-    required this.countOfTweetsContainHashtag,
-    required this.clickFunc,
-  }) : super(key: key);
-
-  final String hashtag;
-  final int countOfTweetsContainHashtag;
-  final Function clickFunc;
-
-  @override
-  Widget build(BuildContext context) {
-    double height = MediaQuery.of(context).size.height;
-    double width = MediaQuery.of(context).size.width;
-    return InkWell(
-      onTap: (){clickFunc();},
-      child: Container(
-        padding: EdgeInsets.symmetric(vertical: height*0.02,horizontal: width*0.04),
-        width: width,
-        child: Row(
-          children: [
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-
-              children: [
-                Text(local.TwitterSearchPageTrendWidgetHeader,style: TextStyle(color: ColorsConstant.darkGrey ,fontWeight: FontWeight.bold,fontSize: width*0.036),),
-                Divider(height: height*0.004,color: Colors.transparent),
-                Text(hashtag,style: TextStyle(color: Colors.black ,fontWeight: FontWeight.bold,fontSize: width*0.045),),
-                Divider(height: height*0.004,color: Colors.transparent),
-                Text("$countOfTweetsContainHashtag ${local.TwitterSearchPageTrendWidgetTweets}",style: TextStyle(color: ColorsConstant.grey ,fontSize: width*0.036),),
-              ],
-            ),
-          ],
-        ),
-      ),
-    );
   }
 }

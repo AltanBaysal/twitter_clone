@@ -66,8 +66,12 @@
     "messagePageSettingsBodyFilterMessageTextTitle":"Filter low-quality messages",
     "messagePageSettingsBodyFilterMessageText":"Hide message requests that have been detected as being potentially spam or low-quality. These will be sent to a separate inbox at the bottom of your message requests. You can still access them if you want.",
 
+    
 
+    "twitterSearchPageImageTopic":"Event·LIVE",
+    "twitterSearchPageImageTitle":"Updates on the COVID-19 situation in Turkey",
+    "twitterSearchPageTrendsForYou":"Trends for you",
 
-    "TwitterSearchPageTrendWidgetHeader":"Trending in Turkey",
-    "TwitterSearchPageTrendWidgetTweets":"Tweet"    
+    "twitterSearchPageTrendWidgetHeader":"Trending in Turkey",
+    "twitterSearchPageTrendWidgetTweets":"Tweet"    
 }

@@ -66,8 +66,11 @@
     "messagePageSettingsBodyFilterMessageTextTitle":"Düşük kaliteli mesajları filtrele",
     "messagePageSettingsBodyFilterMessageText":"Potansiyel spam veya düşük kaliteli olarak tespit edilen mesaj isteklerini gizle. Bunlar, mesaj isteklerinin en altında bulunan ayrı bir gelen kutusuna göderilir. Onlara dilediğin zaman ulaşabilirsin.",
 
-
-
-    "TwitterSearchPageTrendWidgetHeader":"Türkiye konumunda gündemde",
-    "TwitterSearchPageTrendWidgetTweets":"Tweet"
+     
+    "twitterSearchPageImageTopic":"Covid-19·Canlı",
+    "twitterSearchPageImageTitle":"Türkiye'de Covid-19 ile ilgili güncek gelişmeler",
+    "twitterSearchPageTrendsForYou":"İlgini çekebilecek gündemler",
+     
+    "twitterSearchPageTrendWidgetHeader":"Türkiye konumunda gündemde",
+    "twitterSearchPageTrendWidgetTweets":"Tweet"
 }
