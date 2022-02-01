@@ -1,4 +1,5 @@
 import 'package:twitter/core/init/create_conversations.dart';
+import 'package:twitter/core/init/create_topics.dart';
 import 'package:twitter/core/init/create_tweets.dart';
 import 'package:twitter/core/init/create_users.dart';
 import 'package:twitter/core/init/follow_users.dart';
@@ -18,4 +19,5 @@ void create() {
 
   createConversations();
   createMessage();
+  createTopics();
 }

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:twitter/constants/color_constants.dart';
 import 'package:twitter/models/tweet_model.dart';
 import 'package:twitter/ui/widgets/appbar/appbar_ui/appbar.dart';
-import 'package:twitter/ui/widgets/appbar/home_page_appbar_items.dart';
+import 'package:twitter/ui/widgets/appbar/home_page_default_appbar_items.dart';
 import 'package:twitter/ui/widgets/tweet/tweet.dart';
 
 class HomePage extends StatefulWidget {

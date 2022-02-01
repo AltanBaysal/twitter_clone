@@ -2,14 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:twitter/constants/asset_constants.dart';
 import 'package:twitter/constants/color_constants.dart';
 import 'package:twitter/models/user_model.dart';
-import 'package:twitter/screens/twitter_message_page_settings.dart';
-import 'package:twitter/ui/helper/custom_slide_page_route.dart';
 import 'package:twitter/ui/widgets/appbar/appbar_ui/appbar_items.dart';
 
-import '../../../main.dart';
 
-class MessagePageAppBar extends StatelessWidget {
-  const MessagePageAppBar({Key? key}) : super(key: key);
+class HomePageAppbarWithSearchBarAndSettings extends StatelessWidget {
+  const HomePageAppbarWithSearchBarAndSettings({
+    Key? key,
+    required this.searchBarText,
+    required this.searchBarFunc,
+    required this.settingButtonFunc
+  }) : super(key: key);
+
+  final String searchBarText;
+  final Function searchBarFunc;
+  final Function settingButtonFunc;
 
   @override
   Widget build(BuildContext context) {
@@ -23,9 +29,10 @@ class MessagePageAppBar extends StatelessWidget {
             func: () {
               Scaffold.of(context).openDrawer();
             }),
+        
         InkWell(
           borderRadius: BorderRadius.circular(20.0),
-          onTap: () {},
+          onTap: () {searchBarFunc();},
           child: Container(
             padding: EdgeInsets.symmetric(
                 vertical: height * 0.013, horizontal: width * 0.03),
@@ -34,21 +41,17 @@ class MessagePageAppBar extends StatelessWidget {
                 color: ColorsConstant.lightGrey,
                 borderRadius: BorderRadius.all(Radius.circular(20))),
             child: Text(
-              local.messagePageAppbarSearchTittle,
+              searchBarText,
               style: TextStyle(
                   fontSize: width * 0.038, color: ColorsConstant.grey),
             ),
           ),
         ),
+        
         AppbarIconButton(
             icon: IconsConstant.messagePageAppbarRightButton,
             func: () {
-              Navigator.of(context).push(
-                CustomSlidePageRoute(
-                  direction: AxisDirection.up,
-                  child: const MessagePageSetting(),
-                ),
-              );
+              settingButtonFunc();
             }),
       ],
     );

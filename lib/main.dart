@@ -23,7 +23,7 @@ class MainPage extends StatelessWidget {
       //title: AppLocalizations.of(context)!.appName, //? title ekleyemedim çünkü AppLocalizations.of(context) i burda tanımlayamıyorum
       debugShowCheckedModeBanner: false,
       theme: ThemeData(primaryColor: Colors.white),
-      localizationsDelegates:[
+      localizationsDelegates:const [
         AppLocalizations.delegate,
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,

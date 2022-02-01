@@ -64,5 +64,10 @@
     "messagePageSettingsBodyShowReceiptsTextTitle":"Show read receipts",
     "messagePageSettingsBodyShowReceiptsText":"Let people you're messaging with know when you've seen their messages. Read receipts are not shown on message requests.",
     "messagePageSettingsBodyFilterMessageTextTitle":"Filter low-quality messages",
-    "messagePageSettingsBodyFilterMessageText":"Hide message requests that have been detected as being potentially spam or low-quality. These will be sent to a separate inbox at the bottom of your message requests. You can still access them if you want."
+    "messagePageSettingsBodyFilterMessageText":"Hide message requests that have been detected as being potentially spam or low-quality. These will be sent to a separate inbox at the bottom of your message requests. You can still access them if you want.",
+
+
+
+    "TwitterSearchPageTrendWidgetHeader":"Trending in Turkey",
+    "TwitterSearchPageTrendWidgetTweets":"Tweet"    
 }

@@ -64,5 +64,10 @@
     "messagePageSettingsBodyShowReceiptsTextTitle":"Okundu bilgilerini göster",
     "messagePageSettingsBodyShowReceiptsText":"Mesajlaştığın kişiler, gönderdikleri mesajları ne zaman gördüğünü bilsin. Okundu bildirimleri mesaj isteklerinde görünmez.",
     "messagePageSettingsBodyFilterMessageTextTitle":"Düşük kaliteli mesajları filtrele",
-    "messagePageSettingsBodyFilterMessageText":"Potansiyel spam veya düşük kaliteli olarak tespit edilen mesaj isteklerini gizle. Bunlar, mesaj isteklerinin en altında bulunan ayrı bir gelen kutusuna göderilir. Onlara dilediğin zaman ulaşabilirsin."
+    "messagePageSettingsBodyFilterMessageText":"Potansiyel spam veya düşük kaliteli olarak tespit edilen mesaj isteklerini gizle. Bunlar, mesaj isteklerinin en altında bulunan ayrı bir gelen kutusuna göderilir. Onlara dilediğin zaman ulaşabilirsin.",
+
+
+
+    "TwitterSearchPageTrendWidgetHeader":"Türkiye konumunda gündemde",
+    "TwitterSearchPageTrendWidgetTweets":"Tweet"
 }
