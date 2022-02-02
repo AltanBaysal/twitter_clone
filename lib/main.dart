@@ -8,7 +8,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 
 dynamic local;  //? bunu nereye koymam gerektiğinden emin değilim (sanırım init te olucak ama tek bir değişken için dart dosyası açmak mantıklı değil gibi)
-
+//a
 void main() {
   create();
   runApp(const MainPage());
