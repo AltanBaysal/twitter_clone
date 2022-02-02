@@ -128,8 +128,8 @@ class _ChatPageInfoState extends State<ChatPageInfo> {
                 builder: (context) => ChatPageInfoAlertDialog(
                   func: () {
                     selectedUser.deleteConversation(oppositeUserEmail: widget.oppositeUserEmail);
-                    widget.onChange(); //? çok fazla widget ın içinden onChange geçirmek zorunda kalınca statemanagment ın değerini anladım
-                    Navigator.of(context).pop(); //? bunu çalışmasını beklemiyordum ama çalıştı
+                    widget.onChange();
+                    Navigator.of(context).pop();
                     Navigator.of(context).pop();
                   },
                 ),

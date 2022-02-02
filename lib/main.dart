@@ -4,11 +4,8 @@ import 'package:twitter/core/init/create.dart';
 import 'package:twitter/screens/twitter_main_page.dart';
 import 'package:twitter/services/l10n/l10n.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:twitter/services/localization_service.dart';
 
-
-
-dynamic local;  //? bunu nereye koymam gerektiğinden emin değilim (sanırım init te olucak ama tek bir değişken için dart dosyası açmak mantıklı değil gibi)
-//a
 void main() {
   create();
   runApp(const MainPage());
@@ -20,17 +17,20 @@ class MainPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      //title: AppLocalizations.of(context)!.appName, //? title ekleyemedim çünkü AppLocalizations.of(context) i burda tanımlayamıyorum
+      onGenerateTitle: (BuildContext context) {
+        //!
+        LocalizationService(context).of(context);
+        return LocalizationService(context).getLocale.appName;
+      },
       debugShowCheckedModeBanner: false,
       theme: ThemeData(primaryColor: Colors.white),
-      localizationsDelegates:const [
+      localizationsDelegates: const [
         AppLocalizations.delegate,
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,
       ],
       supportedLocales: L10n.all,
-
       home: const TwitterMainPage(),
     );
   }

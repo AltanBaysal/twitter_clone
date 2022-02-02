@@ -80,7 +80,7 @@ class _MessagePageSettingState extends State<MessagePageSetting> {
             duration: const Duration(milliseconds: 300),
             constraints: BoxConstraints(
               maxHeight: allowMessageSwitch ? height : 0,
-            ), //? senin dediğine geldim :)
+            ), 
             curve: Curves.easeIn,
             child: SingleChildScrollView(
               child: Opacity(

@@ -25,7 +25,6 @@ class BasicTextWithSwitch extends StatelessWidget {
         switchFunc(isSwitched: !isSwitched);
       },
 
-      //? custom height kullanımı için daha iyi bir çözümün var mı?
       child: Container(
         height: height,
         padding: EdgeInsets.symmetric(horizontal: width * 0.025),

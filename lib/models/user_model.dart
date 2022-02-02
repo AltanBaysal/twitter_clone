@@ -44,7 +44,7 @@ class UserModel {
   
 
   String getJoinDateAsString(){
-    local.months.split(',')[_joinDate.month];  //? months'u  böyle kullanmak mı daha performanslı olur yoksa bir kere bir yere tanımlayıp ordan çağırmak mı ?
+    local.months.split(',')[_joinDate.month];//! Aylarin her biri icin ayri text olustur. Indexe gore text cek.
     return "${local.months.split(',')[_joinDate.month]} ${_joinDate.year}";
   }
   

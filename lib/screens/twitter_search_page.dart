@@ -35,40 +35,51 @@ class _TwitterSearchPageState extends State<TwitterSearchPage> {
         child: SingleChildScrollView(
           child: Column(
             children: [
-
-              InkWell(//? uygulamada bu bölümü tam anlamadım  
-              //?Inkwell kullandığımda gesturedetector gibi çalışıyor aklımda bir şey var ama çok zorlama yaratıcı bir çözümün var mı
-                onTap: (){},
+              InkWell(
+                onTap: () {},
                 child: Container(
                   width: width,
-                  height: height*0.29,
+                  height: height * 0.29,
                   margin: EdgeInsets.only(bottom: height * 0.001),
-                  padding: EdgeInsets.symmetric(vertical: height * 0.02, horizontal: width * 0.04),
-
+                  padding: EdgeInsets.symmetric(
+                      vertical: height * 0.02, horizontal: width * 0.04),
                   decoration: const BoxDecoration(
                     image: DecorationImage(
-                      image: NetworkImage("https://pbs.twimg.com/semantic_core_img/1255910073831788550/xm0-QtpW?format=jpg&name=small"),
+                      image: NetworkImage(
+                          "https://pbs.twimg.com/semantic_core_img/1255910073831788550/xm0-QtpW?format=jpg&name=small"),
                       fit: BoxFit.contain,
                     ),
                   ),
-
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
-                      Text(local.twitterSearchPageImageTopic ,style: TextStyle(color: Colors.white,fontSize: width*0.045,fontWeight: FontWeight.bold),),
-                      Text(local.twitterSearchPageImageTitle ,style: TextStyle(color: Colors.white,fontSize: width*0.06,fontWeight: FontWeight.bold),),
+                      Text(
+                        local.twitterSearchPageImageTopic,
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: width * 0.045,
+                            fontWeight: FontWeight.bold),
+                      ),
+                      Text(
+                        local.twitterSearchPageImageTitle,
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: width * 0.06,
+                            fontWeight: FontWeight.bold),
+                      ),
                     ],
                   ),
                 ),
               ),
-              
               Container(
                 decoration: const BoxDecoration(
-                  border:Border(top: BorderSide(width: 0.5, color: Colors.grey)),
+                  border:
+                      Border(top: BorderSide(width: 0.5, color: Colors.grey)),
                 ),
                 width: width,
-                padding: EdgeInsets.fromLTRB(width * 0.04, height * 0.02, width * 0.04, 0),
+                padding: EdgeInsets.fromLTRB(
+                    width * 0.04, height * 0.02, width * 0.04, 0),
                 alignment: Alignment.centerLeft,
                 child: Text(
                   local.twitterSearchPageTrendsForYou,
@@ -78,7 +89,6 @@ class _TwitterSearchPageState extends State<TwitterSearchPage> {
                       fontWeight: FontWeight.bold),
                 ),
               ),
-              
               ListView.builder(
                 padding: const EdgeInsets.only(top: 0),
                 shrinkWrap: true,

@@ -18,7 +18,7 @@ class AppbarUI extends StatelessWidget {
       floating: true,
       backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       title: appbaritems,
-      bottom: const PreferredSize(  //? sliverapp bar a alt çizgi eklemeyi sonunda başardım belki görmek istersin
+      bottom: const PreferredSize(
         preferredSize: Size(double.infinity, 0.01),
         child: Divider(color: ColorsConstant.lightGrey,height: 0.01,),
       ),
