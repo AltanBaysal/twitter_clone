@@ -9,7 +9,6 @@ class ChatPageInfoAlertDialog extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    //! l10n eklenecek
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
 

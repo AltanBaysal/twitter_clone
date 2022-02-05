@@ -7,17 +7,17 @@ class TweetHeadPart extends StatelessWidget {
   const TweetHeadPart({
     Key? key,
     required this.tweet,
-    required this.user,
   }) : super(key: key);
 
   final TweetModel tweet;
-  final UserModel user;
 
   @override
   Widget build(BuildContext context) {
+    final UserModel user = tweet.userOfTweet();
+
     double height = MediaQuery.of(context)
         .size
-        .height; //bunları sürekli kullanmak mantıklı mı?
+        .height; //? bunları sürekli kullanmak mantıklı mı?
     double width = MediaQuery.of(context).size.width;
 
     return Container(
@@ -33,6 +33,7 @@ class TweetHeadPart extends StatelessWidget {
                 radius: width * 0.07,
                 backgroundImage: NetworkImage(user.userProfilePicture),
               ),
+              
               Container(
                 margin: EdgeInsets.only(left: width * 0.03),
                 child: Column(
@@ -55,6 +56,7 @@ class TweetHeadPart extends StatelessWidget {
               ),
             ],
           ),
+
           IconButton(
             onPressed: () {},
             iconSize: width * 0.05,

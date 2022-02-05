@@ -1,6 +1,5 @@
 import 'package:twitter/core/init/create_conversations.dart';
 import 'package:twitter/core/init/create_topics.dart';
-import 'package:twitter/core/init/create_tweets.dart';
 import 'package:twitter/core/init/create_users.dart';
 import 'package:twitter/core/init/follow_users.dart';
 import 'package:twitter/services/login_services/select_user_func.dart';
@@ -14,7 +13,6 @@ void create() {
     element.changeUserbio(newbio: element.username+" bio");
   }
 
-  tweets = createTweets();
   followUser();
 
   createConversations();

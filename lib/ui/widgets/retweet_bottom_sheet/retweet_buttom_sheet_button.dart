@@ -22,6 +22,7 @@ class RetweetButtomSheetButton extends StatelessWidget {
     return InkWell(
       onTap: () {
         func();
+        Navigator.of(context).pop();
       },
       child: Container(
         padding: EdgeInsets.symmetric(

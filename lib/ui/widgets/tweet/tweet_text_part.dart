@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 
-class TweetTextPart extends StatelessWidget {
+class TweetTextPart extends StatelessWidget { 
   const TweetTextPart({
     Key? key,
     required this.text,

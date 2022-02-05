@@ -1,5 +1,6 @@
 import 'package:twitter/core/init/create_users.dart';
 import 'package:twitter/models/user_model.dart';
+import 'package:twitter/services/month_chooser_by_int.dart';
 import 'package:twitter/services/user_model_finder_extension.dart';
 
 import '../main.dart';
@@ -67,7 +68,7 @@ class TweetModel {
   String timeSinceSharing() {
     Duration elapsedTimeD = DateTime.now().difference(_releaseTime);
 
-    if (elapsedTimeD.inDays > 6) return "${_releaseTime.day} ${local.months.split(',')[_releaseTime.month - 1].substring(4)}";
+    if (elapsedTimeD.inDays > 6) return "${_releaseTime.day} ${monthChooserByInt(numberOfMonth: _releaseTime.month - 1).substring(4)}";
 
     if (elapsedTimeD.inDays > 0) return "${elapsedTimeD.inDays} ${local.abbreviationOfDay}";
 

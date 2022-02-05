@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:twitter/core/init/create_topics.dart';
 import 'package:twitter/main.dart';
+import 'package:twitter/screens/twitter_search_page_search_screen.dart';
 import 'package:twitter/ui/widgets/appbar/appbar_ui/appbar.dart';
 import 'package:twitter/ui/widgets/appbar/home_page_appbar_with_searchbar_and_setting.dart';
 import 'package:twitter/ui/widgets/search_page_trend_widget.dart';
@@ -25,7 +26,12 @@ class _TwitterSearchPageState extends State<TwitterSearchPage> {
         AppbarUI(
           appbaritems: HomePageAppbarWithSearchBarAndSettings(
             searchBarText: "Search Twitter",
-            searchBarFunc: () {},
+            searchBarFunc: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const TwitterSearchPageSearchScreen()),
+              );
+            },
             settingButtonFunc: () {},
           ),
         ),

@@ -2,8 +2,8 @@ import 'package:twitter/core/init/create_users.dart';
 import 'package:twitter/models/conversation_model.dart';
 import 'package:twitter/models/tweet_model.dart';
 import 'package:twitter/services/conversations_model_finder_extension.dart';
+import 'package:twitter/services/month_chooser_by_int.dart';
 import 'package:twitter/services/user_model_finder_extension.dart';
-import '../main.dart';
 
 late UserModel selectedUser;  //global değerleri GlobalVar adında bir class oluşturup içine koymalımıyım
 
@@ -44,8 +44,8 @@ class UserModel {
   
 
   String getJoinDateAsString(){
-    local.months.split(',')[_joinDate.month];//! Aylarin her biri icin ayri text olustur. Indexe gore text cek.
-    return "${local.months.split(',')[_joinDate.month]} ${_joinDate.year}";
+    monthChooserByInt(numberOfMonth: _joinDate.month);
+    return "${monthChooserByInt(numberOfMonth: _joinDate.month)} ${_joinDate.year}";
   }
   
   bool checkPassword({required String password}) {

@@ -1,12 +1,12 @@
+import 'package:flutter/cupertino.dart';
 import 'package:twitter/core/init/create_users.dart';
 import 'package:twitter/models/tweet_model.dart';
 import 'package:twitter/models/user_model.dart';
 
 
-List<TweetModel> tweets =[];
+class TweetsState with ChangeNotifier{
 
-List<TweetModel> createTweets(){
-  return[
+  List<TweetModel> tweets =[
     users[1].createTweet(text: "bu başka birine ait bir tweettir"),
     users[2].createTweet(text:"bu üçünçü kişiye ait bir tweettir"),
 
@@ -20,6 +20,17 @@ List<TweetModel> createTweets(){
     selectedUser.createTweet(text:"Bu bir tweettir"),
     selectedUser.createTweet(text:"Bu başka bir tweettir"),
     selectedUser.createTweet(text:"Bu Fotoğraflı bir tweettir",image:"http://static1.squarespace.com/static/5be156f4365f02418a904b89/5c6bd79f419202ebf60c713d/5c7ee6ed085229c0b8891384/1571346599322/mindset%2Bnot%2Ba%2Blocation.jpg?format=1500w"),
-
   ];
+
+
+
+  void likeToggleTweetsState({required TweetModel tweet}){
+    tweet.likeToggle(userEmail: selectedUser.userEmail);
+    notifyListeners();
+  }  
+
+  void retweetToggleTweetsState({required TweetModel tweet}){
+    tweet.retweetToggle(userEmail: selectedUser.userEmail);
+    notifyListeners();
+  }
 }

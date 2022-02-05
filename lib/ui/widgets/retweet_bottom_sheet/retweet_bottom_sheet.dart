@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:twitter/constants/asset_constants.dart';
+import 'package:twitter/controllers/tweets_state.dart';
 import 'package:twitter/main.dart';
 import 'package:twitter/models/tweet_model.dart';
 import 'package:twitter/models/user_model.dart';
@@ -9,13 +11,9 @@ class RetweetBottomSheet extends StatelessWidget {
   const RetweetBottomSheet({
     Key? key,
     required this.tweet,
-    required this.selectedUser,
-    required this.onChange,
   }) : super(key: key);
 
   final TweetModel tweet;
-  final UserModel selectedUser;
-  final VoidCallback onChange;
 
   @override
   Widget build(BuildContext context) {
@@ -34,28 +32,28 @@ class RetweetBottomSheet extends StatelessWidget {
               text: local.retweetBottomSheetUndoRetweet,
               image: IconsConstant.retweetBottomSheetRetweet,
               func: () {
-                tweet.retweetToggle(userEmail: selectedUser.userEmail);
-                Navigator.of(context).pop();
-                onChange();
+                Provider.of<TweetsState>(context,listen: false).retweetToggleTweetsState(tweet: tweet);
               },
             ),
+
           if (!tweet.isPersonRetweet(userEmail: selectedUser.userEmail)) ...[
             RetweetButtomSheetButton(
-                width: width,
-                height: height,
-                text: local.retweetBottomSheetRetweet,
-                image: IconsConstant.retweetBottomSheetRetweet,
-                func: () {
-                  tweet.retweetToggle(userEmail: selectedUser.userEmail);
-                  Navigator.of(context).pop();
-                  onChange();
-                }),
+              width: width,
+              height: height,
+              text: local.retweetBottomSheetRetweet,
+              image: IconsConstant.retweetBottomSheetRetweet,
+              func: () {
+                Provider.of<TweetsState>(context,listen: false).retweetToggleTweetsState(tweet: tweet);
+              },
+            ),
+
             RetweetButtomSheetButton(
-                width: width,
-                height: height,
-                text: local.retweetBottomSheetQuoteTweet,
-                image: IconsConstant.retweetBottomsheetQuoteTweet,
-                func: () {}),
+              width: width,
+              height: height,
+              text: local.retweetBottomSheetQuoteTweet,
+              image: IconsConstant.retweetBottomsheetQuoteTweet,
+              func: () {},
+            ),
           ],
         ],
       ),

@@ -1,25 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:provider/provider.dart';
 import 'package:twitter/constants/asset_constants.dart';
 import 'package:twitter/constants/color_constants.dart';
+import 'package:twitter/controllers/tweets_state.dart';
 import 'package:twitter/models/tweet_model.dart';
 import 'package:twitter/models/user_model.dart';
 import 'package:twitter/ui/widgets/retweet_bottom_sheet/retweet_bottom_sheet.dart';
+
 
 class TweetBottomActionBar extends StatefulWidget {
   const TweetBottomActionBar({
     Key? key,
     required this.tweet,
-    required this.user,
   }) : super(key: key);
 
   final TweetModel tweet;
-  final UserModel user;
 
   @override
   State<TweetBottomActionBar> createState() => _TweetBottomActionBarState();
 }
-
 
 class _TweetBottomActionBarState extends State<TweetBottomActionBar> {
   @override
@@ -33,13 +33,15 @@ class _TweetBottomActionBarState extends State<TweetBottomActionBar> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
+
           TweetBottomActionBarButton(
-              icon: IconsConstant.tweetComment,
-              text: widget.tweet.totalComments.toString(),
-              func: () {}),
+            icon: IconsConstant.tweetComment,
+            text: widget.tweet.totalComments.toString(),
+            func: () {},
+          ),
+
           TweetBottomActionBarButtonWithToggleActiveState(
-            toggleActiveState:
-                widget.tweet.isPersonRetweet(userEmail: widget.user.userEmail),
+            toggleActiveState:widget.tweet.isPersonRetweet(userEmail: selectedUser.userEmail),
             activeIcon: IconsConstant.tweetRetweetcolored,
             icon: IconsConstant.tweetRetweet,
             text: widget.tweet.totalRetweets.toString(),
@@ -52,33 +54,27 @@ class _TweetBottomActionBarState extends State<TweetBottomActionBar> {
                 context: context,
                 builder: (context) => RetweetBottomSheet(
                   tweet: widget.tweet,
-                  selectedUser: widget.user,
-                  onChange: () {
-                    setState(() {});
-                  },
                 ),
               );
             },
           ),
-          
+
           TweetBottomActionBarButtonWithToggleActiveState(
-              toggleActiveState:
-                  widget.tweet.isPersonLiked(userEmail: widget.user.userEmail),
-              activeIcon: IconsConstant.tweetLikeColored,
-              icon: IconsConstant.tweetLike,
-              text: widget.tweet.totalLike.toString(),
-              func: () {
-                widget.tweet.likeToggle(userEmail: widget.user.userEmail);
-                setState(() {});
-              }),
-          TweetBottomActionBarButton(
-              icon: IconsConstant.tweetShare, func: () {}),
+            toggleActiveState:widget.tweet.isPersonLiked(userEmail: selectedUser.userEmail),
+            activeIcon: IconsConstant.tweetLikeColored,
+            icon: IconsConstant.tweetLike,
+            text: widget.tweet.totalLike.toString(),
+            func: () {
+              Provider.of<TweetsState>(context,listen: false).likeToggleTweetsState(tweet: widget.tweet); //? listen ı false yaptığımda çalışıyor garip
+            },
+          ),
+
+          TweetBottomActionBarButton(icon: IconsConstant.tweetShare, func: () {}),
         ],
       ),
     );
   }
 }
-
 
 class TweetBottomActionBarButtonWithToggleActiveState extends StatelessWidget {
   const TweetBottomActionBarButtonWithToggleActiveState({
@@ -94,8 +90,7 @@ class TweetBottomActionBarButtonWithToggleActiveState extends StatelessWidget {
   final String activeIcon;
   final String icon;
   final String text;
-  final Function
-      func;
+  final Function func;
 
   @override
   Widget build(BuildContext context) {
@@ -139,8 +134,7 @@ class TweetBottomActionBarButton extends StatelessWidget {
 
   final String icon;
   final String? text;
-  final Function
-      func;
+  final Function func;
 
   @override
   Widget build(BuildContext context) {
