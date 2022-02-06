@@ -85,5 +85,10 @@
     "twitterSearchPageTrendsForYou":"İlgini çekebilecek gündemler",
      
     "twitterSearchPageTrendWidgetHeader":"Türkiye konumunda gündemde",
-    "twitterSearchPageTrendWidgetTweets":"Tweet"
+    "twitterSearchPageTrendWidgetTweets":"Tweet",
+
+
+    "twitterSearchPageSearchScreenSearchForText":"Ara",
+    "twitterSearchPageSearchScreenGoToText":"adlı kişiye git @",
+    "twitterSearchPageSearchScreenBodySearchSomething":"Kişileri,konuları veya anahtar kelimeleri aramayı dene"
 }

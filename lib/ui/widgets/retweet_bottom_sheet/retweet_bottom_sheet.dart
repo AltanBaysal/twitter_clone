@@ -20,42 +20,44 @@ class RetweetBottomSheet extends StatelessWidget {
     final double height = MediaQuery.of(context).size.height;
     final double width = MediaQuery.of(context).size.width;
 
-    return Container(
-      padding: EdgeInsets.only(top: height * 0.03),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          if (tweet.isPersonRetweet(userEmail: selectedUser.userEmail))
-            RetweetButtomSheetButton(
-              width: width,
-              height: height,
-              text: local.retweetBottomSheetUndoRetweet,
-              image: IconsConstant.retweetBottomSheetRetweet,
-              func: () {
-                Provider.of<TweetsState>(context,listen: false).retweetToggleTweetsState(tweet: tweet);
-              },
-            ),
-
-          if (!tweet.isPersonRetweet(userEmail: selectedUser.userEmail)) ...[
-            RetweetButtomSheetButton(
-              width: width,
-              height: height,
-              text: local.retweetBottomSheetRetweet,
-              image: IconsConstant.retweetBottomSheetRetweet,
-              func: () {
-                Provider.of<TweetsState>(context,listen: false).retweetToggleTweetsState(tweet: tweet);
-              },
-            ),
-
-            RetweetButtomSheetButton(
-              width: width,
-              height: height,
-              text: local.retweetBottomSheetQuoteTweet,
-              image: IconsConstant.retweetBottomsheetQuoteTweet,
-              func: () {},
-            ),
+    return Consumer<TweetsState>( //? consumerları tam rebuild olması veya dinlenilmesi greken widgetların üstüne mi koymalıyım yoksa böyle genelde kullanabilir miyim
+      builder: (_, value, __) => Container(
+        padding: EdgeInsets.only(top: height * 0.03),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            if (tweet.isPersonRetweet(userEmail: selectedUser.userEmail))
+              RetweetButtomSheetButton(
+                width: width,
+                height: height,
+                text: local.retweetBottomSheetUndoRetweet,
+                image: IconsConstant.retweetBottomSheetRetweet,
+                func: () {
+                  value.retweetToggleTweetsState(tweet: tweet);
+                },
+              ),
+    
+            if (!tweet.isPersonRetweet(userEmail: selectedUser.userEmail)) ...[
+              RetweetButtomSheetButton(
+                width: width,
+                height: height,
+                text: local.retweetBottomSheetRetweet,
+                image: IconsConstant.retweetBottomSheetRetweet,
+                func: () {
+                  Provider.of<TweetsState>(context,listen: false).retweetToggleTweetsState(tweet: tweet);
+                },
+              ),
+    
+              RetweetButtomSheetButton(
+                width: width,
+                height: height,
+                text: local.retweetBottomSheetQuoteTweet,
+                image: IconsConstant.retweetBottomsheetQuoteTweet,
+                func: () {},
+              ),
+            ],
           ],
-        ],
+        ),
       ),
     );
   }

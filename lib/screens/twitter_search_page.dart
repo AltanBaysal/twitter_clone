@@ -25,7 +25,7 @@ class _TwitterSearchPageState extends State<TwitterSearchPage> {
       headerSliverBuilder: (context, innerBoxScrolled) => [
         AppbarUI(
           appbaritems: HomePageAppbarWithSearchBarAndSettings(
-            searchBarText: "Search Twitter",
+            searchBarText: "Search Twitter", //! l10
             searchBarFunc: () {
               Navigator.push(
                 context,
@@ -36,11 +36,13 @@ class _TwitterSearchPageState extends State<TwitterSearchPage> {
           ),
         ),
       ],
+
       body: RefreshIndicator(
         onRefresh: () => _refresh(),
         child: SingleChildScrollView(
           child: Column(
             children: [
+              
               InkWell(
                 onTap: () {},
                 child: Container(
@@ -78,6 +80,7 @@ class _TwitterSearchPageState extends State<TwitterSearchPage> {
                   ),
                 ),
               ),
+
               Container(
                 decoration: const BoxDecoration(
                   border:
@@ -95,6 +98,7 @@ class _TwitterSearchPageState extends State<TwitterSearchPage> {
                       fontWeight: FontWeight.bold),
                 ),
               ),
+
               ListView.builder(
                 padding: const EdgeInsets.only(top: 0),
                 shrinkWrap: true,
@@ -107,6 +111,7 @@ class _TwitterSearchPageState extends State<TwitterSearchPage> {
                   clickFunc: () {},
                 ),
               ),
+
             ],
           ),
         ),

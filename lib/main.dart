@@ -1,49 +1,49 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
+import 'package:twitter/controllers/controller_list.dart';
 import 'package:twitter/core/init/create.dart';
 import 'package:twitter/screens/twitter_main_page.dart';
 import 'package:twitter/services/l10n/l10n.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:twitter/services/localization_service.dart';
 
-import 'controllers/tweets_state.dart';
-
 void main() {
   create();
-  runApp(const MainPage());
+  runApp(
+    MultiProvider(
+      providers: controllerList,
+      child: const MyApp(),
+    ),
+  );
 }
 
 late AppLocalizations local;
 
 
-class MainPage extends StatelessWidget {
-  const MainPage({Key? key}) : super(key: key);
 
+class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider<TweetsState>(  //? bunu myapp isimli ayrı bir dart dosyasına koymamı ister misin?
-      create: (context) => TweetsState(),
-      child: MaterialApp(
-        onGenerateTitle: (BuildContext context) {
-          local = LocalizationService(context).of(context).getLocale;
-          return LocalizationService(context).getLocale.appName;
-        },
-        debugShowCheckedModeBanner: false,
-        theme: ThemeData(primaryColor: Colors.white),
-        localizationsDelegates: const [
-          AppLocalizations.delegate,
-          GlobalMaterialLocalizations.delegate,
-          GlobalWidgetsLocalizations.delegate,
-          GlobalCupertinoLocalizations.delegate,
-        ],
-        supportedLocales: L10n.all,
-        home: const TwitterMainPage(),
-      ),
+    return MaterialApp(
+      onGenerateTitle: (BuildContext context) {
+        local = LocalizationService(context).of(context).getLocale;
+        return LocalizationService(context).getLocale.appName;
+      },
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(primaryColor: Colors.white),
+      localizationsDelegates: const [
+        AppLocalizations.delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      supportedLocales: L10n.all,
+      home: const TwitterMainPage(),
     );
   }
 }
-
 
 
 //TODO

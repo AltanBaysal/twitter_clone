@@ -41,7 +41,7 @@ class _TweetBottomActionBarState extends State<TweetBottomActionBar> {
           ),
 
           TweetBottomActionBarButtonWithToggleActiveState(
-            toggleActiveState:widget.tweet.isPersonRetweet(userEmail: selectedUser.userEmail),
+            toggleActiveState: widget.tweet.isPersonRetweet(userEmail: selectedUser.userEmail),
             activeIcon: IconsConstant.tweetRetweetcolored,
             icon: IconsConstant.tweetRetweet,
             text: widget.tweet.totalRetweets.toString(),
@@ -59,14 +59,16 @@ class _TweetBottomActionBarState extends State<TweetBottomActionBar> {
             },
           ),
 
-          TweetBottomActionBarButtonWithToggleActiveState(
-            toggleActiveState:widget.tweet.isPersonLiked(userEmail: selectedUser.userEmail),
-            activeIcon: IconsConstant.tweetLikeColored,
-            icon: IconsConstant.tweetLike,
-            text: widget.tweet.totalLike.toString(),
-            func: () {
-              Provider.of<TweetsState>(context,listen: false).likeToggleTweetsState(tweet: widget.tweet); //? listen ı false yaptığımda çalışıyor garip
-            },
+          Consumer<TweetsState>(
+            builder: (_, value, child) => TweetBottomActionBarButtonWithToggleActiveState(
+              toggleActiveState:widget.tweet.isPersonLiked(userEmail: selectedUser.userEmail),
+              activeIcon: IconsConstant.tweetLikeColored,
+              icon: IconsConstant.tweetLike,
+              text: widget.tweet.totalLike.toString(),
+              func: () {
+                value.likeToggleTweetsState(tweet: widget.tweet);
+              },
+            ),
           ),
 
           TweetBottomActionBarButton(icon: IconsConstant.tweetShare, func: () {}),
@@ -75,6 +77,7 @@ class _TweetBottomActionBarState extends State<TweetBottomActionBar> {
     );
   }
 }
+
 
 class TweetBottomActionBarButtonWithToggleActiveState extends StatelessWidget {
   const TweetBottomActionBarButtonWithToggleActiveState({

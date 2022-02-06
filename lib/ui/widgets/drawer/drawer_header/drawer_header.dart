@@ -90,7 +90,7 @@ class CustomDrawerHeader extends StatelessWidget {
                         TextStyle(color: Colors.black, fontSize: width * 0.04),
                     children: [
                       TextSpan(
-                        text: AppLocalizations.of(context)!.drawerHeaderFollowers, //? bu ünlemleri kullanmak zorunda mıyım flutter kendi sitesinde anlatırken kullanmış ama her yere ünlem koymak hoş değil
+                        text: AppLocalizations.of(context)!.drawerHeaderFollowers, 
                         style: TextStyle(
                             color: ColorsConstant.grey,
                             fontSize: width * 0.04),

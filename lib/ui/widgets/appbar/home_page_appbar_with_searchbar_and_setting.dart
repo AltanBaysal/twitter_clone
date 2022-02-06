@@ -31,7 +31,7 @@ class HomePageAppbarWithSearchBarAndSettings extends StatelessWidget {
             }),
         
         InkWell(
-          borderRadius: BorderRadius.circular(20.0),
+          customBorder: const CircleBorder(),
           onTap: () {searchBarFunc();},
           child: Container(
             padding: EdgeInsets.symmetric(

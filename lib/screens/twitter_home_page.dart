@@ -19,16 +19,18 @@ class TwitterHomePage extends StatelessWidget { //+
 
       body: RefreshIndicator(
         onRefresh: () => _refresh(),
-        child: ListView.separated(
-          padding: const EdgeInsets.only(top: 0),
-          shrinkWrap: true,
-          physics: const NeverScrollableScrollPhysics(),
-          separatorBuilder: (context, index) => const Divider(
-            thickness: 1,
-            color: ColorsConstant.lightGrey,
-          ),
-          itemCount: Provider.of<TweetsState>(context).tweets.length,
-          itemBuilder: (context, index) => TweetWidget(tweet: Provider.of<TweetsState>(context).tweets[index],
+        child: Consumer<TweetsState>(
+          builder: (_, value, __) => ListView.separated(
+            padding: const EdgeInsets.only(top: 0),
+            shrinkWrap: true,
+            physics: const NeverScrollableScrollPhysics(),
+            separatorBuilder: (context, index) => const Divider(
+              thickness: 1,
+              color: ColorsConstant.lightGrey,
+            ),
+            itemCount: value.tweets.length,
+            itemBuilder: (context, index) => TweetWidget(tweet: value.tweets[index],
+            ),
           ),
         ),
       ),

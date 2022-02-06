@@ -1,0 +1,4 @@
+enum TwitterSearchPageSearchScreenBodyState{
+  searchSomethingState,
+  conclusionState,
+}

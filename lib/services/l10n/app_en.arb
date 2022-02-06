@@ -87,5 +87,10 @@
     "twitterSearchPageTrendsForYou":"Trends for you",
 
     "twitterSearchPageTrendWidgetHeader":"Trending in Turkey",
-    "twitterSearchPageTrendWidgetTweets":"Tweet"    
+    "twitterSearchPageTrendWidgetTweets":"Tweet",
+
+    
+    "twitterSearchPageSearchScreenSearchForText":"Search for",
+    "twitterSearchPageSearchScreenGoToText":"Go to @",
+    "twitterSearchPageSearchScreenBodySearchSomething":"Try searching for people, topics or keywords"
 }
