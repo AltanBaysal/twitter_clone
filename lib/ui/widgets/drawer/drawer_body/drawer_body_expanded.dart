@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:twitter/main.dart';
+import 'package:twitter/services/localization_service.dart';
 
 class DrawerBodyExpanded extends StatefulWidget {
   const DrawerBodyExpanded({Key? key}) : super(key: key);
 
   @override
-  _DrawerBodyExpandedState createState() =>
-      _DrawerBodyExpandedState();
+  _DrawerBodyExpandedState createState() => _DrawerBodyExpandedState();
 }
 
 class _DrawerBodyExpandedState extends State<DrawerBodyExpanded> {
@@ -23,7 +23,9 @@ class _DrawerBodyExpandedState extends State<DrawerBodyExpanded> {
             height: height * 0.06,
             alignment: Alignment.centerLeft,
             child: Text(
-              local.drawerBodyExpandedTextCreateANewAccount,
+              LocalizationService.of()
+                  .getLocale
+                  .drawerBodyExpandedTextCreateANewAccount,
               style: TextStyle(fontSize: width * 0.04),
             ),
           ),
@@ -37,7 +39,7 @@ class _DrawerBodyExpandedState extends State<DrawerBodyExpanded> {
             height: height * 0.06,
             alignment: Alignment.centerLeft,
             child: Text(
-              local.drawerTextAddanExistingAccount,
+              LocalizationService.of().getLocale.drawerTextAddanExistingAccount,
               style: TextStyle(fontSize: width * 0.04),
             ),
           ),

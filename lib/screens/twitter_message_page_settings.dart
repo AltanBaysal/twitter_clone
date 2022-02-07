@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:twitter/constants/color_constants.dart';
 import 'package:twitter/models/user_model.dart';
+import 'package:twitter/services/localization_service.dart';
 import 'package:twitter/ui/widgets/message_page.dart/message_page_settings_body_item.dart';
-
-import '../main.dart';
 
 class MessagePageSetting extends StatefulWidget {
   const MessagePageSetting({Key? key}) : super(key: key);
@@ -13,7 +12,6 @@ class MessagePageSetting extends StatefulWidget {
 }
 
 class _MessagePageSettingState extends State<MessagePageSetting> {
-
   bool allowMessageSwitch = false;
   bool filterMessagesSwitch = false;
   bool showReceiptsSwitch = false;
@@ -43,7 +41,7 @@ class _MessagePageSettingState extends State<MessagePageSetting> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              local.messagePageSettingsAppBarTitle,
+              LocalizationService.of().getLocale.messagePageSettingsAppBarTitle,
               style: TextStyle(color: Colors.black, fontSize: height * 0.03),
             ),
             Text(
@@ -58,10 +56,12 @@ class _MessagePageSettingState extends State<MessagePageSetting> {
         children: [
           MessagePageSettingsBodyItem(
             isSwitched: allowMessageSwitch,
-            titleText: local
+            titleText: LocalizationService.of()
+                .getLocale
                 .messagePageSettingsBodyToggleAllowMessageTextTitle,
-            explainertext:
-                local.messagePageSettingsBodyToggleAllowMessageText,
+            explainertext: LocalizationService.of()
+                .getLocale
+                .messagePageSettingsBodyToggleAllowMessageText,
             learnMoreFunc: () {},
             switchFunc: ({required bool isSwitched}) {
               setState(
@@ -74,23 +74,24 @@ class _MessagePageSettingState extends State<MessagePageSetting> {
               );
             },
           ),
-          
           AnimatedContainer(
             onEnd: _changeFilterMessageWidgetOpacity,
             duration: const Duration(milliseconds: 300),
             constraints: BoxConstraints(
               maxHeight: allowMessageSwitch ? height : 0,
-            ), 
+            ),
             curve: Curves.easeIn,
             child: SingleChildScrollView(
               child: Opacity(
                 opacity: toggleOpacityFilterMessageWidget ? 1 : 0,
                 child: MessagePageSettingsBodyItem(
                   isSwitched: filterMessagesSwitch,
-                  titleText: local
+                  titleText: LocalizationService.of()
+                      .getLocale
                       .messagePageSettingsBodyFilterMessageTextTitle,
-                  explainertext:
-                      local.messagePageSettingsBodyFilterMessageText,
+                  explainertext: LocalizationService.of()
+                      .getLocale
+                      .messagePageSettingsBodyFilterMessageText,
                   learnMoreFunc: () {},
                   switchFunc: ({required bool isSwitched}) {
                     setState(() {
@@ -101,13 +102,14 @@ class _MessagePageSettingState extends State<MessagePageSetting> {
               ),
             ),
           ),
-        
           MessagePageSettingsBodyItem(
             isSwitched: showReceiptsSwitch,
-            titleText:
-                local.messagePageSettingsBodyShowReceiptsTextTitle,
-            explainertext:
-                local.messagePageSettingsBodyShowReceiptsText,
+            titleText: LocalizationService.of()
+                .getLocale
+                .messagePageSettingsBodyShowReceiptsTextTitle,
+            explainertext: LocalizationService.of()
+                .getLocale
+                .messagePageSettingsBodyShowReceiptsText,
             learnMoreFunc: () {},
             switchFunc: ({required bool isSwitched}) {
               setState(

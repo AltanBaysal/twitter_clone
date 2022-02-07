@@ -3,7 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:twitter/constants/asset_constants.dart';
 import 'package:twitter/main.dart';
 import 'package:twitter/models/conversation_model.dart';
-
+import 'package:twitter/services/localization_service.dart';
 
 class ChatPageBottomBar extends StatefulWidget {
   const ChatPageBottomBar({
@@ -53,7 +53,6 @@ class _ChatPageBottomBarState extends State<ChatPageBottomBar> {
               ),
             ),
           ),
-          
           GestureDetector(
             onTap: () {},
             child: SizedBox(
@@ -66,7 +65,6 @@ class _ChatPageBottomBarState extends State<ChatPageBottomBar> {
               ),
             ),
           ),
-         
           SizedBox(
             width: width * 0.55,
             height: width * 0.06,
@@ -82,12 +80,13 @@ class _ChatPageBottomBarState extends State<ChatPageBottomBar> {
               },
               controller: textController,
               decoration: InputDecoration(
-                hintText: local.chatPageBottomBarSendTextHint,
+                hintText: LocalizationService.of()
+                    .getLocale
+                    .chatPageBottomBarSendTextHint,
                 hintStyle: TextStyle(fontSize: width * 0.035),
               ),
             ),
           ),
-          
           Container(
             height: width * 0.08,
             width: 0.5,
@@ -106,8 +105,7 @@ class _ChatPageBottomBarState extends State<ChatPageBottomBar> {
           else
             GestureDetector(
               onTap: () {
-                widget.conversation
-                    .sendMessage(textController.text);
+                widget.conversation.sendMessage(textController.text);
                 textController.clear();
                 widget.onChange();
               },

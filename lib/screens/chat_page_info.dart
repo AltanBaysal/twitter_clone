@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:twitter/constants/color_constants.dart';
 import 'package:twitter/models/user_model.dart';
+import 'package:twitter/services/localization_service.dart';
 import 'package:twitter/ui/widgets/chat_page_widgets.dart/chat_page_info_alert_dialog.dart';
 import 'package:twitter/ui/widgets/chat_page_widgets.dart/chat_page_info_text_button.dart';
 import 'package:twitter/ui/widgets/common/basic_text_with_switch.dart';
@@ -38,7 +39,7 @@ class _ChatPageInfoState extends State<ChatPageInfo> {
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         elevation: 1,
         title: Text(
-          local.chatPageInfoAppBarTitle,
+          LocalizationService.of().getLocale.chatPageInfoAppBarTitle,
           style: TextStyle(fontSize: height * 0.03, color: Colors.black),
         ),
       ),
@@ -56,7 +57,6 @@ class _ChatPageInfoState extends State<ChatPageInfo> {
               ),
             ),
           ),
-          
           Text(
             widget.user.username,
             style: TextStyle(
@@ -64,13 +64,11 @@ class _ChatPageInfoState extends State<ChatPageInfo> {
                 fontSize: width * 0.05,
                 fontWeight: FontWeight.bold),
           ),
-          
           Text(
             widget.user.userEmail,
             style: TextStyle(
                 color: ColorsConstant.lightBlack, fontSize: width * 0.03),
           ),
-          
           Container(
             margin: EdgeInsets.only(top: height * 0.02),
             decoration: const BoxDecoration(
@@ -85,7 +83,9 @@ class _ChatPageInfoState extends State<ChatPageInfo> {
                   margin: EdgeInsets.symmetric(
                       vertical: height * 0.03, horizontal: width * 0.025),
                   child: Text(
-                    local.chatPageInfoBodyNotifications,
+                    LocalizationService.of()
+                        .getLocale
+                        .chatPageInfoBodyNotifications,
                     style: TextStyle(
                         color: Colors.black,
                         fontSize: width * 0.05,
@@ -93,7 +93,9 @@ class _ChatPageInfoState extends State<ChatPageInfo> {
                   ),
                 ),
                 BasicTextWithSwitch(
-                    text: local.chatPageInfoBodySnoozeNotifications,
+                    text: LocalizationService.of()
+                        .getLocale
+                        .chatPageInfoBodySnoozeNotifications,
                     height: height * 0.06,
                     isSwitched: toggleSwitch,
                     switchFunc: ({required bool isSwitched}) {
@@ -106,28 +108,30 @@ class _ChatPageInfoState extends State<ChatPageInfo> {
               ],
             ),
           ),
-          
           ChatPageInfoTextButton(
-            text: local.chatPageInfoBodyBlock + selectedUser.userEmail,
+            text: LocalizationService.of().getLocale.chatPageInfoBodyBlock +
+                selectedUser.userEmail,
             textColor: Colors.blue,
             func: () {},
           ),
-          
           ChatPageInfoTextButton(
-            text: local.chatPageInfoBodyReport + selectedUser.userEmail,
+            text: LocalizationService.of().getLocale.chatPageInfoBodyReport +
+                selectedUser.userEmail,
             textColor: Colors.blue,
             func: () {},
           ),
-          
           ChatPageInfoTextButton(
-            text: local.chatPageInfoBodyDeleteConversation,
+            text: LocalizationService.of()
+                .getLocale
+                .chatPageInfoBodyDeleteConversation,
             textColor: Colors.red,
             func: () {
               showDialog(
                 context: context,
                 builder: (context) => ChatPageInfoAlertDialog(
                   func: () {
-                    selectedUser.deleteConversation(oppositeUserEmail: widget.oppositeUserEmail);
+                    selectedUser.deleteConversation(
+                        oppositeUserEmail: widget.oppositeUserEmail);
                     widget.onChange();
                     Navigator.of(context).pop();
                     Navigator.of(context).pop();

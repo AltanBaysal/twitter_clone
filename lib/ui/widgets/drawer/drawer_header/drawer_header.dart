@@ -3,7 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:twitter/constants/asset_constants.dart';
 import 'package:twitter/constants/color_constants.dart';
 import 'package:twitter/models/user_model.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:twitter/services/localization_service.dart';
 
 bool isArrowDown = true;
 
@@ -32,7 +32,6 @@ class CustomDrawerHeader extends StatelessWidget {
             backgroundImage: NetworkImage(selectedUser.userProfilePicture),
             radius: width * 0.08,
           ),
-          
           Container(
             margin: EdgeInsets.only(
               top: height * 0.01,
@@ -69,7 +68,6 @@ class CustomDrawerHeader extends StatelessWidget {
               ],
             ),
           ),
-          
           Container(
             margin: EdgeInsets.only(top: height * 0.01),
             child: Text(
@@ -78,7 +76,6 @@ class CustomDrawerHeader extends StatelessWidget {
                   fontSize: width * 0.045, color: ColorsConstant.grey),
             ),
           ),
-          
           Container(
             margin: EdgeInsets.symmetric(vertical: height * 0.02),
             child: Row(
@@ -90,10 +87,11 @@ class CustomDrawerHeader extends StatelessWidget {
                         TextStyle(color: Colors.black, fontSize: width * 0.04),
                     children: [
                       TextSpan(
-                        text: AppLocalizations.of(context)!.drawerHeaderFollowers, 
+                        text: LocalizationService.of()
+                            .getLocale
+                            .drawerHeaderFollowers,
                         style: TextStyle(
-                            color: ColorsConstant.grey,
-                            fontSize: width * 0.04),
+                            color: ColorsConstant.grey, fontSize: width * 0.04),
                       ),
                     ],
                   ),
@@ -108,10 +106,11 @@ class CustomDrawerHeader extends StatelessWidget {
                         TextStyle(color: Colors.black, fontSize: width * 0.04),
                     children: [
                       TextSpan(
-                        text: AppLocalizations.of(context)!.drawerHeaderFollowing,
+                        text: LocalizationService.of()
+                            .getLocale
+                            .drawerHeaderFollowing,
                         style: TextStyle(
-                            color: ColorsConstant.grey,
-                            fontSize: width * 0.04),
+                            color: ColorsConstant.grey, fontSize: width * 0.04),
                       ),
                     ],
                   ),

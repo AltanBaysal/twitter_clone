@@ -1,5 +1,6 @@
 import 'package:twitter/core/init/create_users.dart';
 import 'package:twitter/models/user_model.dart';
+import 'package:twitter/services/localization_service.dart';
 import 'package:twitter/services/month_chooser_by_int.dart';
 import 'package:twitter/services/user_model_finder_extension.dart';
 
@@ -14,11 +15,9 @@ class TweetModel {
 
   late DateTime _releaseTime;
 
-
   final List<String> _personEmailWhoRetweets = [];
   final List<String> _personEmailWhoLikes = [];
   final Map<String, String> _personAndComments = {};
-
 
   TweetModel(this._userEmail, this._text) {
     tweetModelStarterCommonFuncs();
@@ -33,8 +32,6 @@ class TweetModel {
     _tweetId = "$_userEmail  ${releaseTime.toString()}";
   }
 
-
-
   String get tweetId => _tweetId;
 
   String get userEmail => _userEmail;
@@ -46,8 +43,6 @@ class TweetModel {
   int get totalRetweets => _personEmailWhoRetweets.length;
   int get totalLike => _personEmailWhoLikes.length;
   int get totalComments => _personAndComments.length;
-
-
 
   void likeToggle({required String userEmail}) {
     if (isPersonLiked(userEmail: userEmail)) {
@@ -68,22 +63,26 @@ class TweetModel {
   String timeSinceSharing() {
     Duration elapsedTimeD = DateTime.now().difference(_releaseTime);
 
-    if (elapsedTimeD.inDays > 6) return "${_releaseTime.day} ${monthChooserByInt(numberOfMonth: _releaseTime.month - 1).substring(4)}";
+    if (elapsedTimeD.inDays > 6)
+      return "${_releaseTime.day} ${monthChooserByInt(numberOfMonth: _releaseTime.month - 1).substring(4)}";
 
-    if (elapsedTimeD.inDays > 0) return "${elapsedTimeD.inDays} ${local.abbreviationOfDay}";
+    if (elapsedTimeD.inDays > 0)
+      return "${elapsedTimeD.inDays} ${LocalizationService.of().getLocale.abbreviationOfDay}";
 
-    if (elapsedTimeD.inHours > 0) return "${elapsedTimeD.inHours} ${local.abbreviationOfHour}";
+    if (elapsedTimeD.inHours > 0)
+      return "${elapsedTimeD.inHours} ${LocalizationService.of().getLocale.abbreviationOfHour}";
 
-    if (elapsedTimeD.inMinutes > 0) return "${elapsedTimeD.inMinutes.toString()} ${local.abbreviationOfMinutes}";
+    if (elapsedTimeD.inMinutes > 0)
+      return "${elapsedTimeD.inMinutes.toString()} ${LocalizationService.of().getLocale.abbreviationOfMinutes}";
 
-    if (elapsedTimeD.inSeconds > 0)return "${elapsedTimeD.inSeconds.toString()} ${local.abbreviationOfSeconds}";
-    
+    if (elapsedTimeD.inSeconds > 0)
+      return "${elapsedTimeD.inSeconds.toString()} ${LocalizationService.of().getLocale.abbreviationOfSeconds}";
 
-    return "0 ${local.abbreviationOfSeconds}";
+    return "0 ${LocalizationService.of().getLocale.abbreviationOfSeconds}";
   }
 
   UserModel userOfTweet() {
-    return  users.userModelFinderByEmail(userEmail: _userEmail);
+    return users.userModelFinderByEmail(userEmail: _userEmail);
   }
 
   bool isPersonLiked({required String userEmail}) {

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:twitter/main.dart';
 import 'package:twitter/models/user_model.dart';
 import 'package:twitter/screens/twitter_message_page_settings.dart';
+import 'package:twitter/services/localization_service.dart';
 import 'package:twitter/ui/helper/custom_slide_page_route.dart';
 import 'package:twitter/ui/widgets/appbar/appbar_ui/appbar.dart';
 import 'package:twitter/ui/widgets/appbar/home_page_appbar_with_searchbar_and_setting.dart';
@@ -22,10 +23,11 @@ class _TwitterMessagePageState extends State<TwitterMessagePage> {
     return NestedScrollView(
       floatHeaderSlivers: true,
       headerSliverBuilder: (context, innerBoxScrolled) => [
-
         AppbarUI(
           appbaritems: HomePageAppbarWithSearchBarAndSettings(
-            searchBarText: local.messagePageAppbarSearchTittle,
+            searchBarText: LocalizationService.of()
+                .getLocale
+                .messagePageAppbarSearchTittle,
             searchBarFunc: () {},
             settingButtonFunc: () {
               Navigator.of(context).push(
@@ -38,7 +40,6 @@ class _TwitterMessagePageState extends State<TwitterMessagePage> {
           ),
         ),
       ],
-
       body: RefreshIndicator(
         onRefresh: () => _refresh(),
         child: ListView.builder(

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:twitter/core/init/create_topics.dart';
 import 'package:twitter/main.dart';
 import 'package:twitter/screens/twitter_search_page_search_screen.dart';
+import 'package:twitter/services/localization_service.dart';
 import 'package:twitter/ui/widgets/appbar/appbar_ui/appbar.dart';
 import 'package:twitter/ui/widgets/appbar/home_page_appbar_with_searchbar_and_setting.dart';
 import 'package:twitter/ui/widgets/search_page_trend_widget.dart';
@@ -29,20 +30,20 @@ class _TwitterSearchPageState extends State<TwitterSearchPage> {
             searchBarFunc: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => const TwitterSearchPageSearchScreen()),
+                MaterialPageRoute(
+                    builder: (context) =>
+                        const TwitterSearchPageSearchScreen()),
               );
             },
             settingButtonFunc: () {},
           ),
         ),
       ],
-
       body: RefreshIndicator(
         onRefresh: () => _refresh(),
         child: SingleChildScrollView(
           child: Column(
             children: [
-              
               InkWell(
                 onTap: () {},
                 child: Container(
@@ -63,14 +64,18 @@ class _TwitterSearchPageState extends State<TwitterSearchPage> {
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       Text(
-                        local.twitterSearchPageImageTopic,
+                        LocalizationService.of()
+                            .getLocale
+                            .twitterSearchPageImageTopic,
                         style: TextStyle(
                             color: Colors.white,
                             fontSize: width * 0.045,
                             fontWeight: FontWeight.bold),
                       ),
                       Text(
-                        local.twitterSearchPageImageTitle,
+                        LocalizationService.of()
+                            .getLocale
+                            .twitterSearchPageImageTitle,
                         style: TextStyle(
                             color: Colors.white,
                             fontSize: width * 0.06,
@@ -80,7 +85,6 @@ class _TwitterSearchPageState extends State<TwitterSearchPage> {
                   ),
                 ),
               ),
-
               Container(
                 decoration: const BoxDecoration(
                   border:
@@ -91,14 +95,15 @@ class _TwitterSearchPageState extends State<TwitterSearchPage> {
                     width * 0.04, height * 0.02, width * 0.04, 0),
                 alignment: Alignment.centerLeft,
                 child: Text(
-                  local.twitterSearchPageTrendsForYou,
+                  LocalizationService.of()
+                      .getLocale
+                      .twitterSearchPageTrendsForYou,
                   style: TextStyle(
                       fontSize: width * 0.05,
                       color: Colors.black,
                       fontWeight: FontWeight.bold),
                 ),
               ),
-
               ListView.builder(
                 padding: const EdgeInsets.only(top: 0),
                 shrinkWrap: true,
@@ -111,7 +116,6 @@ class _TwitterSearchPageState extends State<TwitterSearchPage> {
                   clickFunc: () {},
                 ),
               ),
-
             ],
           ),
         ),

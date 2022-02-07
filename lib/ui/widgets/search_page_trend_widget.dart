@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:twitter/constants/color_constants.dart';
 import 'package:twitter/main.dart';
-
+import 'package:twitter/services/localization_service.dart';
 
 class TrendWidget extends StatelessWidget {
   const TrendWidget({
@@ -35,7 +35,9 @@ class TrendWidget extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  local.twitterSearchPageTrendWidgetHeader,
+                  LocalizationService.of()
+                      .getLocale
+                      .twitterSearchPageTrendWidgetHeader,
                   style: TextStyle(
                       color: ColorsConstant.darkGrey,
                       fontWeight: FontWeight.bold,
@@ -51,7 +53,7 @@ class TrendWidget extends StatelessWidget {
                 ),
                 Divider(height: height * 0.004, color: Colors.transparent),
                 Text(
-                  "$countOfTweetsContainHashtag ${local.twitterSearchPageTrendWidgetTweets}",
+                  "$countOfTweetsContainHashtag ${LocalizationService.of().getLocale.twitterSearchPageTrendWidgetTweets}",
                   style: TextStyle(
                       color: ColorsConstant.grey, fontSize: width * 0.036),
                 ),

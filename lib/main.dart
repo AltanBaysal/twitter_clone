@@ -7,6 +7,7 @@ import 'package:twitter/screens/twitter_main_page.dart';
 import 'package:twitter/services/l10n/l10n.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:twitter/services/localization_service.dart';
+import 'core/functions/global_key.dart';
 
 void main() {
   create();
@@ -18,19 +19,15 @@ void main() {
   );
 }
 
-late AppLocalizations local;
-
-
-
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       onGenerateTitle: (BuildContext context) {
-        local = LocalizationService(context).of(context).getLocale;
-        return LocalizationService(context).getLocale.appName;
+        return AppLocalizations.of(context)!.appName;
       },
+      navigatorKey: GlobalContextKey.instance.globalKey,
       debugShowCheckedModeBanner: false,
       theme: ThemeData(primaryColor: Colors.white),
       localizationsDelegates: const [

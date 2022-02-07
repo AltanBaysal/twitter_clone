@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:twitter/constants/asset_constants.dart';
 import 'package:twitter/controllers/tweets_state.dart';
-import 'package:twitter/main.dart';
 import 'package:twitter/models/tweet_model.dart';
 import 'package:twitter/models/user_model.dart';
+import 'package:twitter/services/localization_service.dart';
 import 'package:twitter/ui/widgets/retweet_bottom_sheet/retweet_buttom_sheet_button.dart';
 
 class RetweetBottomSheet extends StatelessWidget {
@@ -20,7 +20,8 @@ class RetweetBottomSheet extends StatelessWidget {
     final double height = MediaQuery.of(context).size.height;
     final double width = MediaQuery.of(context).size.width;
 
-    return Consumer<TweetsState>( //? consumerları tam rebuild olması veya dinlenilmesi greken widgetların üstüne mi koymalıyım yoksa böyle genelde kullanabilir miyim
+    return Consumer<TweetsState>(
+      //? consumerları tam rebuild olması veya dinlenilmesi greken widgetların üstüne mi koymalıyım yoksa böyle genelde kullanabilir miyim
       builder: (_, value, __) => Container(
         padding: EdgeInsets.only(top: height * 0.03),
         child: Column(
@@ -30,28 +31,33 @@ class RetweetBottomSheet extends StatelessWidget {
               RetweetButtomSheetButton(
                 width: width,
                 height: height,
-                text: local.retweetBottomSheetUndoRetweet,
+                text: LocalizationService.of()
+                    .getLocale
+                    .retweetBottomSheetUndoRetweet,
                 image: IconsConstant.retweetBottomSheetRetweet,
                 func: () {
                   value.retweetToggleTweetsState(tweet: tweet);
                 },
               ),
-    
             if (!tweet.isPersonRetweet(userEmail: selectedUser.userEmail)) ...[
               RetweetButtomSheetButton(
                 width: width,
                 height: height,
-                text: local.retweetBottomSheetRetweet,
+                text: LocalizationService.of()
+                    .getLocale
+                    .retweetBottomSheetRetweet,
                 image: IconsConstant.retweetBottomSheetRetweet,
                 func: () {
-                  Provider.of<TweetsState>(context,listen: false).retweetToggleTweetsState(tweet: tweet);
+                  Provider.of<TweetsState>(context, listen: false)
+                      .retweetToggleTweetsState(tweet: tweet);
                 },
               ),
-    
               RetweetButtomSheetButton(
                 width: width,
                 height: height,
-                text: local.retweetBottomSheetQuoteTweet,
+                text: LocalizationService.of()
+                    .getLocale
+                    .retweetBottomSheetQuoteTweet,
                 image: IconsConstant.retweetBottomsheetQuoteTweet,
                 func: () {},
               ),
