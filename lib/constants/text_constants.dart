@@ -1,4 +1,3 @@
-import 'package:twitter/main.dart';
 import 'package:twitter/services/localization_service.dart';
 
 class TextConstant {

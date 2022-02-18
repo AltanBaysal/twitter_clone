@@ -5,7 +5,6 @@ import 'package:twitter/services/localization_service.dart';
 import 'package:twitter/ui/widgets/chat_page_widgets.dart/chat_page_info_alert_dialog.dart';
 import 'package:twitter/ui/widgets/chat_page_widgets.dart/chat_page_info_text_button.dart';
 import 'package:twitter/ui/widgets/common/basic_text_with_switch.dart';
-import '../main.dart';
 
 class ChatPageInfo extends StatefulWidget {
   const ChatPageInfo(

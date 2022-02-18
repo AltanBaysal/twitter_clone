@@ -4,7 +4,6 @@ import 'package:twitter/models/conversation_model.dart';
 import 'package:twitter/models/user_model.dart';
 import 'package:twitter/services/localization_service.dart';
 import 'package:twitter/ui/helper/message_designer.dart';
-import '../../../main.dart';
 
 class ChatPageBody extends StatelessWidget {
   const ChatPageBody({
@@ -86,8 +85,7 @@ class ChatPageBody extends StatelessWidget {
         physics: const NeverScrollableScrollPhysics(),
         itemCount: conversation.allMessages.length,
         itemBuilder: (context, index) {
-          if (index >= conversation.allMessages.length - 1)
-            return MessageDesigner(message: conversation.allMessages[index]);
+          if (index >= conversation.allMessages.length - 1) return MessageDesigner(message: conversation.allMessages[index]);
           return MessageDesigner(
               message: conversation.allMessages[index],
               nextMessage: conversation.allMessages[index + 1]);

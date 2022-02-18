@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:twitter/main.dart';
 import 'package:twitter/services/localization_service.dart';
 
 class DrawerBodyExpanded extends StatefulWidget {

@@ -6,7 +6,7 @@ import 'package:twitter/services/login_services/select_user_func.dart';
 
 
 void create() {
-  users = createUsers();
+  createUsers();
   selectUser(userEmail: "@Mr.Stark", password: "123456");
   
   for (var element in users) {

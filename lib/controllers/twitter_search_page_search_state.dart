@@ -37,8 +37,7 @@ class TwitterSearchPageSearchState
   
 
   TwitterSearchPageSearchScreenBodyState searchScreenBodyStateChooser() {
-    if (_searchBarText.isEmpty)
-      return TwitterSearchPageSearchScreenBodyState.searchSomethingState;
+    if (_searchBarText.isEmpty) return TwitterSearchPageSearchScreenBodyState.searchSomethingState;
     return TwitterSearchPageSearchScreenBodyState.conclusionState;
   }
 

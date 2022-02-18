@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:twitter/core/init/create_topics.dart';
-import 'package:twitter/main.dart';
 import 'package:twitter/screens/twitter_search_page_search_screen.dart';
 import 'package:twitter/services/localization_service.dart';
 import 'package:twitter/ui/widgets/appbar/appbar_ui/appbar.dart';

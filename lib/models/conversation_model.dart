@@ -1,5 +1,4 @@
 import 'package:twitter/core/init/create_users.dart';
-import 'package:twitter/main.dart';
 import 'package:twitter/models/message_model.dart';
 import 'package:twitter/models/user_model.dart';
 import 'package:twitter/services/conversations_model_finder_extension.dart';
@@ -38,14 +37,10 @@ class ConversationModal {
   String elapsedTimeSinceSentLastMessage() {
     Duration elapsedTime =
         DateTime.now().difference(_allMessages.last.sendingDate);
-    if (elapsedTime.inDays >= 1)
-      return "${elapsedTime.inDays} ${LocalizationService.of().getLocale.abbreviationOfDay}";
-    if (elapsedTime.inHours >= 1)
-      return "${elapsedTime.inHours} ${LocalizationService.of().getLocale.abbreviationOfHour}";
-    if (elapsedTime.inMinutes >= 1)
-      return "${elapsedTime.inMinutes} ${LocalizationService.of().getLocale.abbreviationOfMinutes}";
-    if (elapsedTime.inSeconds >= 1)
-      return "${elapsedTime.inSeconds} ${LocalizationService.of().getLocale.abbreviationOfSeconds}";
+    if (elapsedTime.inDays >= 1) return "${elapsedTime.inDays} ${LocalizationService.of().getLocale.abbreviationOfDay}";
+    if (elapsedTime.inHours >= 1) return "${elapsedTime.inHours} ${LocalizationService.of().getLocale.abbreviationOfHour}";
+    if (elapsedTime.inMinutes >= 1) return "${elapsedTime.inMinutes} ${LocalizationService.of().getLocale.abbreviationOfMinutes}";
+    if (elapsedTime.inSeconds >= 1) return "${elapsedTime.inSeconds} ${LocalizationService.of().getLocale.abbreviationOfSeconds}";
     return "";
   }
 }

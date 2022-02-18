@@ -4,8 +4,6 @@ import 'package:twitter/services/localization_service.dart';
 import 'package:twitter/services/month_chooser_by_int.dart';
 import 'package:twitter/services/user_model_finder_extension.dart';
 
-import '../main.dart';
-
 class TweetModel {
   late String _tweetId;
 
@@ -44,6 +42,7 @@ class TweetModel {
   int get totalLike => _personEmailWhoLikes.length;
   int get totalComments => _personAndComments.length;
 
+
   void likeToggle({required String userEmail}) {
     if (isPersonLiked(userEmail: userEmail)) {
       _personEmailWhoLikes.remove(userEmail);
@@ -63,20 +62,15 @@ class TweetModel {
   String timeSinceSharing() {
     Duration elapsedTimeD = DateTime.now().difference(_releaseTime);
 
-    if (elapsedTimeD.inDays > 6)
-      return "${_releaseTime.day} ${monthChooserByInt(numberOfMonth: _releaseTime.month - 1).substring(4)}";
+    if (elapsedTimeD.inDays > 6) return "${_releaseTime.day} ${monthChooserByInt(numberOfMonth: _releaseTime.month - 1).substring(4)}";
 
-    if (elapsedTimeD.inDays > 0)
-      return "${elapsedTimeD.inDays} ${LocalizationService.of().getLocale.abbreviationOfDay}";
+    if (elapsedTimeD.inDays > 0) return "${elapsedTimeD.inDays} ${LocalizationService.of().getLocale.abbreviationOfDay}";
 
-    if (elapsedTimeD.inHours > 0)
-      return "${elapsedTimeD.inHours} ${LocalizationService.of().getLocale.abbreviationOfHour}";
+    if (elapsedTimeD.inHours > 0) return "${elapsedTimeD.inHours} ${LocalizationService.of().getLocale.abbreviationOfHour}";
 
-    if (elapsedTimeD.inMinutes > 0)
-      return "${elapsedTimeD.inMinutes.toString()} ${LocalizationService.of().getLocale.abbreviationOfMinutes}";
+    if (elapsedTimeD.inMinutes > 0) return "${elapsedTimeD.inMinutes.toString()} ${LocalizationService.of().getLocale.abbreviationOfMinutes}";
 
-    if (elapsedTimeD.inSeconds > 0)
-      return "${elapsedTimeD.inSeconds.toString()} ${LocalizationService.of().getLocale.abbreviationOfSeconds}";
+    if (elapsedTimeD.inSeconds > 0) return "${elapsedTimeD.inSeconds.toString()} ${LocalizationService.of().getLocale.abbreviationOfSeconds}";
 
     return "0 ${LocalizationService.of().getLocale.abbreviationOfSeconds}";
   }

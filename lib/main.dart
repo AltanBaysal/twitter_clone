@@ -6,7 +6,6 @@ import 'package:twitter/core/init/create.dart';
 import 'package:twitter/screens/twitter_main_page.dart';
 import 'package:twitter/services/l10n/l10n.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:twitter/services/localization_service.dart';
 import 'core/functions/global_key.dart';
 
 void main() {

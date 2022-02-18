@@ -1,7 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:twitter/constants/color_constants.dart';
-import 'package:twitter/main.dart';
 import 'package:twitter/services/localization_service.dart';
 
 class MessagePageSettingsBodyItem extends StatefulWidget {

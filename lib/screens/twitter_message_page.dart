@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:twitter/main.dart';
 import 'package:twitter/models/user_model.dart';
 import 'package:twitter/screens/twitter_message_page_settings.dart';
 import 'package:twitter/services/localization_service.dart';
